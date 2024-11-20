@@ -27,7 +27,7 @@
 target by utilizing aggressive tools like scanners, fuzzers, and more. **Passive reconnaissance** does generate traffic to the target side. 
 
 - Port scan ([nmap](https://www.kali.org/tools/nmap/), [masscan](https://www.kali.org/tools/masscan/))
-- Vulnerability scanning (nessus, burpsuite)
+- Vulnerability scanning ([nessus](https://www.tenable.com/blog/getting-started-with-nessus-on-kali-linux), burpsuite)
 - Directory brute-forcing (gobuster, dirb)
 - Parameter fuzzing (wfuzz, ffuf)
 - Front-end source code review
