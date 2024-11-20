@@ -17,7 +17,7 @@
 - **CNAME** - Pointer to another domain instead of an IP
 - **NS** - Specifies authoritative DNS servers, which servers the browser should request
 - **MX** - Points to the mail servers of a given domain
-- **TXT** - Allows the owner of the domain to store text. Some C2 frameworks are using that field to exfiltrate commands, evading security controls
+- **TXT** - Allows the domain owner to store text. Some C2 frameworks are using that field to exfiltrate commands, evading security controls
 
 ### Stalking Social Media
 
@@ -47,7 +47,9 @@ The **[OSINT Framework](https://osintframework.com/)** provides a structured app
 
 **OSINT tools** within the framework enable effective data harvesting from various online sources, including social media and search engines. They also extend to exploring the Deep and Dark Web, offering insights across multiple sectors.
 
+### Search Engines
 
+[Google hacking](https://www.exploit-db.com/google-hacking-database) is a database of Google (usually) queries that allow you to get detailed information about the target.
 
 ### Cross-Linked
 
