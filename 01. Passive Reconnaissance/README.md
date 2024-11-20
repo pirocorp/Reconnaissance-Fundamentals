@@ -12,12 +12,12 @@
 
 #### DNS Records
 
-- **A** Used for mapping string to IPv4 address
-- **AAAA** Used for mapping string to IPv6 address
-- **CNAME** Pointer to another domain instead of an IP
-- **NS** Specifies authoritative DNS servers, which servers the browser should request
-- **MX** Points to the mail servers of a given domain
-- **TXT** Allows the owner of the domain to store text. Some C2 frameworks are using that field to exfiltrate commands, evading security controls
+- **A** - Used for mapping string to IPv4 address
+- **AAAA** - Used for mapping string to IPv6 address
+- **CNAME** - Pointer to another domain instead of an IP
+- **NS** - Specifies authoritative DNS servers, which servers the browser should request
+- **MX** - Points to the mail servers of a given domain
+- **TXT** - Allows the owner of the domain to store text. Some C2 frameworks are using that field to exfiltrate commands, evading security controls
 
 ### Stalking Social Media
 
