@@ -17,7 +17,7 @@
 
 - Stalking Social Networks (Performing requests towards their servers)
 - Searching for Code Repositories / Pastebins (Performing requests towards their servers)
-- Utilizing third-party scanning tools (like DNSdumbster)
+- Utilizing third-party scanning tools (like [DNSdumbster](https://dnsdumpster.com/))
 - Querying Google and other search engines.
 
 
