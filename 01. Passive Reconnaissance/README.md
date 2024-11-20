@@ -29,7 +29,7 @@ A list of valid (if possible) usernames/email addresses is always a good idea. S
 
 ### Enumerating Publicly Available Resources
 
-Enumerate publicly available resources like code repositories, files, paste bins, credentials, SSH keys, and almost everything that can be enumerated.
+Enumerate publicly available resources like code repositories, files, paste bins, credentials, SSH keys, etc.
 
 ## Tools
 
@@ -54,3 +54,10 @@ The **[OSINT Framework](https://osintframework.com/)** provides a structured app
 ### Cross-Linked
 
 [CrossLinked](https://github.com/m8sec/CrossLinked) is a LinkedIn enumeration tool that uses search engine scraping to collect valid employee names from an organization. This technique provides accurate results without using API keys, credentials, or accessing LinkedIn directly!
+
+### DNSdumbster
+
+[DNS dumbster](https://dnsdumpster.com/) is a domain research tool for discovering hosts related to a domain. It can find visible hosts from the attacker's perspective for Red and Blue Teams.
+
+
+
