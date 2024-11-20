@@ -28,8 +28,8 @@ target by utilizing aggressive tools like scanners, fuzzers, and more. **Passive
 
 - Port scan ([nmap](https://www.kali.org/tools/nmap/), [masscan](https://www.kali.org/tools/masscan/))
 - Vulnerability scanning ([nessus](https://www.tenable.com/blog/getting-started-with-nessus-on-kali-linux), [burpsuite](https://www.kali.org/tools/burpsuite/))
-- Directory brute-forcing (gobuster, dirb)
-- Parameter fuzzing (wfuzz, ffuf)
+- Directory brute-forcing ([gobuster](https://www.kali.org/tools/gobuster/), [dirb](https://www.kali.org/tools/dirb/))
+- Parameter fuzzing ([wfuzz](https://www.kali.org/tools/wfuzz/), [ffuf](https://www.kali.org/tools/ffuf/))
 - Front-end source code review
 
 
