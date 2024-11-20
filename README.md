@@ -23,7 +23,14 @@
 
 ### Active
 
+**Active reconnaissance** obtains information about the
+target by utilizing aggressive tools like scanners, fuzzers, and more. **Passive reconnaissance** does generate traffic to the target side. 
 
+- Port scan (nmap, masscan)
+- Vulnerability scanning (nessus, burpsuite)
+- Directory brute-forcing (gobuster, dirb)
+- Parameter fuzzing (wfuzz, ffuf)
+- Front-end source code review
 
 
 
