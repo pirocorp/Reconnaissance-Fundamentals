@@ -29,13 +29,25 @@ A list of valid (if possible) usernames/email addresses is always a good idea. S
 
 ### Enumerating Publicly Available Resources
 
-Enumerate publicly available resources like code repositories, files, paste bins, credentials, SSH keys, and pretty much everything that can be enumerated.
+Enumerate publicly available resources like code repositories, files, paste bins, credentials, SSH keys, and almost everything that can be enumerated.
 
 ## Tools
 
 ### Discover
 
 [Discover](https://github.com/leebaird/discover) - Custom bash scripts automate penetration testing tasks, including recon, scanning, enumeration, and malicious payload creation using Metasploit. For use with Kali Linux.
+
+### Maltego
+
+[Maltego](https://www.maltego.com/) is an all-in-one platform for open-source intelligence (OSINT) and cyber investigations.
+
+### OSINT Framework
+
+The **[OSINT Framework](https://osintframework.com/)** provides a structured approach to gathering publicly available information. Its scope has expanded due to the Internet and digital communications, and it offers tools and techniques for open-source data analysis.
+
+**OSINT tools** within the framework enable effective data harvesting from various online sources, including social media and search engines. They also extend to exploring the Deep and Dark Web, offering insights across multiple sectors.
+
+
 
 ### Cross-Linked
 
