@@ -7,6 +7,13 @@
 - [Black Arch Linux](https://blackarch.org/)
 - [CommandoVM](https://github.com/mandiant/commando-vm)
 
+## Testing Environments
+
+- [Try Hack Me](https://tryhackme.com/)
+- [Hack The Box](https://www.hackthebox.com/)
+- [Vulnerable Hub](https://www.vulnhub.com/)
+- [bWAPP: bee-box](https://www.vulnhub.com/entry/bwapp-bee-box-v16,53/)
+
 ## Information Gathering
 
 **Reconnaissance** utilizes **creativity** and **technical** knowledge to **obtain sensitive**, **personal**, or **publicly** available **information** about a targeted asset. It is the first step in actual engagements and operations. **Reconnaissance** is the most essential part of security assessments, known as penetration testing / red teaming operations. A deep understanding of the target leads to finding and exploiting vulnerabilities.
