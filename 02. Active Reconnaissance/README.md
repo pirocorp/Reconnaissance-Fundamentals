@@ -98,7 +98,7 @@ Examples:
 In the command below, ```-u``` states the website we're scanning, and ```-w``` takes a list of words to iterate through to find hidden.
 
 ```bash
-gobuster -u http://fakebank.thm -w wordlist.txt dir
+gobuster -u http://fakebank.com -w wordlist.txt dir
 ```
 
 
