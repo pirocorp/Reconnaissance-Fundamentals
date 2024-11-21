@@ -10,7 +10,7 @@
 
 **Port scanning** is one of the main enumeration techniques used in every engagement. **Port scanning** is usually done with [nmap](https://www.kali.org/tools/nmap/). Port scanning sends packets to different ports and, based on the output, determines if the port is open, closed, or filtrated. While open and closed states are self-explanatory, filtrated means that the port is behind a firewall, and the scanner cannot determine its state.
 
-**Port scanners** like [nmap](https://www.kali.org/tools/nmap/) can send packets on both transport layers (**TCP**, **UDP**) and have extended functionality. With given flags, they can determine the running services on the opened ports. If [nmap](https://www.kali.org/tools/nmap/) fails to enumerate service and version, the port must be manually enumerated with [netcat(nc)](https://www.kali.org/tools/netcat/). 
+**Port scanners** like [nmap](https://www.kali.org/tools/nmap/) can send packets on both transport layers (**TCP**, **UDP**) and have extended functionality. They can determine the running services on the opened ports with the flags given. If [nmap](https://www.kali.org/tools/nmap/) fails to enumerate service and version, the port must be manually enumerated with [netcat(nc)](https://www.kali.org/tools/netcat/). 
 
 
 ### Service Enumeration
@@ -33,7 +33,7 @@ If the version is updated and the anonymous login is disabled, keep FTP in your 
 
 #### Enumerating SSH
 
-When SSH is enumerated, it is genuinely a skipped service since SSH is designed to be secure by default. You can obtain the service version, and you can guess the OS version from the OS version.
+When SSH is enumerated, it is genuinely a skipped service since SSH is designed to be secure by default. You can obtain the service version and guess the OS version from the OS version.
 
 #### Enumerating SMTP
 
@@ -41,9 +41,19 @@ When **SMTP is enumerating**, the target is to obtain the **service version**, *
 
 #### Enumerating HTTP/S
 
-Most often, ports **80** and **443** are opened. These are HTTP/S ports. Web applications can be hosted on them. Web applications are a whole new domain with various specific (for web) vulnerabilities.
+Most often, ports **80** and **443** are opened. These are HTTP/S ports. Web applications are a whole new domain with various specific (for web) vulnerabilities.
 
 
 ## Tools
 
+### Discover
 
+[Discover](https://github.com/leebaird/discover) - Custom bash scripts automate penetration testing tasks, including recon, scanning, enumeration, and malicious payload creation using Metasploit. For use with Kali Linux.
+
+### Maltego
+
+[Maltego](https://www.maltego.com/) is an all-in-one platform for open-source intelligence (OSINT) and cyber investigations.
+
+### Nmap
+
+[Nmap](https://www.kali.org/tools/nmap/) is applicable for network exploration or security auditing. It supports ping scanning (determining which hosts are up), many port scanning techniques, version detection (determining service protocols and application versions listening behind ports), and TCP/IP fingerprinting (remote host OS or device identification). Nmap also offers flexible target and port specification, decoy/stealth scanning, sunRPC scanning, and more. Most Unix and Windows platforms are supported in GUI and command line modes. Several popular handheld devices, including the Sharp Zaurus and the iPAQ, are also supported.
