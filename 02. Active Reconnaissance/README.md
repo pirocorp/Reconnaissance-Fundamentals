@@ -43,6 +43,9 @@ When **SMTP is enumerating**, the target is to obtain the **service version**, *
 
 Most often, ports **80** and **443** are opened. These are HTTP/S ports. Web applications are a whole new domain with various specific (for web) vulnerabilities.
 
+#### Directory Listings
+
+**Directory listings** refer to a feature provided by web servers that displays a list of files and subdirectories within a specific directory when no default file (like index.html) is present. While this feature can be useful for legitimate administrative purposes, if not properly secured, it can inadvertently expose the server's file structure to attackers.
 
 ## Tools
 
@@ -57,3 +60,37 @@ Most often, ports **80** and **443** are opened. These are HTTP/S ports. Web app
 ### Nmap
 
 [Nmap](https://www.kali.org/tools/nmap/) is applicable for network exploration or security auditing. It supports ping scanning (determining which hosts are up), many port scanning techniques, version detection (determining service protocols and application versions listening behind ports), and TCP/IP fingerprinting (remote host OS or device identification). Nmap also offers flexible target and port specification, decoy/stealth scanning, sunRPC scanning, and more. Most Unix and Windows platforms are supported in GUI and command line modes. Several popular handheld devices, including the Sharp Zaurus and the iPAQ, are also supported.
+
+### Netcat (NC)
+
+[Netcat(NC)](https://www.kali.org/tools/netcat/) is a simple Unix utility that reads and writes data across network connections using TCP or UDP protocol. It is designed to be a reliable "back-end" tool that other programs and scripts can use directly or quickly. At the same time, it is a feature-rich network debugging and exploration tool since it can create almost any connection you need and has several interesting built-in capabilities.
+
+### Nikto
+
+[Nikto](https://www.kali.org/tools/nikto/) is a pluggable web server and CGI scanner written in Perl. It uses RFP's LibWhisker to perform fast security or informational checks.
+
+Features:
+- Easily updatable CSV format checks database
+- Output reports in plain text or HTML
+- Available HTTP versions automatic switching
+- Generic as well as specific server software checks
+- SSL support (through libnet-ssleay-perl)
+- Proxy support (with authentication)
+- Cookies support
+
+
+### Gobuster
+
+[Gobuster](https://www.kali.org/tools/gobuster/) is a tool for brute-forcing URIs (directories and files) in websites, DNS subdomains (with wildcard support), Virtual Host names on target web servers, Open Amazon S3 buckets, Open Google Cloud buckets, and TFTP servers.
+
+### DIRB
+
+[DIRB](https://www.kali.org/tools/dirb/) is a Web Content Scanner that looks for existing (and/or hidden) Web Objects. It basically works by launching a dictionary-based attack against a web server and analyzing the responses.
+
+DIRB comes with a set of preconfigured attack wordlists for easy usage, but you can use your custom wordlist (like [SecLists](https://github.com/danielmiessler/SecLists)). DIRB can sometimes be used as a classic CGI scanner, but remember that it is a content scanner, not a vulnerability scanner.
+
+DIRB primarily aims to help in professional web application auditing, especially security-related testing. It covers some holes that are not covered by classic web vulnerability scanners. DIRB looks for specific web objects that other generic CGI scanners can't look for. It doesn't search for vulnerabilities, nor does it look for web content that can be vulnerable.
+
+
+
+
