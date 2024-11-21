@@ -21,7 +21,7 @@
 - Querying Google and other search engines.
 
 
-### Active
+### [Active](02.%20Active%20Reconnaissance)
 
 **Active reconnaissance** obtains information about the
 target by utilizing aggressive tools like scanners, fuzzers, and more. **Passive reconnaissance** does generate traffic to the target side. 
