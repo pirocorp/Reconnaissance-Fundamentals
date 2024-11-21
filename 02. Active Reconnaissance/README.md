@@ -45,7 +45,7 @@ Most often, ports **80** and **443** are opened. These are HTTP/S ports. Web app
 
 #### Directory Listings
 
-**Directory listings** refer to a feature provided by web servers that displays a list of files and subdirectories within a specific directory when no default file (like index.html) is present. While this feature can be useful for legitimate administrative purposes, if not properly secured, it can inadvertently expose the server's file structure to attackers.
+**Directory listings** refer to a feature provided by web servers that displays a list of files and subdirectories within a specific directory when no default file (like index.html) is present. While this feature can be helpful to for legitimate administrative purposes, if not adequately secured, it can inadvertently expose the server's file structure to attackers.
 
 ## Tools
 
@@ -67,9 +67,9 @@ Most often, ports **80** and **443** are opened. These are HTTP/S ports. Web app
 
 ### Ncat
 
-[Ncat](https://www.kali.org/tools/ncat-w32/) is a feature-packed networking utility that reads and writes data across networks from the command line. It was written for the Nmap Project as a much-improved reimplementation of the venerable Netcat. Ncat uses both TCP and UDP for communication and is designed to be a reliable back-end tool that instantly provides network connectivity to other applications and users. It will not only work with IPv4 and IPv6 but provides the user with a virtually limitless number of potential uses.
+[Ncat](https://www.kali.org/tools/ncat-w32/) is a feature-packed networking utility that reads and writes data across networks from the command line. It was written for the Nmap Project as a much-improved reimplementation of the venerable Netcat. Ncat uses TCP and UDP for communication and is designed to be a reliable back-end tool that instantly provides network connectivity to other applications and users. It will not only work with IPv4 and IPv6 but provides the user with a virtually limitless number of potential uses.
 
-Among Ncat’s many features are the ability to chain Ncats together, redirect both TCP and UDP ports to other sites, SSL support, and proxy connections via SOCKS4 or HTTP (CONNECT method) proxies (with optional proxy authentication as well). Some general principles apply to most applications, giving you the capability of instantly adding networking support to software that would normally never support it.
+Among Ncat’s many features are the ability to chain Ncats together, redirect both TCP and UDP ports to other sites, SSL support, and proxy connections via SOCKS4 or HTTP (CONNECT method) proxies (with optional proxy authentication as well). Some general principles apply to most applications, allowing you to instantly add networking support to software that would typically never support it.
 
 ### Nikto
 
@@ -87,11 +87,21 @@ Features:
 
 ### Nuclei
 
-[Nuclei](https://www.kali.org/tools/nuclei/) sends requests across targets based on a template, leading to zero false positives and providing fast scanning on many hosts. Nuclei offers scanning for a variety of protocols, including TCP, DNS, HTTP, File, etc. With powerful and flexible templating, Nuclei can model all kinds of security checks.
+[Nuclei](https://www.kali.org/tools/nuclei/) sends requests across targets based on a template, leading to zero false positives and providing fast scanning on many hosts. Nuclei offers scanning for various protocols, including TCP, DNS, HTTP, File, etc. With powerful and flexible templating, Nuclei can model all kinds of security checks.
 
 ### Gobuster
 
 [Gobuster](https://www.kali.org/tools/gobuster/) is a tool for brute-forcing URIs (directories and files) in websites, DNS subdomains (with wildcard support), Virtual Host names on target web servers, Open Amazon S3 buckets, Open Google Cloud buckets, and TFTP servers.
+
+Examples:
+
+In the command below, ```-u``` states the website we're scanning, and ```-w``` takes a list of words to iterate through to find hidden.
+
+```bash
+gobuster -u http://fakebank.thm -w wordlist.txt dir
+```
+
+
 
 ### DIRB
 
