@@ -13,5 +13,5 @@ Linux is a family of open-source Unix-like operating systems based on the Linux 
 | cat     	| Outputting the Contents of a File                                                                       	| ```cat access.log```                	|
 | pwd     	| print working directory                                                                                 	| ```pwd```                           	|
 | find    	| Search for file or folder                                                                               	| ```find -name note.txt```           	|
-| grep    	| The grep command allows us to search the contents of files for specific values that we are looking for. 	| ```grep "3.18.18.132" access.log``` 	|
+| grep    	| The grep command allows us to search the contents of files for specific values that we are looking for. 	| ```grep "THM*" access.log``` 	|
 
