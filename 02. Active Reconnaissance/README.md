@@ -98,7 +98,11 @@ sequenceDiagram
     Server->>Client: RST
 ```
 
-The target will respond with a **TCP** packet with the **SYN/ACK** flags set if the request is sent to an **open port**. ```Nmap``` then marks this port as open (and completes the handshake by returning a **TCP** packet with ACK set).
+If the request is sent to an open port, the target will respond with a **TCP** packet with the **SYN/ACK** flags set. ```Nmap``` then marks this port as open (and completes the handshake by returning a **TCP** packet with the **ACK** flag set).
+
+This is all well and good. However, there is a third possibility. What if the port is open but hidden behind a firewall?
+
+Many firewalls are configured to drop incoming packets. ```Nmap``` sends a **TCP** **SYN** request but receives nothing back. This indicates that a firewall is protecting the port, which is thus considered **filtered**.
 
 Examples:
 
