@@ -110,5 +110,20 @@ nmap -sU --top-ports 20 <target>
 ```
 
 
+## NULL, FIN, and Xmas
+
+**NULL**, **FIN**, and **Xmas** **TCP port** scans are less commonly used. All three are interlinked and are mainly used as they tend to be even stealthier, relatively speaking, than a **SYN** "stealth" scan. Beginning with NULL scans:
+
+- **NULL** scans (```-sN```) are when the **TCP** request is sent with no flags set. Per the RFC, the target host should respond with a **RST** if the port is closed.
+![image](https://github.com/user-attachments/assets/a8bd7726-367c-471c-9651-98a002204a09)
+
+- **FIN scans** (```-sF```) work almost identically. However, instead of sending an empty packet, a request with the **FIN** flag (usually used to close an active connection gracefully) is sent. Once again, Nmap expects an **RST** if the port is closed.
+![image](https://github.com/user-attachments/assets/6defcc3d-9954-4485-9f19-00163c396c0e)
+
+
+
+
+
+
 
 
