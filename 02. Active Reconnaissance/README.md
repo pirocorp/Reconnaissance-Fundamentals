@@ -84,11 +84,21 @@ sequenceDiagram
 
 ![image](https://github.com/user-attachments/assets/0a9cf688-1cd9-40be-a221-99c25e480b55)
 
-As the name suggests, a **TCP** Connect scan works by performing the three-way handshake with each target port in turn. In other words, **Nmap** tries to connect to each specified **TCP** port and determines whether the service is open based on the response it receives.
+As the name suggests, a **TCP** Connect scan works by performing the three-way handshake with each target port in turn. In other words, ```Nmap``` tries to connect to each specified **TCP** port and determines whether the service is open based on the response it receives.
 
 For example, if a port is closed, [RFC 9293](https://datatracker.ietf.org/doc/html/rfc9293) states that: 
 
-"... _If the connection does not exist (CLOSED), then a reset is sent in response to any incoming segment except another reset. A SYN segment that does not match an existing connection is rejected by this means._"
+"... _If the connection does not exist (CLOSED), a reset is sent in response to any incoming segment except another reset. A **SYN** segment that does not match an existing connection is rejected by this means._"
+
+In other words, if ```Nmap``` sends a **TCP** request with the **SYN** flag set to a **closed port**, the target server will respond with a **TCP** packet with the **RST** (Reset) flag set. This response allows ```Nmap``` to establish that the port is closed.
+
+```mermaid
+sequenceDiagram
+    Client->>Server: SYN
+    Server->>Client: RST
+```
+
+The target will respond with a **TCP** packet with the **SYN/ACK** flags set if the request is sent to an **open port**. ```Nmap``` then marks this port as open (and completes the handshake by returning a **TCP** packet with ACK set).
 
 Examples:
 
