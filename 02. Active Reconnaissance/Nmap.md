@@ -99,6 +99,8 @@ When a packet is sent to a **closed UDP** port, the target should respond with a
 
 Due to this difficulty in identifying whether a **UDP port** is open, **UDP scans** tend to be incredibly slow compared to the various **TCP scans** (in the region of 20 minutes to scan the first 1000 ports, with a good connection). For this reason, it's usually good practice to run a Nmap scan with ```--top-ports <number>``` enabled.
 
+When scanning **UDP** ports, ```Nmap``` usually sends empty requests - just raw **UDP** packets. That said, for ports usually occupied by well-known services, it will instead send a protocol-specific payload, which is more likely to elicit a response from which a more accurate result can be drawn.
+
 Examples:
 
 It will scan the top 20 most commonly used UDP ports, resulting in a much more acceptable scan time.
