@@ -146,3 +146,33 @@ Examples:
 nmap -sn 192.168.0.1-254
 nmap -sn 192.168.0.0/24
 ```
+
+## NSE Scripts
+
+The **N**map **S**cripting **E**ngine (**NSE**) is a compelling addition to ```Nmap```, considerably extending its functionality. **NSE Scripts** are written in the Lua programming language and can be used to do various things, from scanning for vulnerabilities to automating exploits. The **NSE** is handy for surveillance. However, it is well worth considering how extensive the script library is.
+
+There are many categories available. Some valuable categories include:
+
+- ```safe```:- Won't affect the target
+- ```intrusive```:- Not safe: likely to affect the target
+- ```vuln```:- Scan for vulnerabilities
+- ```exploit```:- Attempt to exploit a vulnerability
+- ```auth```:- Attempt to bypass authentication for running services (e.g., Log into an FTP server anonymously)
+- ```brute```:- Attempt to brute-force credentials for running services
+- ```discovery```:- Attempt to query running services for further information about the network (e.g., query an SNMP server).
+
+A more exhaustive list can be found [here](https://nmap.org/book/nse-usage.html).
+
+We would use ```--script=<script-name>```, e.g. ```--script=http-fileupload-exploiter``` to run a specific script.
+
+Multiple scripts can be run simultaneously by separating them by a comma. For example: ``` --script=smb-enum-users,smb-enum-shares```.
+
+Some scripts require arguments (for example, credentials if they're exploiting an authenticated vulnerability). These can be given with the ```--script-args``` Nmap switch. 
+
+Examples:
+
+An ```http-put``` script (used to upload files using the PUT method). It takes two arguments: the URL to upload the file and its location on disk. Note that the arguments are separated by commas and connected to the corresponding script with periods (i.e., ```<script-name>.<argument>```). A complete list of scripts and their corresponding arguments (along with example use cases) can be found [here](https://nmap.org/nsedoc/).
+
+```bash
+nmap -p 80 --script http-put --script-args http-put.url='/dav/shell.php',http-put.file='./shell.php'
+```
