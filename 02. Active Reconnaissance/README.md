@@ -84,6 +84,8 @@ sequenceDiagram
 
 ![image](https://github.com/user-attachments/assets/0a9cf688-1cd9-40be-a221-99c25e480b55)
 
+As the name suggests, a **TCP** Connect scan works by performing the three-way handshake with each target port in turn. In other words, **Nmap** tries to connect to each specified **TCP** port and determines whether the service is open based on the response it receives.
+
 Examples:
 
 
