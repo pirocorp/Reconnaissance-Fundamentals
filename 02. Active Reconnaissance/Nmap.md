@@ -45,9 +45,9 @@ If the request is sent to an open port, the target will respond with a **TCP** p
 
 This is all well and good. However, there is a third possibility. What if the port is open but hidden behind a firewall?
 
-Many firewalls are configured to drop incoming packets. ```Nmap``` sends a **TCP** **SYN** request but receives nothing back. This indicates that a firewall is protecting the port, which is thus considered **filtered**.
+Many firewalls are configured to drop incoming packets. ```Nmap``` sends a **TCP** **SYN** request but receives nothing back. This indicates that a firewall protects the port, thus considered **filtered**.
 
-That said, it is very easy to configure a firewall to respond with a **RST** **TCP** packet. For example, in IPtables for Linux, a simple version of the command would be as follows:
+That said, it is elementary to configure a firewall to respond with a **RST** **TCP** packet. For example, in IPtables for Linux, a simple version of the command would be as follows:
 
 ```bash
 iptables -I INPUT -p tcp --dport <port> -j REJECT --reject-with tcp-reset
@@ -71,3 +71,8 @@ sequenceDiagram
 
 ![image](https://github.com/user-attachments/assets/daca762a-98e6-4e83-a091-af1ebdf1fbc7)
 
+This has a variety of advantages:
+
+- It can bypass older Intrusion Detection Systems(IDS), which require a full three-way handshake. This is often no longer the case with modern IDS solutions. For this reason, **SYN scans** are still frequently referred to as "stealth" scans.
+- Applications listening on open ports often do not log **SYN** scans, as standard practice is to log a connection once it's been fully established. Again, this plays into the idea of **SYN** scans being stealthy.
+- **SYN** scans are significantly faster than a standard **TCP** Connect scan because they do not require completing (and disconnecting from) a three-way handshake for every port.
