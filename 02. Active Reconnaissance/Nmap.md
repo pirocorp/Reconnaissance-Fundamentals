@@ -49,4 +49,6 @@ That said, it is very easy to configure a firewall to respond with a RST TCP pac
 iptables -I INPUT -p tcp --dport <port> -j REJECT --reject-with tcp-reset
 ```
 
+This can make it extremely difficult (if not impossible) to get an accurate reading of the target(s).
+
 Examples:
