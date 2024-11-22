@@ -86,6 +86,10 @@ sequenceDiagram
 
 As the name suggests, a **TCP** Connect scan works by performing the three-way handshake with each target port in turn. In other words, **Nmap** tries to connect to each specified **TCP** port and determines whether the service is open based on the response it receives.
 
+For example, if a port is closed, [RFC 9293](https://datatracker.ietf.org/doc/html/rfc9293) states that: 
+
+"... _If the connection does not exist (CLOSED), then a reset is sent in response to any incoming segment except another reset. A SYN segment that does not match an existing connection is rejected by this means._"
+
 Examples:
 
 
