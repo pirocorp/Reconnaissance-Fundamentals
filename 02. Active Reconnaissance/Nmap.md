@@ -86,7 +86,11 @@ For this reason, **SYN** scans are the default scans used by ```Nmap``` if run *
 
 When using an **SYN** scan to identify closed and filtered ports, the same rules apply as with a **TCP Connect** scan.
 
-The server responds with an **RST TCP** packet if a port is closed. If a firewall filters the port, the **TCP SYN** packet is either dropped or spoofed with a **TCP RST**. The two scans are identical in this regard, but the big difference is how they handle open ports.
+The server responds with an **RST TCP** packet if a port is closed. If a firewall filters the port, the **TCP SYN** packet is either dropped or spoofed with a **TCP RST**. The two scans are identical, but the big difference is how they handle open ports.
 
+
+## UDP Scans
+
+**Unlike TCP, UDP connections are stateless**. This means that rather than initiating a connection with a back-and-forth "handshake," UDP connections rely on sending packets to a target port and hoping they make it. This makes UDP superb for connections that depend on speed over quality (e.g., video sharing), but the lack of acknowledgment makes UDP significantly more difficult (and much slower) to scan. The switch for a ```Nmap``` UDP scan is (```-sU```)
 
 
