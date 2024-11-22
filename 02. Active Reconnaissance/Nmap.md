@@ -91,6 +91,22 @@ The server responds with an **RST TCP** packet if a port is closed. If a firewal
 
 ## UDP Scans
 
-**Unlike TCP, UDP connections are stateless**. This means that rather than initiating a connection with a back-and-forth "handshake," UDP connections rely on sending packets to a target port and hoping they make it. This makes UDP superb for connections that depend on speed over quality (e.g., video sharing), but the lack of acknowledgment makes UDP significantly more difficult (and much slower) to scan. The switch for a ```Nmap``` UDP scan is (```-sU```)
+**Unlike TCP, UDP connections are stateless**. This means that rather than initiating a connection with a back-and-forth "handshake," **UDP** connections rely on sending packets to a target port and hoping they make it. This makes **UDP** superb for connections that depend on speed over quality (e.g., video sharing), but the lack of acknowledgment makes **UDP** significantly more difficult (and much slower) to scan. The switch for a ```Nmap``` **UDP scan** is (```-sU```)
+
+No response should occur when a packet is sent to an **open UDP** port. When this happens, ```Nmap``` refers to the port as ```open|filtered```. In other words, it suspects the port is open but could be firewalled. The port is marked as open if it gets a **UDP** response (which is very unusual). More commonly, there is no response, in which case the request is sent twice as a double-check. If there is no response, the port is marked open|filtered, and ```Nmap``` moves on.
+
+When a packet is sent to a **closed UDP** port, the target should respond with an ICMP (ping) packet containing a message that the port is unreachable. This identifies closed ports, which ```Nmap``` marks as such and moves on.
+
+Due to this difficulty in identifying whether a **UDP port** is open, **UDP scans** tend to be incredibly slow compared to the various **TCP scans** (in the region of 20 minutes to scan the first 1000 ports, with a good connection). For this reason, it's usually good practice to run a Nmap scan with ```--top-ports <number>``` enabled.
+
+Examples:
+
+It will scan the top 20 most commonly used UDP ports, resulting in a much more acceptable scan time.
+
+```bash
+nmap -sU --top-ports 20 <target>
+```
+
+
 
 
