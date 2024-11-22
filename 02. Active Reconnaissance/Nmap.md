@@ -53,6 +53,21 @@ That said, it is very easy to configure a firewall to respond with a **RST** **T
 iptables -I INPUT -p tcp --dport <port> -j REJECT --reject-with tcp-reset
 ```
 
-This can make it extremely difficult (if not impossible) to get an accurate reading of the target(s).
+This can make it extremely difficult (if possible) to get an accurate reading of the target(s).
 
-Examples:
+
+## SYN Scans
+
+As with **TCP** scans, SYN scans (```-sS```) are used to scan the **TCP** port range of a target or targets; however, the two scan types work slightly differently. **SYN** scans are sometimes called "Half-open" or "Stealth" scans.
+
+Where **TCP** scans perform a full three-way handshake with the target, **SYN** scans send back an **RST TCP** packet after receiving an **SYN/ACK** from the server (this prevents the server from repeatedly trying to make the request). In other words, the sequence for scanning an open port looks like this:
+
+```mermaid
+sequenceDiagram
+    Client->>Server: SYN
+    Server->>Client: SYN/ACK
+    Client->>Server: RST
+```
+
+![image](https://github.com/user-attachments/assets/daca762a-98e6-4e83-a091-af1ebdf1fbc7)
+
