@@ -186,3 +186,23 @@ nmap -p 80 --script http-put --script-args http-put.url='/dav/shell.php',http-pu
 The [Nmap website](https://nmap.org/nsedoc/) contains a list of all official scripts. To install the scripts manually by downloading the script from Nmap ```sudo wget -O /usr/share/nmap/scripts/<script-name>.nse https://svn.nmap.org/nmap/scripts/<script-name>.nse```.  This must then be followed up with ```nmap --script-updatedb```, which updates the ```script.db``` file to contain the newly downloaded script.
 
 
+## Firewall Evasion
+
+We have already seen some techniques for bypassing firewalls (think stealth scans, **NULL**, **FIN**, and **Xmas** scans); however, there is another prevalent firewall configuration that we must know how to bypass.
+
+Your typical Windows host will block all **ICMP** packets with its default firewall. This presents a problem: not only do we often use ping to establish a target's activity manually, but **Nmap** does the same thing by default. This means that **Nmap** will register a host with this firewall configuration dead and not bother scanning it.
+
+So, we need a way to get around this configuration. Fortunately, Nmap provides an option for this: ```-Pn```, which tells **Nmap** not to bother pinging the host before scanning it. This means that **Nmap** will always treat the target host(s) as alive, bypassing the **ICMP** block. However, it comes at the price of potentially taking a very long time to complete the scan (if the host is dead, then **Nmap** will still be checking and double-checking every specified port).
+
+If you're already directly on the local network, **Nmap** can also use ARP requests to determine host activity.
+
+There are a variety of other switches that **Nmap** considers useful for firewall evasion. They can be found [here](https://nmap.org/book/man-bypass-firewalls-ids.html).
+
+The following switches are of particular note:
+
+- ```-f```: Used to fragment the packets (i.e., split them into smaller pieces), making it less likely that a firewall or IDS will detect the packets.
+- ```--mtu <number>```: An alternative to ```-f```, but providing more control over the size of the packets, accepts a maximum transmission unit size for the packets sent. This must be a multiple of 8.
+- ```--scan-delay <time>ms```: used to add a delay between packets sent. This is very useful if the network is unstable, but also for evading any time-based firewall/IDS triggers that may be in place.
+- ```--badsum```: This is used to generate an invalid checksum for packets. Any actual TCP/IP stack would drop this packet. However, firewalls may respond automatically without bothering to check the packet's checksum. As such, this switch can be used to determine the presence of a firewall/IDS.
+
+
