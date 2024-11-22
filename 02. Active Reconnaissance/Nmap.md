@@ -43,4 +43,10 @@ This is all well and good. However, there is a third possibility. What if the po
 
 Many firewalls are configured to drop incoming packets. ```Nmap``` sends a **TCP** **SYN** request but receives nothing back. This indicates that a firewall is protecting the port, which is thus considered **filtered**.
 
+That said, it is very easy to configure a firewall to respond with a RST TCP packet. For example, in IPtables for Linux, a simple version of the command would be as follows:
+
+```bash
+iptables -I INPUT -p tcp --dport <port> -j REJECT --reject-with tcp-reset
+```
+
 Examples:
