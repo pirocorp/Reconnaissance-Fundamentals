@@ -90,6 +90,13 @@ When using an **SYN** scan to identify closed and filtered ports, the same rules
 
 The server responds with an **RST TCP** packet if a port is closed. If a firewall filters the port, the **TCP SYN** packet is either dropped or spoofed with a **TCP RST**. The two scans are identical, but the big difference is how they handle open ports.
 
+Examples:
+
+Perform a TCP SYN scan on the first 5000 ports of the target.
+
+```bash
+nmap -p 1-5000 -sS 192.168.0.1 --vv
+```
 
 ## UDP Scans
 
@@ -131,6 +138,13 @@ It's also worth noting that while RFC 793 mandates that network hosts respond to
 
 That said, the goal here is, of course, firewall evasion. Many firewalls are configured to drop incoming **TCP** packets to blocked ports with the **SYN** flag set (thus blocking new connection initiation requests). We effectively bypass this kind of firewall by sending requests that do not contain the **SYN** flag. While this is good in theory, most modern **IDS** solutions are savvy to these scan types, so don't rely on them to be 100% effective when dealing with modern systems.
 
+Examples
+
+Perform an Xmas scan on the first 999 ports of the target.
+
+```bash
+nmap -sX -p 1-999 192.168.0.1 -vv
+```
 
 ## ICMP Network Scanning
 
