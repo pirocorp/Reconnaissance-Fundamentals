@@ -123,9 +123,11 @@ nmap -sU --top-ports 20 <target>
 - **Xmas scans** (```-sX```) send a malformed **TCP** packet and expect an **RST** response for closed ports.
 ![image](https://github.com/user-attachments/assets/699cd961-d06a-4032-af51-de0dbfab7d06)
 
+The expected response for open ports with these scans is identical and similar to that of a **UDP scan**. If the port is open, there is no response to the malformed packet. Unfortunately (as with open UDP ports), that is also expected if a firewall protects the port, so **NULL**, **FIN**, and **Xmas** scans will only ever identify ports as being **open|filtered**, **closed**, or **filtered**. If a port is identified as filtered with one of these scans, then it is usually because the target has responded with an ICMP unreachable packet.
 
+It's also worth noting that while RFC 793 mandates that network hosts respond to malformed packets with an **RST TCP** packet for closed ports and don't respond for open ports, this is only sometimes the practice case. In particular, Microsoft Windows (and many Cisco network devices) are known to respond with an **RST** to any malformed **TCP** packet, regardless of whether the port is open. This results in all ports showing up as being closed.
 
-
+That said, the goal here is, of course, firewall evasion. Many firewalls are configured to drop incoming **TCP** packets to blocked ports with the **SYN** flag set (thus blocking new connection initiation requests). We effectively bypass this kind of firewall by sending requests that do not contain the **SYN** flag. While this is good in theory, most modern **IDS** solutions are savvy to these scan types, so don't rely on them to be 100% effective when dealing with modern systems.
 
 
 
