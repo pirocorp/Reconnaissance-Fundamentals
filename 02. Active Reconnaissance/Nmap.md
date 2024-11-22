@@ -123,11 +123,26 @@ nmap -sU --top-ports 20 <target>
 - **Xmas scans** (```-sX```) send a malformed **TCP** packet and expect an **RST** response for closed ports.
 ![image](https://github.com/user-attachments/assets/699cd961-d06a-4032-af51-de0dbfab7d06)
 
-The expected response for open ports with these scans is identical and similar to that of a **UDP scan**. If the port is open, there is no response to the malformed packet. Unfortunately (as with open UDP ports), that is also expected if a firewall protects the port, so **NULL**, **FIN**, and **Xmas** scans will only ever identify ports as being **open|filtered**, **closed**, or **filtered**. If a port is identified as filtered with one of these scans, then it is usually because the target has responded with an ICMP unreachable packet.
+The expected response for open ports with these scans is identical and similar to that of a **UDP scan**. If the port is open, there is no response to the malformed packet. Unfortunately (as with open UDP ports), that is also expected if a firewall protects the port, so **NULL**, **FIN**, and **Xmas** scans will only ever identify ports as being **open|filtered**, **closed**, or **filtered**. If a port is identified as filtered with one of these scans, it is usually because the target has responded with an ICMP unreachable packet.
 
 It's also worth noting that while RFC 793 mandates that network hosts respond to malformed packets with an **RST TCP** packet for closed ports and don't respond for open ports, this is only sometimes the practice case. In particular, Microsoft Windows (and many Cisco network devices) are known to respond with an **RST** to any malformed **TCP** packet, regardless of whether the port is open. This results in all ports showing up as being closed.
 
 That said, the goal here is, of course, firewall evasion. Many firewalls are configured to drop incoming **TCP** packets to blocked ports with the **SYN** flag set (thus blocking new connection initiation requests). We effectively bypass this kind of firewall by sending requests that do not contain the **SYN** flag. While this is good in theory, most modern **IDS** solutions are savvy to these scan types, so don't rely on them to be 100% effective when dealing with modern systems.
 
 
+## ICMP Network Scanning
 
+On the first connection to a target network in a black box assignment, our first objective is to obtain a "map" of the network structure - that is, we want to see which IP addresses contain active hosts and which do not.
+
+One way to do this is to use ```Nmap``` to perform a so-called "ping sweep." This is exactly as the name suggests: Nmap sends an **ICMP** packet to each possible IP address for the specified network. When it receives a response, it marks the IP address that responded as alive. This is only sometimes accurate, for reasons we'll see later. However, it can provide a baseline and thus is worth covering.
+
+To perform a ping sweep, we use the ```-sn``` switch in conjunction with IP ranges, which can be specified with either a hyphen (-) or CIDR notation.
+
+The ```-sn``` switch tells ```Nmap``` not to scan any ports, forcing it to rely primarily on **ICMP** echo packets (or ARP requests on a local network, if run with sudo or directly as the root user) to identify targets. In addition to the **ICMP** echo requests, the ```-sn``` switch will also cause ```Nmap``` to send a **TCP** **SYN** packet to port **443** of the target and a **TCP** **ACK** (or **TCP** **SYN** if not run as root) packet to port **80** of the target.
+
+Examples:
+
+```bash
+nmap -sn 192.168.0.1-254
+nmap -sn 192.168.0.0/24
+```
