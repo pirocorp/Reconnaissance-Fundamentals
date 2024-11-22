@@ -197,6 +197,13 @@ An ```http-put``` script (used to upload files using the PUT method). It takes t
 nmap -p 80 --script http-put --script-args http-put.url='/dav/shell.php',http-put.file='./shell.php'
 ```
 
+Deploy the ```ftp-anon``` script against a target.
+
+```bash
+nmap --script=ftp-anon -p21 192.168.0.1 -vv
+```
+
+
 ### Installing New Scripts
 
 The [Nmap website](https://nmap.org/nsedoc/) contains a list of all official scripts. To install the scripts manually by downloading the script from Nmap ```sudo wget -O /usr/share/nmap/scripts/<script-name>.nse https://svn.nmap.org/nmap/scripts/<script-name>.nse```.  This must then be followed up with ```nmap --script-updatedb```, which updates the ```script.db``` file to contain the newly downloaded script.
