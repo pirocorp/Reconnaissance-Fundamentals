@@ -120,6 +120,8 @@ nmap -sU --top-ports 20 <target>
 - **FIN scans** (```-sF```) work almost identically. However, instead of sending an empty packet, a request with the **FIN** flag (usually used to close an active connection gracefully) is sent. Once again, Nmap expects an **RST** if the port is closed.
 ![image](https://github.com/user-attachments/assets/6defcc3d-9954-4485-9f19-00163c396c0e)
 
+- **Xmas scans** (```-sX```) send a malformed **TCP** packet and expect an **RST** response for closed ports.
+![image](https://github.com/user-attachments/assets/699cd961-d06a-4032-af51-de0dbfab7d06)
 
 
 
