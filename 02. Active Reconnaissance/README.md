@@ -61,6 +61,32 @@ Most often, ports **80** and **443** are opened. These are HTTP/S ports. Web app
 
 [Nmap](https://www.kali.org/tools/nmap/) is applicable for network exploration or security auditing. It supports ping scanning (determining which hosts are up), many port scanning techniques, version detection (determining service protocols and application versions listening behind ports), and TCP/IP fingerprinting (remote host OS or device identification). Nmap also offers flexible target and port specification, decoy/stealth scanning, sunRPC scanning, and more. Most Unix and Windows platforms are supported in GUI and command line modes. Several popular handheld devices, including the Sharp Zaurus and the iPAQ, are also supported.
 
+There are three basic scan types when port scanning with Nmap. These are:
+
+- TCP Connect Scans (```-sT```)
+- SYN "Half-open" Scans (```-sS```)
+- UDP Scans (```-sU```)
+
+There are several less common port scan types, some of which we will also cover (albeit in less detail). These are:
+
+- TCP Null Scans (```-sN```)
+- TCP FIN Scans (```-sF```)
+- TCP Xmas Scans (```-sX```)
+
+You must be comfortable with the **TCP** three-way handshake to understand **TCP** Connect scans (```-sT```). First, the connecting terminal (our attacking machine, in this instance) sends a **TCP** request to the target server using the **SYN** flag set. The server then acknowledges this packet with a **TCP** response containing the **SYN** flag and the **ACK** flag. Finally, our terminal completes the handshake by sending a **TCP** request with the **ACK** flag set.
+
+```mermaid
+sequenceDiagram
+    Client->>Server: SYN
+    Server->>Client: SYN/ACK
+    Client->>Server: ACK
+```
+
+![image](https://github.com/user-attachments/assets/0a9cf688-1cd9-40be-a221-99c25e480b55)
+
+Examples:
+
+
 ### Netcat (NC)
 
 [Netcat(NC)](https://www.kali.org/tools/netcat/) is a simple Unix utility that reads and writes data across network connections using TCP or UDP protocol. It is designed to be a reliable "back-end" tool that other programs and scripts can use directly or quickly. At the same time, it is a feature-rich network debugging and exploration tool since it can create almost any connection you need and has several interesting built-in capabilities.
