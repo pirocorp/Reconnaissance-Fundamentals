@@ -169,6 +169,10 @@ Multiple scripts can be run simultaneously by separating them by a comma. For ex
 
 Some scripts require arguments (for example, credentials if they're exploiting an authenticated vulnerability). These can be given with the ```--script-args``` Nmap switch. 
 
+```Nmap``` stores its scripts on Linux at ```/usr/share/nmap/scripts```. All the **NSE scripts** are stored in this directory by default. This is where Nmap looks for scripts when you specify them.
+
+The ```ls``` command makes it quite simple to search for scripts. For example, we could get the same results as in the previous screenshot by using ```ls —l /usr/share/nmap/scripts/*ftp*```.
+
 Examples:
 
 An ```http-put``` script (used to upload files using the PUT method). It takes two arguments: the URL to upload the file and its location on disk. Note that the arguments are separated by commas and connected to the corresponding script with periods (i.e., ```<script-name>.<argument>```). A complete list of scripts and their corresponding arguments (along with example use cases) can be found [here](https://nmap.org/nsedoc/).
@@ -176,3 +180,9 @@ An ```http-put``` script (used to upload files using the PUT method). It takes t
 ```bash
 nmap -p 80 --script http-put --script-args http-put.url='/dav/shell.php',http-put.file='./shell.php'
 ```
+
+### Installing New Scripts
+
+The [Nmap website](https://nmap.org/nsedoc/) contains a list of all official scripts. To install the scripts manually by downloading the script from Nmap ```sudo wget -O /usr/share/nmap/scripts/<script-name>.nse https://svn.nmap.org/nmap/scripts/<script-name>.nse```.  This must then be followed up with ```nmap --script-updatedb```, which updates the ```script.db``` file to contain the newly downloaded script.
+
+
