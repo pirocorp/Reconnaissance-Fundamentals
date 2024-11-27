@@ -51,5 +51,5 @@ target by utilizing aggressive tools like scanners, fuzzers, and more. **Passive
 - Front-end source code review
 
 
-### [Finding Vulnerabilities]()
+### [Finding Vulnerabilities](03.%20Finding%20Vulnerabilities)
 
