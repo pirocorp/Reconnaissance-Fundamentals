@@ -9,7 +9,7 @@ Do not look at finding vulnerabilities like a linear process. It is not going th
 
 ## Active Enumeration
 
-Sometimes vulnerabilities can arise just from **service enumeration**. That's why scanning must be complex and detailed, and it can find the low hanging fruits like:
+Sometimes vulnerabilities can arise just from **service enumeration**. That's why scanning must be complex and detailed, and it can find the low-hanging fruits like:
   - Obsolete versions
   - Hardcoded credentials
   - Default credentials
@@ -46,5 +46,29 @@ Just run an active scan of **Nessus** or **Burp**. They will do the heavy liftin
 
 
 ## Active Reconnaissance Tools
+
+### [Searchsploit / Exploitdb](https://www.kali.org/tools/exploitdb/) 
+
+[Exploit Database](https://www.exploit-db.com/) Archive Search.
+
+
+### [SQLmap](https://www.kali.org/tools/sqlmap/)
+
+**SQLmap** aims to detect and exploit **SQL injection vulnerabilities** in web applications. Once it detects one or more **SQL injections** on the target host, the user can choose among a variety of options to perform an extensive back-end database management system fingerprint, retrieve DBMS session user and database, enumerate users, password hashes, privileges, databases, dump entire or user’s specific DBMS tables/columns, run his own SQL statement, read particular files on the file system and more.
+
+
+### [BurpSuite](https://www.kali.org/tools/burpsuite/)
+
+Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process, from initial mapping and analysis of an application’s attack surface to finding and exploiting security vulnerabilities.
+
+
+### [Nessus](https://www.tenable.com/blog/getting-started-with-nessus-on-kali-linux)
+
+Nessus is a vulnerability management tool that helps organizations and network environments identify and address security issues. It helps identify vulnerabilities, potential threats, and irregularities.
+
+
+### Web Browser
+
+This is one of the main tools for discovering web vulnerabilities. It is also helpful for web enumeration and exploitation. Firefox is the preferred browser.
 
 
