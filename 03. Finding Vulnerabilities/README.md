@@ -54,17 +54,22 @@ Just run an active scan of **Nessus** or **Burp**. They will do the heavy liftin
 
 ### [SQLmap](https://www.kali.org/tools/sqlmap/)
 
-**SQLmap** aims to detect and exploit **SQL injection vulnerabilities** in web applications. Once it detects one or more **SQL injections** on the target host, the user can choose among a variety of options to perform an extensive back-end database management system fingerprint, retrieve DBMS session user and database, enumerate users, password hashes, privileges, databases, dump entire or user’s specific DBMS tables/columns, run his own SQL statement, read particular files on the file system and more.
+**SQLmap** aims to detect and exploit **SQL injection vulnerabilities** in web applications. Once it detects one or more **SQL injections** on the target host, the user can choose among a variety of options to perform an extensive back-end database management system fingerprint, retrieve DBMS session user and database, enumerate users, password hashes, privileges, databases, dump entire or user's specific DBMS tables/columns, run his own SQL statement, read particular files on the file system and more.
 
 
 ### [BurpSuite](https://www.kali.org/tools/burpsuite/)
 
-Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process, from initial mapping and analysis of an application’s attack surface to finding and exploiting security vulnerabilities.
+Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process, from initial mapping and analysis of an application's attack surface to finding and exploiting security vulnerabilities.
 
 
 ### [Nessus](https://www.tenable.com/blog/getting-started-with-nessus-on-kali-linux)
 
 Nessus is a vulnerability management tool that helps organizations and network environments identify and address security issues. It helps identify vulnerabilities, potential threats, and irregularities.
+
+
+### [FFUF](https://www.kali.org/tools/ffuf/)
+
+ffuf is a fast web fuzzer written in Go that allows typical directory discovery, virtual host discovery (without DNS records), and GET and POST parameter fuzzing.
 
 
 ### Web Browser
