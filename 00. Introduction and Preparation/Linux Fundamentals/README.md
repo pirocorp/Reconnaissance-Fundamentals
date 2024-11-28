@@ -127,7 +127,6 @@ However, we will only see some things in this folder. A directory can also have 
 | Command 	| Description                                                                                             	                  | Example                             	|
 |---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
 | echo    	| Output any text that we provide                                                                         	                  | ```echo "Hello World!"```           	|
-
 | cat     	| Outputting the Contents of a File                                                                       	                  | ```cat access.log```                	|
 | find    	| Search for file or folder                                                                               	                  | ```find -name note.txt```           	|
 | grep    	| The grep command allows us to search the files' contents for specific values we are looking for.                            | ```grep "THM*" access.log``` 	        |
