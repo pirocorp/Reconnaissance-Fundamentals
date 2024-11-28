@@ -136,7 +136,7 @@ Example: We may want to have specific directories in the directory. The command 
 
 ```bash
 mkdir -p Storage/local/user/documents
-tree.
+tree .
 ```
 
 ![image](https://github.com/user-attachments/assets/e70c4f15-d776-4c54-a862-0e150822d49e)
