@@ -116,6 +116,13 @@ Example: ```ls -l```
 | bin            | Directory name                                                                   |
 
 
+Example: ```ls -la```
+
+However, we will only see some things in this folder. A directory can also have hidden files that start with a dot at the beginning of its name (e.g., `.bashrc` or `.bash_history`). Therefore, we need to use the command ```ls -la``` to list all files of a directory:
+
+![image](https://github.com/user-attachments/assets/bc16e4d0-437c-4c8c-a473-119fb3ddabc1)
+
+
 
 | Command 	| Description                                                                                             	                  | Example                             	|
 |---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
