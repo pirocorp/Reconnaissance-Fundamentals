@@ -123,6 +123,26 @@ However, we will only see some things in this folder. A directory can also have 
 ![image](https://github.com/user-attachments/assets/bc16e4d0-437c-4c8c-a473-119fb3ddabc1)
 
 
+### Working with Files and Directories
+
+| Command 	| Description                                                                                             	                  | Example                             	|
+|---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
+| touch    	| Create an empty file                                                                                    	                  | ```touch <name>```                  	|
+| mkdir    	| create a directory                                                                                      	                  | ```mkdir <name>```                  	|
+| tree    	| Print directory tree                                                                                    	                  | ```echo "Hello World!"```           	|
+
+
+Example: We may want to have specific directories in the directory. The command `mkdir` has an option marked `-p` to add parent directories.
+
+```bash
+mkdir -p Storage/local/user/documents
+tree.
+```
+
+![image](https://github.com/user-attachments/assets/e70c4f15-d776-4c54-a862-0e150822d49e)
+
+
+
 
 | Command 	| Description                                                                                             	                  | Example                             	|
 |---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
