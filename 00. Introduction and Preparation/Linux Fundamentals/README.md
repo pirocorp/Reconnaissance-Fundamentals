@@ -103,7 +103,7 @@ The Linux operating system is structured in a tree-like hierarchy and is documen
 
 Example: ```ls -l``` 
 
-![image](https://github.com/user-attachments/assets/935039c0-b766-428d-9317-4ea51f55a066)
+![image](https://github.com/user-attachments/assets/fdaed98c-defb-444d-a047-663cc76a2dc6)
 
 | Column Content | Description                                                                      |
 |----------------|----------------------------------------------------------------------------------|
