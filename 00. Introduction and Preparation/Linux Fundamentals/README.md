@@ -14,6 +14,17 @@ Linux follows five core principles:
 - **Avoid captive user interfaces** -	Linux is designed to work mainly with the shell (or terminal), which gives the user greater control over the operating system.
 - **Configuration data is stored in a text file** - An example of such a file is the `/etc/passwd` file, which stores all users registered on the system.
 
+
+## Components
+
+- **Bootloader** - Code that runs to guide the booting process and start the operating system. Kali Linux uses the GRUB Bootloader.
+- **OS Kernel** - The kernel is the main component of an operating system. It manages the resources for the system's I/O devices at the hardware level.
+- **Daemons** - Background services are called "**daemons**" in Linux. They ensure that key functions such as scheduling, printing, and multimedia work correctly. These small programs load after we boot or log into the computer.
+- **OS Shell** - The operating system shell or the _command language interpreter_ (the command line) is the interface between the OS and the user. This interface allows the user to tell the OS what to do. The most commonly used shells are Bash, Tcsh/Csh, Ksh, Zsh, and Fish.
+- **Graphics server** - This provides a graphical subsystem (server) called "X" or "X-server" that allows graphical programs to run locally or remotely on the X-windowing system.
+- **Window Manager** - Also known as a graphical user interface (GUI). There are many options, including GNOME, KDE, MATE, Unity, and Cinnamon. A desktop environment usually has several applications, including file and web browsers. These allow the user to access and manage an operating system's essential and frequently accessed features and services.
+- **Utilities** -	Applications or utilities are programs that perform particular functions for the user or another program.
+
 ## Basic Commands
 
 | Command 	| Description                                                                                             	| Example                             	|
