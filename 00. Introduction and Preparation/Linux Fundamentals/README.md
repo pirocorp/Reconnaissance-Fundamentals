@@ -69,14 +69,59 @@ The Linux operating system is structured in a tree-like hierarchy and is documen
 | apropos   | Each manual page has a short description available. This tool searches the descriptions for instances of a given keyword. 	| ```apropos sudo``` 	                  |
 
 
+
+### System Information
+
+| Command  | Description                                                                                                                        |
+|----------|------------------------------------------------------------------------------------------------------------------------------------|
+| whoami   | Displays current username.                                                                                                         |
+| id       | Returns users identity                                                                                                             |
+| hostname | Sets or prints the name of the current host system.                                                                                |
+| uname    | Prints basic information about the operating system name and hardware.                                                             |
+| pwd      | Returns working directory name.                                                                                                    |
+| ifconfig | The ifconfig utility assigns or views an address to a network interface and/or configures network interface parameters.            |
+| ip       | IP is a utility that shows or manipulates routing, network devices, interfaces, and tunnels.                                       |
+| netstat  | Shows network status.                                                                                                              |
+| ss       | Another utility to investigate sockets.                                                                                            |
+| ps       | Shows process status.                                                                                                              |
+| who      | Displays who is logged in.                                                                                                         |
+| env      | Prints environment or sets and executes command.                                                                                   |
+| lsblk    | Lists block devices.                                                                                                               |
+| lsusb    | Lists USB devices                                                                                                                  |
+| lsof     | Lists opened files.                                                                                                                |
+| lspci    | Lists PCI devices.                                                                                                                 |
+
+
+### Directory Navigation
+
+| Command 	| Description                                                                                             	                  | Example                             	|
+|---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
+| pwd       | Returns working directory name.                                                                                             | ```pwd```                             |
+| ls      	| Listing Files / Folders in Our Current Directory                                                                  	        | ```ls -l```                          	|
+| cd      	| change directory                                                                                        	                  | ```cd folder1```                    	|
+
+
+Example: ```ls -l``` 
+
+![image](https://github.com/user-attachments/assets/935039c0-b766-428d-9317-4ea51f55a066)
+
+| Column Content | Description                                                                      |
+|----------------|----------------------------------------------------------------------------------|
+| `drwxr-xr-x`   | Type and permissions                                                             |
+| 2              | Number of hard links to the file/directory                                       |
+| root           | Owner of the file/directory                                                      |
+| root           | Group owner of the file/directory                                                |
+| 4096           | Size of the file or the number of blocks used to store the directory information |
+| Aug  3  2021   | Date and time                                                                    |
+| bin            | Directory name                                                                   |
+
+
+
 | Command 	| Description                                                                                             	                  | Example                             	|
 |---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
 | echo    	| Output any text that we provide                                                                         	                  | ```echo "Hello World!"```           	|
-| whoami  	| Find out what user we're currently logged in as!                                                        	                  | ```whoami```                        	|
-| ls      	| Listing Files in Our Current Directory                                                                  	                  | ```ls```                            	|
-| cd      	| change directory                                                                                        	                  | ```cd folder1```                    	|
+
 | cat     	| Outputting the Contents of a File                                                                       	                  | ```cat access.log```                	|
-| pwd     	| print working directory                                                                                 	                  | ```pwd```                           	|
 | find    	| Search for file or folder                                                                               	                  | ```find -name note.txt```           	|
 | grep    	| The grep command allows us to search the files' contents for specific values we are looking for.                            | ```grep "THM*" access.log``` 	        |
 
