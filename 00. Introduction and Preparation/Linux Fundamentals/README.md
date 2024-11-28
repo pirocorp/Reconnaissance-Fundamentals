@@ -64,6 +64,7 @@ The Linux operating system is structured in a tree-like hierarchy and is documen
 ### Getting Help
 
 | Command 	| Description                                                                                             	                  | Example                             	|
+|---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
 | man    	  | The man (manual) command is an important tool that provides detailed information about Linux commands and programs. 	      | ```man grep``` 	                      |
 | apropos   | Each manual page has a short description available. This tool searches the descriptions for instances of a given keyword. 	| ```apropos sudo``` 	                  |
 
