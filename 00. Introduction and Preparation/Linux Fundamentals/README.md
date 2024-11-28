@@ -129,7 +129,8 @@ However, we will only see some things in this folder. A directory can also have 
 |---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
 | touch    	| Create an empty file                                                                                    	                  | ```touch <name>```                  	|
 | mkdir    	| create a directory                                                                                      	                  | ```mkdir <name>```                  	|
-| tree    	| Print directory tree                                                                                    	                  | ```echo "Hello World!"```           	|
+| tree    	| Print directory tree                                                                                    	                  | ```tree .```           	|
+| mv      	| Move / Rename file                                                                                      	                  | ```mv <file/directory> <renamed file/directory>```           	|
 
 
 Example: We may want to have specific directories in the directory. The command `mkdir` has an option marked `-p` to add parent directories.
@@ -141,6 +142,13 @@ tree .
 
 ![image](https://github.com/user-attachments/assets/e70c4f15-d776-4c54-a862-0e150822d49e)
 
+Example: Let's rename the file info.txt to information.txt and move it to the directory Storage.
+
+```bash
+mv ./info.txt ./Storage/information.txt
+```
+
+![image](https://github.com/user-attachments/assets/cb8362e9-8bd7-4edc-bf3b-da0ea13a2e2d)
 
 
 
