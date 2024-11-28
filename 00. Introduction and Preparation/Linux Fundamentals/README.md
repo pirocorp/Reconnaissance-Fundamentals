@@ -25,6 +25,17 @@ Linux follows five core principles:
 - **Window Manager** - Also known as a graphical user interface (GUI). There are many options, including GNOME, KDE, MATE, Unity, and Cinnamon. A desktop environment usually has several applications, including file and web browsers. These allow the user to access and manage an operating system's essential and frequently accessed features and services.
 - **Utilities** -	Applications or utilities are programs that perform particular functions for the user or another program.
 
+
+## Linux Architecture
+
+The Linux operating system can be broken down into layers:
+
+- **Hardware** - Peripheral devices such as the system's RAM, hard drive, CPU, etc.
+- **Kernel** - The **core of the Linux operating system**, the kernel **virtualizes and controls common computer hardware resources** like CPU, allocated memory, accessed data, and others. The kernel gives each process its own virtual resources and prevents/mitigates conflicts between different processes.
+- **Shell** - A command-line interface (**CLI**), also known as a shell, where users can enter commands to execute the kernel's functions.
+- **System Utility** - Makes the operating system's functionality available.
+
+
 ## Basic Commands
 
 | Command 	| Description                                                                                             	| Example                             	|
