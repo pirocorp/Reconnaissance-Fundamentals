@@ -125,12 +125,12 @@ However, we will only see some things in this folder. A directory can also have 
 
 ### Working with Files and Directories
 
-| Command 	| Description                                                                                             	                  | Example                             	|
-|---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
-| touch    	| Create an empty file                                                                                    	                  | ```touch <name>```                  	|
-| mkdir    	| create a directory                                                                                      	                  | ```mkdir <name>```                  	|
-| tree    	| Print directory tree                                                                                    	                  | ```tree .```           	|
-| mv      	| Move / Rename file                                                                                      	                  | ```mv <file/directory> <renamed file/directory>```           	|
+| Command 	| Description                                                                                             	                  | Example                             	             |
+|---------	|---------------------------------------------------------------------------------------------------------------------------	|--------------------------------------------------  |
+| touch    	| Create an empty file                                                                                    	                  | ```touch <name>```                  	             |
+| mkdir    	| create a directory                                                                                      	                  | ```mkdir <name>```                  	             |
+| tree    	| Print directory tree                                                                                    	                  | ```tree .```           	                           |
+| mv      	| Move / Rename file                                                                                      	                  | ```mv <file/directory> <renamed file/directory>``` |
 
 
 Example: We may want to have specific directories in the directory. The command `mkdir` has an option marked `-p` to add parent directories.
