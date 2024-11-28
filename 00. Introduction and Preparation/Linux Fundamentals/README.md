@@ -61,6 +61,13 @@ The Linux operating system is structured in a tree-like hierarchy and is documen
 
 ## Basic Commands
 
+### Getting Help
+
+| Command 	| Description                                                                                             	                  | Example                             	|
+| man    	  | The man (manual) command is an important tool that provides detailed information about Linux commands and programs. 	      | ```man grep``` 	                      |
+| apropos   | Each manual page has a short description available. This tool searches the descriptions for instances of a given keyword. 	| ```apropos sudo``` 	                  |
+
+
 | Command 	| Description                                                                                             	                  | Example                             	|
 |---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
 | echo    	| Output any text that we provide                                                                         	                  | ```echo "Hello World!"```           	|
@@ -71,8 +78,7 @@ The Linux operating system is structured in a tree-like hierarchy and is documen
 | pwd     	| print working directory                                                                                 	                  | ```pwd```                           	|
 | find    	| Search for file or folder                                                                               	                  | ```find -name note.txt```           	|
 | grep    	| The grep command allows us to search the files' contents for specific values we are looking for.                            | ```grep "THM*" access.log``` 	        |
-| man    	  | The man (manual) command is an important tool that provides detailed information about Linux commands and programs. 	      | ```man grep``` 	                      |
-| apropos   | Each manual page has a short description available. This tool searches the descriptions for instances of a given keyword. 	| ```apropos sudo``` 	                  |
+
 
 
 ## Basic Shell Operators
