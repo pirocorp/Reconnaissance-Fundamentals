@@ -255,6 +255,19 @@ find /etc/ -name shadow 2>/dev/null > results.txt
 ![image](https://github.com/user-attachments/assets/6598a20b-17fd-47bc-98ae-3a242f2b329d)
 
 
+##### Redirect STDOUT and STDERR to Separate Files
+
+We should have noticed that we did not use a number before the last example's greater-than sign (>). That is because we redirected all the standard errors to the "null device" before, and the only output we get is the standard output (FD 1 - STDOUT). To make this more precise, we will redirect standard error (FD 2 - STDERR) and standard output (FD 1 - STDOUT) to different files.
+
+```bash
+find /etc/ -name shadow 2> stderr.txt 1> stdout.txt
+```
+
+![image](https://github.com/user-attachments/assets/5ff81167-11f8-4726-8592-b0ae668efaa5)
+
+
+
+
 
 
 
