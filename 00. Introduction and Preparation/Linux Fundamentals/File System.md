@@ -492,10 +492,38 @@ Let us look at all the associated representations to understand better how the p
 | Octal Value:               | 7     | 5     | 4     |
 | Permission Representation: | r w x | r - x | r - - |
 
+If we sum the set bits from the **Binary Representation** assigned to the values from **Binary Notation** together, we get the **Octal Value**. The **Permission Representation** represents the bits set in the **Binary Representation** by using the three characters, which only recognizes the set permissions easier.
+
+### Change Owner
+
+To change the owner and/or the group assignments of a file or directory, we can use the ```chown``` command.
+
+```bash
+chown <user>:<group> <file/directory>
+```
+
+### SUID & SGID
+
+Besides assigning direct user and group permissions, we can also configure special permissions for files by setting the **Set User ID (SUID)** and **Set Group ID (SGID)** bits. These **SUID/SGID** bits allow, for example, users to run programs with the rights of another user. Administrators often give users special rights to specific applications or files. The letter "**s**" is used instead of an "**x**". When executing such a program, the file owner's **SUID/SGID** is used.
+
+It is often the case that administrators are not familiar with the applications but still assign the SUID/SGID bits, which leads to a high-security risk. Such programs may contain functions that allow the execution of a shell from the pager, such as the application "```journalctl```"
+
+If the administrator sets the SUID bit to "```journalctl```", any user accessing this application could execute a shell as root. More information about this and other such applications can be found at [GTFObins](https://gtfobins.github.io/gtfobins/journalctl/).
 
 
+### Sticky Bit
 
+Sticky bits are file permissions in Linux that can be set on directories. This type of permission provides an extra layer of security when controlling the deletion and renaming of files within a directory. It is typically used on directories that multiple users share to prevent one user from accidentally deleting or renaming files that are important to others.
 
+For example, in a shared home directory, where multiple users have access to the same directory, a system administrator can set the sticky bit on the directory to ensure that only the owner of the file, the owner of the directory, or the root user can delete or rename files within the directory. This means other users cannot delete or rename files within the directory as they do not have the required permissions. This provides an added layer of security to protect important files, as only those with the necessary access can delete or rename files. Setting the sticky bit on a directory ensures that only the owner, the directory owner, or the root user can change the files within the directory.
+
+When a sticky bit is set on a directory, it is represented by the letter “t" in the execute permission of the directory's permissions. For example, if a directory has permissions “rwxrwxrwt", it means that the sticky bit is set, giving the extra level of security so that no one other than the owner or root user can delete or rename the files or folders in the directory.
+
+![image](https://github.com/user-attachments/assets/e91a1069-45db-4926-b4c0-41f35c91504e)
+
+This example shows that both directories have the sticky bit set. However, the reports folder has an uppercase **T**, and the scripts folder has a lowercase **t**.
+
+If the sticky bit is capitalized (T), then all other users do not have **execute** (x) permissions and, therefore, cannot see the folder's contents nor run any programs from it. The lowercase sticky bit (t) is where the **execute** (x) permissions have been set.
 
 
 
