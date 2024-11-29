@@ -205,6 +205,26 @@ If we now search for all files with the ".conf" extension, you will find that th
 
 
 
+#### File Descriptors and Redirections
+
+##### File Descriptors
+
+A file descriptor (FD) in Unix/Linux operating systems indicates a connection the kernel maintains to perform Input/Output (I/O) operations. In Windows-based operating systems, it is called filehandle. It is the connection (generally to a file) from the Operating system to perform I/O operations (Input/Output of Bytes). By default, the first three file descriptors in Linux are:
+
+
+- Data Stream for Input - STDIN – 0
+- Data Stream for Output - STDOUT – 1
+- Data Stream for Output that relates to an error occurring. - STDERR – 2
+
+
+
+
+
+
+
+
+
+
 
 
 
