@@ -209,7 +209,7 @@ If we now search for all files with the ".conf" extension, you will find that th
 
 ##### File Descriptors
 
-A file descriptor (FD) in Unix/Linux operating systems indicates a connection the kernel maintains to perform Input/Output (I/O) operations. In Windows-based operating systems, it is called filehandle. It is the connection (generally to a file) from the Operating system to perform I/O operations (Input/Output of Bytes). By default, the first three file descriptors in Linux are:
+A file descriptor (FD) in Unix/Linux operating systems indicates a connection the kernel maintains to perform Input/Output (I/O) operations. In Windows-based operating systems, it is called filehandle. It is the connection (generally to a file) from the operating system that performs I/O operations (Input/output of bytes). By default, the first three file descriptors in Linux are:
 
 
 - Data Stream for Input - STDIN – 0
@@ -217,15 +217,31 @@ A file descriptor (FD) in Unix/Linux operating systems indicates a connection th
 - Data Stream for Output that relates to an error occurring. - STDERR – 2
 
 
+##### STDIN and STDOUT
+
+Let us see an example with ```cat```. When running ```cat```, we give the running program our standard input (STDIN — FD 0), marked green, wherein, in this case, "SOME INPUT" is. As soon as we confirm our input with [ENTER], it is returned to the terminal as standard output (STDOUT — FD 1), marked red.
+
+![image](https://github.com/user-attachments/assets/d0e77a2d-1cd8-4693-b5af-dd3694d0b9dc)
 
 
+##### STDOUT and STDERR
+
+In the following example, using the ``find `` command, we will see the standard output (STDOUT — FD 1) marked in green and the standard error (STDERR — FD 2) marked in red.
+
+```bash
+find /etc/ -name shadow
+```
+
+![image](https://github.com/user-attachments/assets/3d77acd7-35a8-410c-b488-19f9119ac41b)
 
 
+In this case, the error is marked and displayed with "Permission denied." We can check this by redirecting the file descriptor for the mistakes (FD 2 - STDERR) to "/dev/null." This way, we redirect the resulting errors to the "null device," which discards all data.
 
+```bash
+find /etc/ -name shadow 2>/dev/null
+```
 
-
-
-
+![image](https://github.com/user-attachments/assets/b17ad65e-e770-48cf-9609-6fdd2291c7a6)
 
 
 
