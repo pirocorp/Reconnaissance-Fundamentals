@@ -49,11 +49,11 @@ The Linux operating system is structured in a tree-like hierarchy and is documen
 | /etc   | Local system configuration files. Configuration files for installed applications may be saved here as well.                                                                                                                                                                                                  |
 | /home  | Each user on the system has a subdirectory here for storage.                                                                                                                                                                                                                                                 |
 | /lib   | Shared library files that are required for system boot.                                                                                                                                                                                                                                                      |
-| /media | External removable media devices such as USB drives are mounted here.                                                                                                                                                                                                                                        |
+| /media | External removable devices such as USB drives are mounted here.                                                                                                                                                                                                                                        |
 | /mnt   | Temporary mount point for regular filesystems.                                                                                                                                                                                                                                                               |
 | /opt   | Optional files, such as third-party tools, can be saved here.                                                                                                                                                                                                                                                |
 | /root  | The home directory for the root user.                                                                                                                                                                                                                                                                        |
-| /sbin  | This directory contains executables used for system administration (binary system files).                                                                                                                                                                                                                    |
+| /sbin  | This directory contains executables for system administration (binary system files).                                                                                                                                                                                                                    |
 | /tmp   | The operating system and many programs use this directory to store temporary files. This directory is generally cleared upon system boot and may be deleted at other times without warning.                                                                                                                  |
 | /usr   | Contains executables, libraries, man files, etc.                                                                                                                                                                                                                                                             |
 | /var   | This directory contains variable data files such as log files, email inboxes, web application-related files, cron files, and more.                                                                                                                                                                           |
@@ -161,11 +161,44 @@ There are several ways to edit a file. The most common text editors are ```Vi```
 Example: ```nano notes.txt```
 
 
+#### Find Files and Directories
+
+Finding the files and folders we need is crucial. Once we have gained access to a Linux-based system, we will need to find configuration files, scripts created by users or the administrator, and other files and folders. We do not have to manually browse through every folder and check when it was modified for the last time. There are some tools we can use to make this work easier.
+
+
+##### Which
+
+One of the standard tools is ```which```. This tool returns the path to the file or link that should be executed. This allows us to determine if specific programs, like ```cURL```, ```netcat```, ```wget```, ```python```, ```gcc```, are available on the operating system. 
+
+
+##### Find
+
+Another handy tool is ```find```. This tool finds files and folders and also contains a function to filter the results. We can use filter parameters like the size of the file or the date. We can also specify whether we only search for files or folders.
+
+![image](https://github.com/user-attachments/assets/008ef78c-9fc6-4ba9-9993-d53da07fbeaa)
+
+Let us look at the options we used in the previous command.
+
+| Option              | Description                                                                                                                                                                                                                                                                    |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -type f             | Hereby, we define the type of the searched object. In this case, 'f' stands for 'file'.                                                                                                                                                                                        |
+| -name *.conf        | With '-name', we indicate the file name we seek. The asterisk (*) stands for 'all' files with the '.conf' extension.                                                                                                                                         |
+| -user root          | This option filters all files whose owner is the root user.                                                                                                                                                                                                                    |
+| -size +20k          | We can filter all the located files and specify that we only want to see those larger than 20 KiB.                                                                                                                                                           |
+| -newermt 2020-03-03 | With this option, we set the date. Only files newer than the specified date will be presented.                                                                                                                                                                                 |
+| -exec ls -al {} \;  | This option executes the specified command, using the curly brackets as placeholders for each result. The backslash escapes the next character from being interpreted by the shell because otherwise, the semicolon would terminate the command and not reach the redirection. |
+| 2>/dev/null         | This is a STDERR redirection to the 'null device', which we will return to in the next section. This redirection ensures that no errors are displayed in the terminal. This redirection must not be an option of the 'find' command.                                        |
+
+
+
+
+
+
+
 | Command 	| Description                                                                                             	                  | Example                             	|
 |---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
 | echo    	| Output any text that we provide                                                                         	                  | ```echo "Hello World!"```           	|
 | cat     	| Outputting the Contents of a File                                                                       	                  | ```cat access.log```                	|
-| find    	| Search for file or folder                                                                               	                  | ```find -name note.txt```           	|
 | grep    	| The grep command allows us to search the files' contents for specific values we are looking for.                            | ```grep "THM*" access.log``` 	        |
 
 
