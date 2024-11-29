@@ -244,6 +244,20 @@ find /etc/ -name shadow 2>/dev/null
 ![image](https://github.com/user-attachments/assets/b17ad65e-e770-48cf-9609-6fdd2291c7a6)
 
 
+##### Redirect STDOUT to a File
+
+Now we can see that all errors (STDERR) previously presented with "Permission denied" are no longer displayed. The only result we see now is the standard output (STDOUT), which we can also redirect to a file with the name results.txt that will only contain standard output without the standard errors.
+
+```bash
+find /etc/ -name shadow 2>/dev/null > results.txt
+```
+
+![image](https://github.com/user-attachments/assets/6598a20b-17fd-47bc-98ae-3a242f2b329d)
+
+
+
+
+
 
 | Command 	| Description                                                                                             	                  | Example                             	|
 |---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
