@@ -379,8 +379,9 @@ cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' 
 
 #### Practice
 
-| 1. | A line with the username cry0l1t3.                                                                                                                         |
+| N  | Task                                                                                                                                                       |
 |----|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1. | A line with the username cry0l1t3.                                                                                                                         |
 | 2. | The usernames.                                                                                                                                             |
 | 3. | The username cry0l1t3 and his UID.                                                                                                                         |
 | 4. | The username cry0l1t3 and his UID separated by a comma (,).                                                                                                |
