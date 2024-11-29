@@ -133,7 +133,7 @@ It will take a lot of time to search the whole system for our files and director
 sudo updatedb
 ```
 
-If we now search for all files with the ".conf" extension, you will find that this search produces results much faster than using find. However, this tool does not have as many filter options that we can use. So it is always worth considering whether we can use the locate command or instead use the find command. It always depends on what we are looking for.
+If we now search for all files with the ".conf" extension, you will find that this search produces results much faster than using find. However, this tool does not have as many filter options that we can use. So it is always worth considering whether we can use the locate command instead of the find command. It always depends on what we are looking for.
 
 ![image](https://github.com/user-attachments/assets/6c2716e8-abe6-4d14-8354-be79cf60748e)
 
@@ -305,5 +305,84 @@ cat /etc/passwd | grep -v "false\|nologin"
 ```
 
 ![image](https://github.com/user-attachments/assets/a74d7318-7175-4d5b-8edc-582fe3414687)
+
+
+#### Cut
+
+Specific results with different characters may be separated as delimiters. Knowing how to remove particular delimiters and show the words on a line in a specified position is handy. One of the tools that can be used for this is ```cut```. Therefore, we use the option "-d" and set the delimiter to the colon character (:) and define with the option "-f" the position in the line we want to output.
+
+
+```bash
+cat /etc/passwd | grep -v "false\|nologin" | cut -d":" -f1
+```
+
+![image](https://github.com/user-attachments/assets/ce332be7-d7a6-4592-8f1f-52f3ced1602b)
+
+
+#### Tr
+
+The tool ```tr``` is another possibility for replacing certain characters from a line with characters we defined. As the first option, we define which character we want to replace, and as the second option, we define the character we want to replace it with. In the following example, we replace the colon character with space.
+
+```bash
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " "
+```
+
+![image](https://github.com/user-attachments/assets/65bc9044-918b-4910-bd21-88a2fba56c7f)
+
+
+#### Column
+
+Since search results can often be unclear, the tool ```column``` is well suited to display such results in tabular form using the "-t."
+
+```bash
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | column -t
+```
+
+![image](https://github.com/user-attachments/assets/86e0021c-1acc-4d6e-b14a-da7ac00dd43e)
+
+
+#### Awk
+
+To sort out results as simply as possible, the (g)```awk``` programming is beneficial, as it allows us to display the first ($1) and last ($NF) results of the line.
+
+```bash
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}'
+```
+
+![image](https://github.com/user-attachments/assets/fead709b-df68-46c0-8896-d83b6123c6fb)
+
+
+#### Sed
+
+There will come moments when we want to change specific names in the whole file or standard input. One of the tools we can use for this is the stream editor called ```sed```. One of the most common uses of this is substituting text. Here, sed looks for patterns we have defined in the form of regular expressions (regex) and replaces them with another pattern that we have also described. Let us stick to the last results and say we want to replace the word "bin" with "HTB."
+
+The "s" flag at the beginning stands for the substitute command. Then, we specify the pattern we want to replace. After the slash (/), we enter the pattern we want to use as a replacement in the third position. Finally, we use the "g" flag to replace all matches.
+
+```bash
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' | sed 's/bin/HTB/g'
+```
+
+![image](https://github.com/user-attachments/assets/abe34f9b-21a2-463c-b3e5-110c0e642b7b)
+
+
+#### Wc
+
+Last but not least, knowing how many successful matches we have will often be useful. To avoid counting the lines or characters manually, we can use the tool wc. With the "-l" option, we specify that only the lines are counted.
+
+```bash
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' | wc -l
+```
+
+![image](https://github.com/user-attachments/assets/3c559589-68eb-4fdb-acc0-da5b2d2dbe96)
+
+
+
+
+
+
+
+
+
+
 
 
