@@ -460,7 +460,7 @@ When a user wants to access the contents of a Linux directory, they must first t
 
 It is important to note that execute permissions are necessary to traverse a directory, no matter the user's level of access. Also, **execute** permissions on a directory do not allow a user to **execute** or modify any files or contents within the directory, only to traverse and access the directory's content.
 
-To execute files within the directory, a user needs **execute** permissions on the corresponding file. To modify the contents of a directory (create, delete, or rename files and subdirectories), the user needs **write** permissions on the directory.
+A user needs **execute** permissions on the corresponding file to execute files within the directory. To modify the contents of a directory (create, delete, or rename files and subdirectories), the user needs **write** permissions on the directory.
 
 The whole permission system on Linux systems is based on the octal number system, and basically, there are three different types of permissions a file or directory can be assigned:
 
@@ -469,5 +469,35 @@ The whole permission system on Linux systems is based on the octal number system
 - (**x**) - Execute
 
 ![image](https://github.com/user-attachments/assets/78d2849f-d0b5-4f74-bc0c-a1642348d6bc)
+
+
+
+### Change Permissions
+
+We can modify permissions using the ```chmod``` command, permission group references (u—owner, g—Group, o—others, a—All users), and either a [+] or a [-] to add or remove the designated permissions. 
+
+Apply read permissions for all users and see the result.
+
+```bash
+chmod a+r shell && ls -l shell
+chmod 754 shell && ls -l shell
+```
+
+Let us look at all the associated representations to understand better how the permission assignment is calculated.
+
+| Permission Management      |       |       |       |
+|----------------------------|-------|-------|-------|
+| Binary Notation:           | 4 2 1 | 4 2 1 | 4 2 1 |
+| Binary Representation:     | 1 1 1 | 1 0 1 | 1 0 0 |
+| Octal Value:               | 7     | 5     | 4     |
+| Permission Representation: | r w x | r - x | r - - |
+
+
+
+
+
+
+
+
 
 
