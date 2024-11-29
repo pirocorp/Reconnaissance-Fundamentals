@@ -441,14 +441,14 @@ grep -E "my" /etc/passwd | grep -E "false"
 
 Here are some optional tasks to practice regex that can help us to handle it better and more efficiently.
 
-| Task                                                                 | Command |
-|----------------------------------------------------------------------|--------------------------------------------------|
-| Show all lines that do not contain the # character.                  | grep -E -v "#" /etc/ssh/sshd_config \| grep "\S" |
-| Search for all lines that contain a word that starts with Permit.    | grep "^Permit" /etc/ssh/sshd_config              |
-| Search for all lines that contain a word ending with Authentication. | grep "Authentication$" /etc/ssh/sshd_config      |
-| Search for all lines containing the word Key.                        | grep "\bKey\b" /etc/ssh/sshd_config              |
-| Search for all lines beginning with Password and containing yes.     | grep -E "(^Password.*yes)" /etc/ssh/sshd_config  |
-| Search for all lines that end with yes.                              | grep "yes$" /etc/ssh/sshd_config                 |
+| Task                                                                 | Command                                                |
+|----------------------------------------------------------------------|--------------------------------------------------------|
+| Show all lines that do not contain the # character.                  | ```grep -E -v "#" /etc/ssh/sshd_config \| grep "\S"``` |
+| Search for all lines that contain a word that starts with Permit.    | ```grep "^Permit" /etc/ssh/sshd_config             ``` |
+| Search for all lines that contain a word ending with Authentication. | ```grep "Authentication$" /etc/ssh/sshd_config     ``` |
+| Search for all lines containing the word Key.                        | ```grep "\bKey\b" /etc/ssh/sshd_config             ``` |
+| Search for all lines beginning with Password and containing yes.     | ```grep -E "(^Password.*yes)" /etc/ssh/sshd_config ``` |
+| Search for all lines that end with yes.                              | ```grep "yes$" /etc/ssh/sshd_config                ``` |
 
 
 
