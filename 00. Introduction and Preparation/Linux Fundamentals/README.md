@@ -38,28 +38,8 @@ The Linux operating system can be broken down into layers:
 
 ## [File System, Files and Directories](Working%20with%20Files%20and%20Directories.md)
 
+The Linux operating system is structured in a tree-like hierarchy and is documented in the [Filesystem Hierarchy Standard (FHS)](Working%20with%20Files%20and%20Directories.md).
 
-## File System Hierarchy
-
-The Linux operating system is structured in a tree-like hierarchy and is documented in the [Filesystem Hierarchy Standard (FHS)](https://www.pathname.com/fhs/). Linux is structured with the following standard top-level directories:
-
-| Path   | Description                                                                                                                                                                                                                                                                                                  |
-|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /      | The top-level directory is the root filesystem. It contains all of the files required to boot the operating system before other filesystems are mounted and the files required to boot the other filesystems. After boot, all other filesystems are mounted at standard mount points as root subdirectories. |
-| /bin   | Contains essential command binaries.                                                                                                                                                                                                                                                                         |
-| /boot  | Consists of the static bootloader, kernel executable, and files required to boot the Linux OS.                                                                                                                                                                                                               |
-| /dev   | Contains device files to facilitate access to every hardware device attached to the system.                                                                                                                                                                                                                  |
-| /etc   | Local system configuration files. Configuration files for installed applications may be saved here as well.                                                                                                                                                                                                  |
-| /home  | Each user on the system has a subdirectory here for storage.                                                                                                                                                                                                                                                 |
-| /lib   | Shared library files that are required for system boot.                                                                                                                                                                                                                                                      |
-| /media | External removable devices such as USB drives are mounted here.                                                                                                                                                                                                                                        |
-| /mnt   | Temporary mount point for regular filesystems.                                                                                                                                                                                                                                                               |
-| /opt   | Optional files, such as third-party tools, can be saved here.                                                                                                                                                                                                                                                |
-| /root  | The home directory for the root user.                                                                                                                                                                                                                                                                        |
-| /sbin  | This directory contains executables for system administration (binary system files).                                                                                                                                                                                                                    |
-| /tmp   | The operating system and many programs use this directory to store temporary files. This directory is generally cleared upon system boot and may be deleted at other times without warning.                                                                                                                  |
-| /usr   | Contains executables, libraries, man files, etc.                                                                                                                                                                                                                                                             |
-| /var   | This directory contains variable data files such as log files, email inboxes, web application-related files, cron files, and more.                                                                                                                                                                           |
 
 
 ## Basic Commands
