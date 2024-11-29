@@ -266,6 +266,58 @@ find /etc/ -name shadow 2> stderr.txt 1> stdout.txt
 ![image](https://github.com/user-attachments/assets/5ff81167-11f8-4726-8592-b0ae668efaa5)
 
 
+##### Redirect STDIN
+
+As we have already seen, combining the file descriptors can redirect errors and output with greater-than-character (>). This also works with the lower-than sign (<). However, the lower-than sign serves as standard input (FD 0 - STDIN). These characters can be seen as "direction" in the form of an arrow that tells us "from where" and "where to" the data should be redirected. We use the cat command to use the contents of the file "stdout.txt" as STDIN.
+
+```bash
+cat < stdout.txt
+```
+
+![image](https://github.com/user-attachments/assets/3649a9f9-fd81-494e-92e4-0013432f37bb)
+
+
+##### Redirect STDOUT and Append to a File
+
+When we use the greater-than sign (>) to redirect our STDOUT, a new file is automatically created if it does not already exist. If this file exists, it will be overwritten without asking for confirmation. If we want to append STDOUT to our existing file, we can use the double greater-than sign (>>).
+
+```bash
+find /etc/ -name passwd >> stdout.txt 2>/dev/null
+```
+
+![image](https://github.com/user-attachments/assets/ec1111bc-f9e4-4b9b-bf88-64e70ae00964)
+
+
+##### Redirect STDIN Stream to a File
+
+We can also use the double lower-than characters (<<) to add our standard input through a stream. We can use the so-called End-Of-File (EOF) function of a Linux system file, which defines the input's end. In the next example, we will use the cat command to read our streaming input through the stream and direct it to a file called "stream.txt."
+
+```bash
+cat << EOF > stream.txt
+```
+
+![image](https://github.com/user-attachments/assets/8277eeff-8882-4ddb-83ff-feea9d1cac8f)
+
+
+##### Pipes
+
+Another way to redirect STDOUT is to use pipes (|). These are useful when we want to use the STDOUT from one program to be processed by another. One of the most commonly used tools is grep, which we will use in the following example. Grep is used to filter STDOUT according to the pattern we define. In the following example, we use the find command to search for all files in the "/etc/" directory with a ".conf" extension. Any errors are redirected to the "null device" (/dev/null). We filter out the results using ```grep``` and specify that only the lines containing the pattern "systemd" should be displayed.
+
+![image](https://github.com/user-attachments/assets/097431da-752c-4283-b4e1-d9ca886facd1)
+
+
+The redirections work, not only once. We can use the obtained results to redirect them to another program. For the following example, we will use wc, which should count the total number of obtained results.
+
+![image](https://github.com/user-attachments/assets/72d0bc9c-9187-4949-974d-3834abedaa49)
+
+
+
+
+
+
+
+
+
 
 
 
