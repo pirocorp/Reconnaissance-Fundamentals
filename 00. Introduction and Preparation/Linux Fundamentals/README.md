@@ -36,6 +36,9 @@ The Linux operating system can be broken down into layers:
 - **System Utility** - Makes the operating system's functionality available.
 
 
+## [File System, Files and Directories](Working%20with%20Files%20and%20Directories.md)
+
+
 ## File System Hierarchy
 
 The Linux operating system is structured in a tree-like hierarchy and is documented in the [Filesystem Hierarchy Standard (FHS)](https://www.pathname.com/fhs/). Linux is structured with the following standard top-level directories:
