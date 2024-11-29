@@ -246,7 +246,64 @@ The redirections work, not only once. We can use the obtained results to redirec
 
 
 
+### Filter Contents
+
+In the last section, we learned about the redirections we can use to redirect results from one program to another for processing. To read files, we do not necessarily have to use an editor. Two identical tools are called ```more``` and ```less```. These fundamental **pagers** allow us to scroll through the file in an interactive view. Let us have a look at some examples.
 
 
+#### More
+
+After we read the content using cat and redirected it to more, the already mentioned pager opens, and we will automatically start at the beginning of the file.
+
+```bash
+more /etc/passwd
+```
+
+With the [Q] key, we can leave this pager. We will notice that the output remains in the terminal.
+
+![image](https://github.com/user-attachments/assets/e3736512-f2fb-4777-a87f-a03e766ee89b)
+
+
+#### Less
+
+If we look at the tool ```less```, we will notice on the man page that it contains many more features than ```more```. When closing less with the [**Q**] key, we will notice that unlike ```more```, the output we have seen does not remain in the terminal.
+
+
+#### Head
+
+Sometimes, we are only interested in specific issues at the beginning or end of the file. If we only want to get the first lines of the file, we can use the tool head. By default, head prints the first ten lines of the given file or input unless otherwise specified.
+
+
+#### Tail
+
+If we only want to see the last parts of a file or results, we can use the counterpart of ```head``` called ```tail```, which returns the last ten lines.
+
+![image](https://github.com/user-attachments/assets/38004ae7-de42-4080-8e8b-3be3c1f1cc67)
+
+
+#### Sort
+
+They are rarely sorted depending on which results and files are dealt with. Often, sorting the desired results alphabetically or numerically is necessary to get a better overview. We can use a tool called ```sort``` for this.
+
+![image](https://github.com/user-attachments/assets/7d8fbf02-7bd2-4677-b08a-3fe6604bbb13)
+
+
+#### Grep
+
+We will more often only search for specific results that contain patterns we have defined. One of the most used tools is ```grep```, which offers many different features. Accordingly, we can search for users with the default shell "/bin/bash" set as an example.
+
+```bash
+cat /etc/passwd | grep "/bin/bash"
+```
+
+![image](https://github.com/user-attachments/assets/c5a7e21e-befc-4cd3-9ada-46243ad10fbe)
+
+Another possibility is to exclude specific results. For this, the option "-v" is used with grep. In the next example, we exclude all users who have disabled the standard shell with the name "/bin/false" or "/usr/bin/nologin".
+
+```bash
+cat /etc/passwd | grep -v "false\|nologin"
+```
+
+![image](https://github.com/user-attachments/assets/a74d7318-7175-4d5b-8edc-582fe3414687)
 
 
