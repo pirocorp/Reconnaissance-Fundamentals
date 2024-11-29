@@ -92,7 +92,9 @@ The Linux operating system is structured in a tree-like hierarchy and is documen
 | lspci    | Lists PCI devices.                                                                                                                 |
 
 
-### Directory Navigation
+### Files and Directories
+
+#### Directory Navigation
 
 | Command 	| Description                                                                                             	                  | Example                             	|
 |---------	|---------------------------------------------------------------------------------------------------------------------------	|-------------------------------------	|
@@ -123,7 +125,7 @@ However, we will only see some things in this folder. A directory can also have 
 ![image](https://github.com/user-attachments/assets/bc16e4d0-437c-4c8c-a473-119fb3ddabc1)
 
 
-### Working with Files and Directories
+#### Create, Move, Remove Directories and Files
 
 | Command 	| Description                                                                                             	                  | Example                             	             |
 |---------	|---------------------------------------------------------------------------------------------------------------------------	|--------------------------------------------------  |
@@ -151,6 +153,12 @@ mv ./info.txt ./Storage/information.txt
 
 ![image](https://github.com/user-attachments/assets/cb8362e9-8bd7-4edc-bf3b-da0ea13a2e2d)
 
+
+#### Editing Files
+
+There are several ways to edit a file. The most common text editors are ```Vi``` and ```Vim```. More rarely, there is the ```Nano``` editor. 
+
+Example: ```nano notes.txt```
 
 
 | Command 	| Description                                                                                             	                  | Example                             	|
