@@ -173,9 +173,9 @@ One of the standard tools is ```which```. This tool returns the path to the file
 
 ##### Find
 
-Another handy tool is ```find```. This tool finds files and folders and also contains a function to filter the results. We can use filter parameters like the size of the file or the date. We can also specify whether we only search for files or folders.
+Another handy tool is ```find```. This tool finds files and folders and contains a function to filter the results. We can use filter parameters like the file size or the date. We can also specify whether we only search for files or folders.
 
-![image](https://github.com/user-attachments/assets/008ef78c-9fc6-4ba9-9993-d53da07fbeaa)
+![image](https://github.com/user-attachments/assets/be3d9782-f1d2-441b-bc96-21f98ff5b953)
 
 Let us look at the options we used in the previous command.
 
