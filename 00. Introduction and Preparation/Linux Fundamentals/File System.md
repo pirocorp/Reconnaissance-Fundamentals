@@ -367,7 +367,7 @@ cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' 
 
 #### Wc
 
-Last but not least, knowing how many successful matches we have will often be useful. To avoid counting the lines or characters manually, we can use the tool wc. With the "-l" option, we specify that only the lines are counted.
+Lastly, knowing how many successful matches we have will often be useful. To avoid counting the lines or characters manually, we can use the tool wc. With the "-l" option, we specify that only the lines are counted.
 
 ```bash
 cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' | wc -l
@@ -390,6 +390,7 @@ cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' 
 | 7. | All usernames with their UID and set shells separated by a comma (,) exclude the ones containing no login or false.                                        |
 | 8. | All usernames with their UID and set shells separated by a comma (,) exclude the ones that contain no login and count all lines of the filtered output.    |
 
+![image](https://github.com/user-attachments/assets/df8a3da8-0917-42b2-b309-362a4d806e93)
 
 
 
