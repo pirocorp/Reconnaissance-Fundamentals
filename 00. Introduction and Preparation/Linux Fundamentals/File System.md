@@ -377,7 +377,17 @@ cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' 
 
 
 
+#### Practice
 
+| 1. | A line with the username cry0l1t3.                                                                                                                         |
+|----|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 2. | The usernames.                                                                                                                                             |
+| 3. | The username cry0l1t3 and his UID.                                                                                                                         |
+| 4. | The username cry0l1t3 and his UID separated by a comma (,).                                                                                                |
+| 5. | A comma separates the username cry0l1t3, his UID, and the set shell (,).                                                                                   |
+| 6. | All usernames with their UID and set shells separated by a comma (,).                                                                                      |
+| 7. | All usernames with their UID and set shells separated by a comma (,) exclude the ones containing no login or false.                                        |
+| 8. | All usernames with their UID and set shells separated by a comma (,) exclude the ones that contain no login and count all lines of the filtered output.    |
 
 
 
