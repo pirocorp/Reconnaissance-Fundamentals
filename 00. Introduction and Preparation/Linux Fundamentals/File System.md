@@ -100,12 +100,12 @@ Example: ```nano notes.txt```
 Finding the files and folders we need is crucial. Once we have gained access to a Linux-based system, we will need to find configuration files, scripts created by users or the administrator, and other files and folders. We do not have to manually browse through every folder and check when it was modified for the last time. There are some tools we can use to make this work easier.
 
 
-### Which
+#### Which
 
 One of the standard tools is ```which```. This tool returns the path to the file or link that should be executed. This allows us to determine if specific programs, like ```cURL```, ```netcat```, ```wget```, ```python```, ```gcc```, are available on the operating system. 
 
 
-### Find
+#### Find
 
 Another handy tool is ```find```. This tool finds files and folders and contains a function to filter the results. We can use filter parameters like the file size or the date. We can also specify whether we only search for files or folders.
 
@@ -125,7 +125,7 @@ Let us look at the options we used in the previous command.
 
 
 
-### Locate
+#### Locate
 
 It will take a lot of time to search the whole system for our files and directories and perform many different searches. The command ```locate``` offers us a quicker way to search through the system. In contrast to the ```find``` command, ```locate``` works with a local database that contains all information about existing files and folders. We can update this database with the following command.
 
