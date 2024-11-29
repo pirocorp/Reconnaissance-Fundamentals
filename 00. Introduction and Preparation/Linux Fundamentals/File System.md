@@ -394,6 +394,63 @@ cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' 
 
 
 
+## Regular Expressions
+
+Regular expressions (RegEx) are an art of expression language used to search for patterns in text and files. They can be used to find and replace text, analyze data, validate input, perform searches, and more. In simple terms, they are a filter criterion that can be used to analyze and manipulate strings. RegEx is available in various programming languages and programs and is used in many different ways and functions.
+
+A regular expression is a sequence of letters and symbols that form a search pattern. In addition, regular expressions can be created with patterns called metacharacters. Meta characters are symbols that define the search pattern but have no literal meaning. We can use regex in tools like grep, sed, and others. Regex is often implemented in web applications for the validation of user input.
+
+
+### Grouping
+
+Among other things, regex allows us to group the desired search patterns. Regex follows three different concepts, which are distinguished by the three different brackets:
+
+#### Grouping Operators
+
+| Operators | Description                                                                                                                                                                 |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| (a)       | The round brackets are used to group parts of a regex. Within the brackets, you can define further patterns which should be processed together.                             |
+| [a-z]     | The square brackets define character classes. Inside the brackets, you can specify a list of characters to search for.                                                      |
+| {1,10}    | The curly brackets are used to define quantifiers. Inside the brackets, you can specify a number or a range that indicates how often a previous pattern should be repeated. |
+| \|        | Also called the OR operator and shows results when one of the two expressions matches                                                                                       |
+| .*        | Also called the AND operator and displayed results only if both expressions match                                                                                           |
+
+
+##### OR operator
+
+Suppose we use the **OR** operator. The regex searches for one of the given search parameters. In the following example, we search for lines containing the word my or false. You must apply the extended regex using the -E option in grep to use these operators.
+
+```bash
+grep -E "(my|false)" /etc/passwd
+```
+![image](https://github.com/user-attachments/assets/ecb46984-e9d9-454a-9670-24e4fc142018)
+
+Since one of the two search parameters always occurs in the three lines, all three lines are displayed accordingly. However, using the AND operator will get a different result for the same search parameters.
+
+
+##### AND operator
+
+What we are saying with this command is that we are looking for a line where we want to see both **my** and **false**. A simplified example would also be to use grep twice and look like this:
+
+```bash
+grep -E "(my.*false)" /etc/passwd
+grep -E "my" /etc/passwd | grep -E "false"
+```
+
+![image](https://github.com/user-attachments/assets/05523b83-4585-437e-8037-7f0d5c9048c3)
+
+Here are some optional tasks to practice regex that can help us to handle it better and more efficiently.
+
+| Task                                                                 | Command |
+|----------------------------------------------------------------------|--------------------------------------------------|
+| Show all lines that do not contain the # character.                  | grep -E -v "#" /etc/ssh/sshd_config \| grep "\S" |
+| Search for all lines that contain a word that starts with Permit.    | grep "^Permit" /etc/ssh/sshd_config              |
+| Search for all lines that contain a word ending with Authentication. | grep "Authentication$" /etc/ssh/sshd_config      |
+| Search for all lines containing the word Key.                        | grep "\bKey\b" /etc/ssh/sshd_config              |
+| Search for all lines beginning with Password and containing yes.     | grep -E "(^Password.*yes)" /etc/ssh/sshd_config  |
+| Search for all lines that end with yes.                              | grep "yes$" /etc/ssh/sshd_config                 |
+
+
 
 
 
