@@ -452,6 +452,22 @@ Here are some optional tasks to practice regex that can help us to handle it bet
 
 
 
+## Permission Management
 
+Under Linux, permissions are assigned to users and groups. Each user can be a member of different groups, and membership in these groups gives the user specific permissions. Each file and directory belongs to a particular user and a specific group. So, the permissions for users and groups that define a file are also defined for the respective owners. When we create new files or directories, they belong to the group we belong to and us.
+
+When a user wants to access the contents of a Linux directory, they must first traverse it, which means navigating to it. This requires the user to have execute permissions on the directory. Without this permission, the user cannot access the directory's contents and will be presented with a “Permission Denied" error message instead.
+
+It is important to note that execute permissions are necessary to traverse a directory, no matter the user's level of access. Also, **execute** permissions on a directory do not allow a user to **execute** or modify any files or contents within the directory, only to traverse and access the directory's content.
+
+To execute files within the directory, a user needs **execute** permissions on the corresponding file. To modify the contents of a directory (create, delete, or rename files and subdirectories), the user needs **write** permissions on the directory.
+
+The whole permission system on Linux systems is based on the octal number system, and basically, there are three different types of permissions a file or directory can be assigned:
+
+- (**r**) - Read
+- (**w**) - Write
+- (**x**) - Execute
+
+![image](https://github.com/user-attachments/assets/78d2849f-d0b5-4f74-bc0c-a1642348d6bc)
 
 
