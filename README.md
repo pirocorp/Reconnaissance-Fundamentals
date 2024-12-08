@@ -2,7 +2,8 @@
 
 ## Specialized Search Engines
 
-- [HackTricks](https://book.hacktricks.xyz/) - HackTricks is an educational Wiki that compiles knowledge about cyber-security with hundreds of collaborators! It's a huge collection of hacking tricks that the community updates as much as possible to keep it up to date. 
+- [HackTricks](https://book.hacktricks.xyz/) - HackTricks is an educational Wiki that compiles knowledge about cyber-security with hundreds of collaborators! It's a vast collection of hacking tricks that the community updates as much as possible to keep it up to date.
+- [Google Hacking Database](https://www.exploit-db.com/google-hacking-database) - The GHDB is an index of search queries (we call them dorks) used to find publicly available information intended for pen-testers and security researchers.
 - [CVE](https://www.cve.org/) - The Common Vulnerabilities and Exposures (CVE) program can be thought of as a dictionary of vulnerabilities. It provides a standardized identifier for vulnerabilities and security issues in software and hardware products. Each vulnerability is assigned a CVE ID with a standardized format, like `CVE-2024-29988`. This unique identifier (CVE ID) ensures that everyone from security researchers to vendors and IT professionals refers to the same vulnerability, `CVE-2024-29988`.
 - [Exploit DB](https://www.exploit-db.com/) - The Exploit Database - Exploits, Shellcode, 0days, Remote Exploits, Local Exploits, Web Apps, Vulnerability Reports, Security Articles, Tutorials and more.
 - [Shodan](https://www.shodan.io/) - a search engine for devices connected to the Internet. It allows you to search for specific types and versions of servers, networking equipment, industrial control systems, and IoT devices. Consider visiting [Shodan Search Query Examples](https://www.shodan.io/search/examples) for examples.
