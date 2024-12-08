@@ -46,7 +46,7 @@ In this case, the contents of index.html are read and returned by the web server
 
 One significant drawback of HTTP is that all data is transferred in clear text. This means anyone between the source and destination can perform a Man-in-the-middle (MITM) attack to view the transferred data.
 
-To counter this issue, the HTTPS (HTTP Secure) protocol was created. In this protocol, all communications are transferred in an encrypted format, so even if a third party intercepts the request, they cannot extract the data. For this reason, HTTPS has become the mainstream scheme for websites on the Internet. HTTP is being phased out, and soon, most web browsers will not allow visiting HTTP websites.
+The HTTPS (HTTP Secure) protocol was created to counter this issue. In this protocol, all communications are transferred in an encrypted format, so even if a third party intercepts the request, they cannot extract the data. For this reason, HTTPS has become the mainstream scheme for websites on the Internet. HTTP is being phased out, and most web browsers will soon not allow visiting HTTP websites.
 
 ### HTTPS Overview
 
@@ -77,12 +77,12 @@ Next, the client (web browser) sends a "client hello" packet containing informat
 
 Once the handshake is complete successfully, HTTP communication continues, and it is encrypted after that. This is a very high-level overview of the key exchange.
 
-> **Note**: Depending on the circumstances, an attacker may be able to perform an HTTP downgrade attack, which downgrades HTTPS communication to HTTP, making the data transferred in clear-text. This is done by setting up a Man-In-The-Middle (MITM) proxy to transfer all traffic through the attacker's host without the user's knowledge. However, most modern browsers, servers, and web applications protect against this attack.
+> **Note**: Depending on the circumstances, an attacker may be able to perform an HTTP downgrade attack, which downgrades HTTPS communication to HTTP, making the data transferred in clear text. This is done by setting up a Man-In-The-Middle (MITM) proxy to transfer all traffic through the attacker's host without the user's knowledge. However, most modern browsers, servers, and web applications protect against this attack.
 
 
 ## cURL
 
-[cURL](https://curl.haxx.se/) (client URL) is a command-line tool and library that primarily supports HTTP along with many other protocols. This makes it a good candidate for scripts and automation, making it essential for sending various types of web requests from the command line, which is necessary for many types of web penetration tests.
+[cURL](https://curl.haxx.se/) (client URL) is a command-line tool and library that primarily supports HTTP along with many other protocols. This makes it a good candidate for scripts and automation, making it essential for sending various types of web requests from the command line, which is necessary for many web penetration tests.
 
 ![image](https://github.com/user-attachments/assets/4c453681-1840-4fe1-a220-a2ffc20ed44d)
 
@@ -91,4 +91,9 @@ Unlike a web browser, cURL does not render the HTML/JavaScript/CSS code but prin
 We may also use cURL to download a page or a file and output the content into a file using the -O flag. If we want to specify the output file name, we can use the -o flag. Otherwise, we can use `-O` and cURL will use the remote file name as follows:
 
 ![image](https://github.com/user-attachments/assets/64eb1344-6740-4a72-9ba7-c136e1557fb0)
+
+### cURL for HTTPS
+
+cURL should handle all HTTPS communication standards automatically, perform a secure handshake, and then encrypt and decrypt data automatically. However, if we ever contact a website with an invalid or outdated SSL certificate, cURL, by default, will not proceed with the communication to protect against the earlier mentioned MITM attacks.
+
 
