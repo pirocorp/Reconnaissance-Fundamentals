@@ -42,9 +42,47 @@ Once the browser gets the IP address linked to the requested domain, it sends a 
 
 In this case, the contents of index.html are read and returned by the web server as an HTTP response. The response also contains the status code (e.g., 200 OK), indicating the request was successfully processed. The web browser then renders the index.html contents and presents it to the user.
 
+## Hypertext Transfer Protocol Secure (HTTPS)
+
+One significant drawback of HTTP is that all data is transferred in clear text. This means anyone between the source and destination can perform a Man-in-the-middle (MITM) attack to view the transferred data.
+
+To counter this issue, the HTTPS (HTTP Secure) protocol was created. In this protocol, all communications are transferred in an encrypted format, so even if a third party intercepts the request, they cannot extract the data. For this reason, HTTPS has become the mainstream scheme for websites on the Internet. HTTP is being phased out, and soon, most web browsers will not allow visiting HTTP websites.
+
+### HTTPS Overview
+
+If we examine an HTTP request, we can see the effect of not enforcing secure communications between a web browser and a web application. For example, the following is the content of an HTTP login request:
+
+![image](https://github.com/user-attachments/assets/77761f60-dfac-40e1-a6d9-d745674ada7a)
+
+The login credentials are visible in clear text. This would make it easy for someone on the same network (such as a public wireless network) to capture the request and reuse the credentials for malicious purposes.
+
+In contrast, when someone intercepts and analyzes traffic from an HTTPS request, they would see something like the following:
+
+![image](https://github.com/user-attachments/assets/bf1233cc-12ee-4965-9252-87814965fdbb)
+
+As we can see, the data is transferred as a single encrypted stream, which makes it very difficult for anyone to capture information such as credentials or any other sensitive data.
+
+> **Note**: Although the data transferred through the HTTPS protocol may be encrypted, the request may still reveal the visited URL if it contacts a clear-text DNS server. For this reason, it is recommended to utilize encrypted DNS servers (e.g., 8.8.8.8 or 1.1.1.1) or a VPN service to ensure all traffic is adequately encrypted.
+
+
+### HTTPS Flow
+
+Let's look at how HTTPS operates at a high level:
+
+![image](https://github.com/user-attachments/assets/f567d9cb-9b3e-4cda-8d0b-b8ac43482afa)
+
+If we type http:// instead of https:// to visit a website that enforces HTTPS, the browser attempts to resolve the domain and redirects the user to the web server hosting the target website. A request is sent to port 80 first, which is the unencrypted HTTP protocol. The server detects this and redirects the client to secure HTTPS port 443 instead. This is done via the 301 Moved Permanently response code, which we will discuss in an upcoming section.
+
+Next, the client (web browser) sends a "client hello" packet containing information about itself. The server replies with "server hello," followed by a key exchange to exchange SSL certificates. The client verifies the key/certificate and sends one of its own. After this, an encrypted handshake is initiated to confirm whether the encryption and transfer are working correctly.
+
+Once the handshake is complete successfully, HTTP communication continues, and it is encrypted after that. This is a very high-level overview of the key exchange.
+
+> **Note**: Depending on the circumstances, an attacker may be able to perform an HTTP downgrade attack, which downgrades HTTPS communication to HTTP, making the data transferred in clear-text. This is done by setting up a Man-In-The-Middle (MITM) proxy to transfer all traffic through the attacker's host without the user's knowledge. However, most modern browsers, servers, and web applications protect against this attack.
+
+
 ## cURL
 
-[cURL](https://curl.haxx.se/) (client URL) is a command-line tool and library that primarily supports HTTP along with many other protocols. This makes it a good candidate for scripts as well as automation, making it essential for sending various types of web requests from the command line, which is necessary for many types of web penetration tests.
+[cURL](https://curl.haxx.se/) (client URL) is a command-line tool and library that primarily supports HTTP along with many other protocols. This makes it a good candidate for scripts and automation, making it essential for sending various types of web requests from the command line, which is necessary for many types of web penetration tests.
 
 ![image](https://github.com/user-attachments/assets/4c453681-1840-4fe1-a220-a2ffc20ed44d)
 
