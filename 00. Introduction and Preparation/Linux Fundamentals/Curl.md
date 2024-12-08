@@ -38,6 +38,19 @@ The diagram above presents the anatomy of an HTTP request at a very high level. 
 
 > **Note**: Our browsers usually first look up records in the local `/etc/hosts` file, and if the requested domain does not exist within it, they will contact other DNS servers. We can use the `/etc/hosts` to manually add records for DNS resolution by adding the IP followed by the domain name.
 
+Once the browser gets the IP address linked to the requested domain, it sends a GET request to the default HTTP/S port (e.g., 80/443), asking for the root/path. The web server then receives the request and processes it. By default, servers are configured to return an index file when a request for / is received.
 
+In this case, the contents of index.html are read and returned by the web server as an HTTP response. The response also contains the status code (e.g., 200 OK), indicating the request was successfully processed. The web browser then renders the index.html contents and presents it to the user.
 
+## cURL
+
+[cURL](https://curl.haxx.se/) (client URL) is a command-line tool and library that primarily supports HTTP along with many other protocols. This makes it a good candidate for scripts as well as automation, making it essential for sending various types of web requests from the command line, which is necessary for many types of web penetration tests.
+
+![image](https://github.com/user-attachments/assets/4c453681-1840-4fe1-a220-a2ffc20ed44d)
+
+Unlike a web browser, cURL does not render the HTML/JavaScript/CSS code but prints it in its raw format. However, as penetration testers, we are mainly interested in the request and response context, which usually becomes much faster and more convenient than a web browser.
+
+We may also use cURL to download a page or a file and output the content into a file using the -O flag. If we want to specify the output file name, we can use the -o flag. Otherwise, we can use `-O` and cURL will use the remote file name as follows:
+
+![image](https://github.com/user-attachments/assets/64eb1344-6740-4a72-9ba7-c136e1557fb0)
 
