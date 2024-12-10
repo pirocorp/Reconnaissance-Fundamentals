@@ -84,3 +84,40 @@ This might not be directly guessable by an attacker. However, the application mi
 
 This script adds a link to the user's UI if they are an admin user. However, the script containing the URL is visible to all users regardless of their role.
 
+
+#### Parameter-based access control methods
+
+Some applications determine the user's access rights or role at login and store this information in a user-controllable location. This could be:
+
+- A hidden field.
+- A cookie.
+- A preset query string parameter.
+
+The application makes access control decisions based on the submitted value. For example:
+
+```URL
+https://insecure-website.com/login/home.jsp?admin=true
+https://insecure-website.com/login/home.jsp?role=1
+```
+
+This approach is insecure because users, such as administrative functions, can modify the value and access functionality they're not authorized to.
+
+### Horizontal privilege escalation
+
+Horizontal privilege escalation occurs if a user can gain access to resources belonging to another user instead of their resources of that type. For example, if an employee can access the records of other employees and their own, then this is horizontal privilege escalation.
+
+Horizontal privilege escalation attacks may use similar types of exploit methods to vertical privilege escalation. For example, a user might access their account page using the following URL:
+
+```URL
+https://insecure-website.com/myaccount?id=123
+```
+
+If an attacker modifies the ```id``` parameter value to that of another user, they might gain access to another user's account page and the associated data and functions.
+
+> **Note** This is an example of an insecure direct object reference (IDOR) vulnerability. This type of vulnerability arises when user-controller parameter values are used to access resources or functions directly.
+
+In some applications, the exploitable parameter does not have a predictable value. For example, an application might use globally unique identifiers (GUIDs) instead of an incrementing number to identify users. This may prevent an attacker from guessing or predicting another user's identifier. However, the GUIDs belonging to other users might be disclosed elsewhere in the application where users are referenced, such as user messages or reviews.
+
+### Horizontal to vertical privilege escalation
+
+
