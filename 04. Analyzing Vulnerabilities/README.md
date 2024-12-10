@@ -283,9 +283,39 @@ This script enables you to pass an arbitrary system command via a query paramete
 GET /example/exploit.php?command=id HTTP/1.1
 ```
 
+### Flawed file type validation
 
+When submitting HTML forms, the browser typically sends the provided data in a POST request with the content type `application/x-www-form-url-encoded`. This is fine for sending simple text like your name or address. However, it isn't suitable for sending large amounts of binary data, such as an entire image or PDF document. The content type `multipart/form-data` is preferred in this case.
 
+Consider a form containing fields for uploading an image, providing a description, and entering your username. Submitting such a form might result in a request that looks something like this:
 
+```HTTP
+POST /images HTTP/1.1
+Host: normal-website.com
+Content-Length: 12345
+Content-Type: multipart/form-data; boundary=---------------------------012345678901234567890123456
+
+---------------------------012345678901234567890123456
+Content-Disposition: form-data; name="image"; filename="example.jpg"
+Content-Type: image/jpeg
+
+[...binary content of example.jpg...]
+
+---------------------------012345678901234567890123456
+Content-Disposition: form-data; name="description"
+
+This is an interesting description of my image.
+
+---------------------------012345678901234567890123456
+Content-Disposition: form-data; name="username"
+
+wiener
+---------------------------012345678901234567890123456--
+```
+
+As you can see, the message body is split into separate parts for each of the form's inputs. Each part contains a `Content-Disposition` header, which provides basic information about the input field it relates to. These individual parts may also include their own `Content-Type` header, which tells the server the MIME type of the submitted data using this input.
+
+One way that websites may attempt to validate file uploads is to check that this input-specific `Content-Type` header matches an expected MIME type. For example, if the server only expects image files, it may only allow types like `image/jpeg` and `image/png`. Problems can arise when the server implicitly trusts the value of this header. If no further validation is performed to check whether the file's contents match the supposed MIME type, this defense can be easily bypassed using tools like [Burp Repeater](https://portswigger.net/burp/documentation/desktop/tools/repeater).
 
 
 
