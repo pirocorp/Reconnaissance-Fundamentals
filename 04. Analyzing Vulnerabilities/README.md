@@ -377,4 +377,24 @@ The three lines of output demonstrate that:
 Placing the additional command separator `&` after the injected command is helpful because it separates the injected command from whatever follows the injection point. This reduces the chance that what follows will prevent the injected command from executing.
 
 
+## SQL injection (SQLi)
+
+SQL injection (SQLi) is a web security vulnerability that allows an attacker to interfere with an application's database queries. This can allow an attacker to view data that they are not normally able to retrieve. This might include data that belongs to other users or any other data that the application can access. An attacker can often modify or delete this data, causing persistent changes to the application's content or behavior.
+
+Sometimes, an attacker can escalate a SQL injection attack to compromise the underlying server or other back-end infrastructure. It can also enable them to perform denial-of-service attacks.
+
+### How to detect SQL injection vulnerabilities
+
+You can detect SQL injection manually using a systematic set of tests against every entry point in the application. To do this, you would typically submit:
+
+- The single quote character `'` and look for errors or other anomalies.
+- Some SQL-specific syntax evaluates the entry point's base (original) value and sets it to a different value, looking for systematic differences in the application responses.
+- Boolean conditions such as `OR 1=1` and `OR 1=2`, and look for differences in the application's responses.
+- Payloads are designed to trigger time delays when executed within an SQL query, and they look for differences in the time taken to respond.
+- OAST payloads are designed to trigger an out-of-band network interaction when executed within a SQL query and monitor any resulting interactions.
+  
+Alternatively, you can find most SQL injection vulnerabilities quickly and reliably using [Burp Scanner](https://portswigger.net/burp/documentation/scanner).
+
+
+
 
