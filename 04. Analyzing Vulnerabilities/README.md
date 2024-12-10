@@ -423,4 +423,30 @@ This results in the SQL query:
 SELECT * FROM products WHERE category = 'Gifts'--' AND released = 1
 ```
 
+Note that `--` is a comment indicator in SQL. This means that the rest of the query is interpreted as a comment, effectively removing it. This example implies the query no longer includes `AND released = 1`. As a result, all products are displayed, including those not yet released.
+
+You can use a similar attack to cause the application to display all the products in any category, including categories that they don't know about:
+
+```URL
+https://insecure-website.com/products?category=Gifts'+OR+1=1--
+```
+
+This results in the SQL query:
+
+```SQL
+SELECT * FROM products WHERE category = 'Gifts' OR 1=1--' AND released = 1
+```
+
+The modified query returns all items where the `category` is `Gifts`, or `1` is equal to `1`. The query returns all items as `1=1` is always `true`.
+
+
+> **Warning**
+>
+> Take care when injecting the condition `OR 1=1` into an SQL query. Even if it appears harmless in the context you're injecting into, it's common for applications to use data from a single request in multiple queries. For example, if your condition reaches an `UPDATE` or `DELETE` statement, it can result in an accidental data loss.
+
+
+
+
+
+
 
