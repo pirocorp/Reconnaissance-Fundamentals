@@ -261,6 +261,7 @@ Ultimately, even robust validation measures may be applied inconsistently across
 From a security perspective, the worst scenario is when a website allows you to upload server-side scripts, such as PHP, Java, or Python files, and is configured to execute them as code. This makes it trivial to create your own web shell on the server.
 
 > **Web shell**
+> 
 > A web shell is a malicious script that enables an attacker to execute arbitrary commands on a remote web server simply by sending HTTP requests to the right endpoint.
 
 
