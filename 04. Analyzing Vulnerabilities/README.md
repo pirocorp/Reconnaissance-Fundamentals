@@ -226,11 +226,19 @@ Why do applications behave this way and implicitly trust requests from the local
 
 These trust relationships, where requests originating from the local machine are handled differently than ordinary requests, often make SSRF a critical vulnerability.
 
+### SSRF attacks against other back-end systems
 
+Sometimes, the application server can interact with back-end systems that users cannot directly reach. These systems often have non-routable private IP addresses. The network topology normally protects the back-end systems, so they often have a weaker security posture. In many cases, internal back-end systems contain sensitive functionality that can be accessed without authentication by anyone who can interact with the systems.
 
+In the previous example, imagine an administrative interface at the back-end URL `https://192.168.0.68/admin`. An attacker can submit the following request to exploit the SSRF vulnerability and access the administrative interface:
 
+```HTTP
+POST /product/stock HTTP/1.0
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 118
 
-
+stockApi=http://192.168.0.68/admin
+```
 
 
 
