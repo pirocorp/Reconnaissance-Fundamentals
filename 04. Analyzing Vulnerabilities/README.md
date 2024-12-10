@@ -258,11 +258,32 @@ Ultimately, even robust validation measures may be applied inconsistently across
 
 ### Exploiting unrestricted file uploads to deploy a web shell
 
-From a security perspective, the worst scenario is when a website allows you to upload server-side scripts, such as PHP, Java, or Python files, and is configured to execute them as code. This makes it trivial to create your own web shell on the server.
+From a security perspective, the worst scenario is when a website allows you to upload server-side scripts, such as PHP, Java, or Python files, and is configured to execute them as code. This makes it trivial to create your web shell on the server.
 
 > **Web shell**
 > 
-> A web shell is a malicious script that enables an attacker to execute arbitrary commands on a remote web server simply by sending HTTP requests to the right endpoint.
+> A web shell is a malicious script that enables an attacker to execute arbitrary commands on a remote web server simply by sending HTTP requests to the correct endpoint.
+
+If you can successfully upload a web shell, you effectively have complete control over the server. This means you can read and write arbitrary files, exfiltrate sensitive data, and even use the server to pivot attacks against internal infrastructure and servers outside the network. For example, the following PHP one-liner could be used to read arbitrary files from the server's filesystem:
+
+```php
+<?php echo file_get_contents('/path/to/target/file'); ?>
+```
+Once uploaded, sending a request for this malicious file will return the contents of the target file in the response.
+
+A more versatile web shell may look something like this:
+
+```php
+<?php echo system($_GET['command']); ?>
+```
+
+This script enables you to pass an arbitrary system command via a query parameter as follows:
+
+```HTTP
+GET /example/exploit.php?command=id HTTP/1.1
+```
+
+
 
 
 
