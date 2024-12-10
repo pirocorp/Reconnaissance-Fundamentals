@@ -128,7 +128,53 @@ An attacker might be able to gain access to another user's account page using th
 https://insecure-website.com/myaccount?id=456
 ```
 
-If the target user is an application administrator, the attacker will gain access to an administrative account page. This page might disclose the administrator's password, provide a means of changing it, or provide direct access to privileged functionality.
+The attacker will gain access to an administrative account page if the target user is an application administrator. This page might disclose the administrator's password, provide a means of changing it, or provide direct access to privileged functionality.
+
+
+## Authentication vulnerabilities
+
+Authentication vulnerabilities are easy to understand conceptually. However, they are usually critical because of the clear relationship between authentication and security.
+
+Authentication vulnerabilities can allow attackers to gain access to sensitive data and functionality and expose an additional attack surface for further exploits. For this reason, it's important to learn how to identify and exploit authentication vulnerabilities and bypass common protection measures.
+
+
+### What is the difference between authentication and authorization?
+
+**Authentication** verifies that a user is who they claim to be. **Authorization** involves verifying whether a user is allowed to do something.
+
+### Brute-force attacks
+
+A brute-force attack is when an attacker uses a trial-and-error system to guess valid user credentials. These attacks are typically automated using wordlists of usernames and passwords. Automating this process, especially using dedicated tools, potentially enables an attacker to make many login attempts quickly.
+
+Brute-forcing is not always a case of making completely random guesses at usernames and passwords. By also using basic logic or publicly available knowledge, attackers can fine-tune brute-force attacks to make much more educated guesses, considerably increasing their efficiency. Websites that rely on password-based login as their sole method of authenticating users can be highly vulnerable if they do not implement sufficient brute-force protection.
+
+#### Brute-forcing usernames
+
+Usernames are especially easy to guess if they conform to a recognizable pattern, such as an email address. For example, it is very common to see business logins in the format `firstname.lastname@somecompany.com`. However, even with no apparent pattern, sometimes high-privileged accounts are created using predictable usernames, such as `admin` or `administrator`.
+
+During auditing, check whether the website discloses potential usernames publicly. For example, are you able to access user profiles without logging in? Even if the actual content of the profiles is hidden, the name used in the profile is sometimes the same as the login username. You should also check HTTP responses to see if any email addresses are disclosed. Occasionally, responses contain email addresses of high-privileged users, such as administrators or IT support.
+
+#### Brute-forcing passwords
+
+Passwords can similarly be brute-forced, with the difficulty varying based on the password's strength. Many websites adopt some form of password policy, which forces users to create high-entropy passwords that are, theoretically, at least, more challenging to crack using brute force alone. This typically involves enforcing passwords with the following:
+
+- A minimum number of characters
+- A mixture of lower and uppercase letters
+- At least one special character
+
+However, while high-entropy passwords are complex for computers alone to crack, we can use a basic knowledge of human behavior to exploit the vulnerabilities that users unwittingly introduce to this system. Rather than creating a strong password with a random combination of characters, users often take a password they can remember and try to crowbar it to fit the password policy. For example, if `mypassword` is not allowed, users may try something like `Mypassword1!` or `Myp4$$w0rd` instead.
+
+In cases where the policy requires users to change their passwords regularly, it is common for users to make minor, predictable changes to their preferred password. For example, `Mypassword1!` becomes `Mypassword1?` or `Mypassword2!`.
+
+This knowledge of likely credentials and predictable patterns means that brute-force attacks can often be much more sophisticated and, therefore, effective than simply iterating through every possible combination of characters.
+
+### Username enumeration
+
+Username enumeration occurs when an attacker is able to observe changes in the website's behavior and identify whether a given username is valid.
+
+Username enumeration typically occurs on the login page, for example, when you enter a valid username but an incorrect password or on registration forms when you enter a username already taken. This dramatically reduces the time and effort required to brute-force a login because the attacker can quickly generate a shortlist of valid usernames.
+
+
 
 
 
