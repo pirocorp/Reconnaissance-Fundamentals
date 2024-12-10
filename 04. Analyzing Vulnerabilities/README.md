@@ -133,9 +133,9 @@ The attacker will gain access to an administrative account page if the target us
 
 ## Authentication vulnerabilities
 
-Authentication vulnerabilities are easy to understand conceptually. However, they are usually critical because of the clear relationship between authentication and security.
+Authentication vulnerabilities are easy to understand conceptually. However, they are usually critical because of the precise relationship between authentication and security.
 
-Authentication vulnerabilities can allow attackers to gain access to sensitive data and functionality and expose an additional attack surface for further exploits. For this reason, it's important to learn how to identify and exploit authentication vulnerabilities and bypass common protection measures.
+Authentication vulnerabilities allow attackers to access sensitive data and functionality and expose an additional attack surface for further exploits. For this reason, it's essential to learn how to identify and exploit authentication vulnerabilities and bypass standard protection measures.
 
 
 ### What is the difference between authentication and authorization?
@@ -146,7 +146,7 @@ Authentication vulnerabilities can allow attackers to gain access to sensitive d
 
 A brute-force attack is when an attacker uses a trial-and-error system to guess valid user credentials. These attacks are typically automated using wordlists of usernames and passwords. Automating this process, especially using dedicated tools, potentially enables an attacker to make many login attempts quickly.
 
-Brute-forcing is not always a case of making completely random guesses at usernames and passwords. By also using basic logic or publicly available knowledge, attackers can fine-tune brute-force attacks to make much more educated guesses, considerably increasing their efficiency. Websites that rely on password-based login as their sole method of authenticating users can be highly vulnerable if they do not implement sufficient brute-force protection.
+Brute-forcing is not always a case of making completely random guesses at usernames and passwords. Using basic logic or publicly available knowledge, attackers can fine-tune brute-force attacks to make much more educated guesses, considerably increasing their efficiency. Websites that rely on password-based login as their sole method of authenticating users can be highly vulnerable if they do not implement sufficient brute-force protection.
 
 #### Brute-forcing usernames
 
@@ -166,15 +166,19 @@ However, while high-entropy passwords are complex for computers alone to crack, 
 
 In cases where the policy requires users to change their passwords regularly, it is common for users to make minor, predictable changes to their preferred password. For example, `Mypassword1!` becomes `Mypassword1?` or `Mypassword2!`.
 
-This knowledge of likely credentials and predictable patterns means that brute-force attacks can often be much more sophisticated and, therefore, effective than simply iterating through every possible combination of characters.
+This knowledge of likely credentials and predictable patterns means that brute-force attacks can often be much more sophisticated and effective than simply iterating through every possible combination of characters.
 
 ### Username enumeration
 
-Username enumeration occurs when an attacker is able to observe changes in the website's behavior and identify whether a given username is valid.
+Username enumeration occurs when an attacker can observe changes in the website's behavior and identify whether a given username is valid.
 
 Username enumeration typically occurs on the login page, for example, when you enter a valid username but an incorrect password or on registration forms when you enter a username already taken. This dramatically reduces the time and effort required to brute-force a login because the attacker can quickly generate a shortlist of valid usernames.
 
+### Bypassing two-factor authentication
 
+At times, the implementation of two-factor authentication is flawed to the point where it can be bypassed entirely.
+
+If the user is first prompted to enter a password and then prompted to enter a verification code on a separate page, the user is effectively in a "logged in" state before entering the verification code. In this case, it is worth testing to see if you can directly skip to "logged-in only" pages after completing the first authentication step. Occasionally, a website doesn't check whether or not you completed the second step before loading the page.
 
 
 
