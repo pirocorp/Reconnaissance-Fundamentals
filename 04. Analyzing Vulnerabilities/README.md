@@ -14,7 +14,7 @@ In some cases, an attacker might be able to write to arbitrary files on the serv
 
 Example:
 
-```url
+```URL
 https://insecure-website.com/loadImage?filename=../../../etc/passwd
 ```
 
@@ -24,4 +24,18 @@ This causes the application to read from the following file path:
 /var/www/images/../../../etc/passwd
 ```
 
-On Unix-based operating systems, this is a standard file containing details of the server's registered users. Still, an attacker could retrieve other arbitrary files using the same technique.
+This is a standard file on Unix-based operating systems containing details of the server's registered users. Still, an attacker could retrieve other arbitrary files using the same technique.
+
+
+## Access Control
+
+Access control applies constraints on who or what is authorized to perform actions or access resources. In the context of web applications, access control is dependent on authentication and session management:
+
+- **Authentication** confirms that the user is who they say they are.
+- **Session management** identifies which user makes subsequent HTTP requests.
+- **Access control** determines whether the user can perform the action they are attempting to perform.
+
+Broken access controls are common and often present a critical security vulnerability. Design and management of access controls are complex and dynamic problems that apply business, organizational, and legal constraints to a technical implementation. Access control design decisions have to be made by humans, so the potential for errors is high.
+
+
+
