@@ -62,6 +62,8 @@ To find a vulnerability, you must be aware of what vulnerability is and what typ
 Do not look at finding vulnerabilities like a linear process. It is not going through an extensive checklist. Instead, be as creative as you can and perform illogical and logical things. Force the application to behave unexpectedly, research, and find the bug.
 
 
+## [Analyzing Vulnerabilities](04.%20Analyzing%20Vulnerabilities)
 
+Vulnerabilities are, at their core, poorly written code. The better you are with coding, the more you can understand everything. Vulnerabilities are a core concept in cyber security. On one hand, they must be mitigated/patched, and on the other, they must be exploited.
 
 
