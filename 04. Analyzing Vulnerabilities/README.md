@@ -379,7 +379,7 @@ Placing the additional command separator `&` after the injected command is helpf
 
 ## SQL injection (SQLi)
 
-SQL injection (SQLi) is a web security vulnerability that allows an attacker to interfere with an application's database queries. This can allow an attacker to view data that they are not normally able to retrieve. This might include data that belongs to other users or any other data that the application can access. An attacker can often modify or delete this data, causing persistent changes to the application's content or behavior.
+SQL injection (SQLi) is a web security vulnerability that allows an attacker to interfere with an application's database queries. This can allow an attacker to view data they cannot typically retrieve, including data belonging to other users or any other data the application can access. An attacker can often modify or delete this data, causing persistent changes to the application's content or behavior.
 
 Sometimes, an attacker can escalate a SQL injection attack to compromise the underlying server or other back-end infrastructure. It can also enable them to perform denial-of-service attacks.
 
@@ -393,8 +393,34 @@ You can detect SQL injection manually using a systematic set of tests against ev
 - Payloads are designed to trigger time delays when executed within an SQL query, and they look for differences in the time taken to respond.
 - OAST payloads are designed to trigger an out-of-band network interaction when executed within a SQL query and monitor any resulting interactions.
   
-Alternatively, you can find most SQL injection vulnerabilities quickly and reliably using [Burp Scanner](https://portswigger.net/burp/documentation/scanner).
+Alternatively, you can quickly and reliably find most SQL injection vulnerabilities using [Burp Scanner](https://portswigger.net/burp/documentation/scanner).
 
+### Retrieving hidden data
 
+Imagine a shopping application that displays products in different categories. When the user clicks on the Gifts category, their browser requests the URL:
+
+```URL
+https://insecure-website.com/products?category=Gifts
+```
+
+This causes the application to make a SQL query to retrieve details of the relevant products from the database:
+
+```SQL
+SELECT * FROM products WHERE category = 'Gifts' AND released = 1
+```
+
+The restriction `released = 1` is being used to hide products that have not been released. We could assume that `released = 0` applies to unreleased products.
+
+The application doesn't implement any defenses against SQL injection attacks. This means an attacker can construct the following attack, for example:
+
+```URL
+https://insecure-website.com/products?category=Gifts'--
+```
+
+This results in the SQL query:
+
+```SQL
+SELECT * FROM products WHERE category = 'Gifts'--' AND released = 1
+```
 
 
