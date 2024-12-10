@@ -120,4 +120,17 @@ In some applications, the exploitable parameter does not have a predictable valu
 
 ### Horizontal to vertical privilege escalation
 
+Often, a horizontal privilege escalation attack can be turned into a vertical privilege escalation by compromising a more privileged user. For example, a horizontal escalation might allow an attacker to reset or capture another user's password. If the attacker targets an administrative user and compromises their account, they can gain administrative access and perform vertical privilege escalation.
+
+An attacker might be able to gain access to another user's account page using the parameter tampering technique already described for horizontal privilege escalation:
+
+```URL
+https://insecure-website.com/myaccount?id=456
+```
+
+If the target user is an application administrator, the attacker will gain access to an administrative account page. This page might disclose the administrator's password, provide a means of changing it, or provide direct access to privileged functionality.
+
+
+
+
 
