@@ -318,6 +318,19 @@ As you can see, the message body is split into separate parts for each of the fo
 One way that websites may attempt to validate file uploads is to check that this input-specific `Content-Type` header matches an expected MIME type. For example, if the server only expects image files, it may only allow types like `image/jpeg` and `image/png`. Problems can arise when the server implicitly trusts the value of this header. If no further validation is performed to check whether the file's contents match the supposed MIME type, this defense can be easily bypassed using tools like [Burp Repeater](https://portswigger.net/burp/documentation/desktop/tools/repeater).
 
 
+## OS command injection
 
+OS command injection, also known as shell injection, allows an attacker to execute operating system (OS) commands on the server running an application, typically fully compromising the application and its data. Often, an attacker can leverage an OS command injection vulnerability to compromise other parts of the hosting infrastructure and exploit trust relationships to pivot the attack to other systems within the organization.
 
+### Useful commands
+
+After you identify an OS command injection vulnerability, executing some initial commands to obtain information about the system is helpful. Below is a summary of some commands that are useful on Linux and Windows platforms:
+
+|   Purpose of command  |    Linux    |    Windows    |
+|:---------------------:|:-----------:|:-------------:|
+| Name of current user  | whoami      | whoami        |
+| Operating system      | uname -a    | ver           |
+| Network configuration | ifconfig    | ipconfig /all |
+| Network connections   | netstat -an | netstat -an   |
+| Running processes     | ps -ef      | tasklist      |
 
