@@ -240,14 +240,28 @@ Content-Length: 118
 stockApi=http://192.168.0.68/admin
 ```
 
+## File Upload Vulnerabilities
 
+File upload vulnerabilities are when a web server allows users to upload files to its filesystem without sufficiently validating their name, type, contents, or size. Failing to enforce restrictions on these properly could mean that even an essential image upload function can be used to upload arbitrary and potentially dangerous files instead. This could even include server-side script files that enable remote code execution.
 
+In some cases, uploading the file is enough to cause damage. Other attacks may involve a follow-up HTTP request for the file, typically to trigger the server's execution.
 
+### How do file upload vulnerabilities arise?
 
+Given the apparent dangers, it's rare for websites in the wild to have no restrictions whatsoever on which files users can upload. More commonly, developers implement what they believe to be robust validation that is either inherently flawed or can be easily bypassed.
 
+For example, they may attempt to blacklist dangerous file types but fail to account for parsing discrepancies when checking the file extensions. As with any blacklist, it's also easy to accidentally omit more obscure file types that may still be dangerous.
 
+In other cases, the website may attempt to check the file type by verifying properties that an attacker can easily manipulate using tools like [Burp Proxy](https://portswigger.net/burp/documentation/desktop/tools/proxy) or [Repeater](https://portswigger.net/burp/documentation/desktop/tools/repeater).
 
+Ultimately, even robust validation measures may be applied inconsistently across the website's network of hosts and directories, resulting in discrepancies that can be exploited.
 
+### Exploiting unrestricted file uploads to deploy a web shell
+
+From a security perspective, the worst scenario is when a website allows you to upload server-side scripts, such as PHP, Java, or Python files, and is configured to execute them as code. This makes it trivial to create your own web shell on the server.
+
+> **Web shell**
+> A web shell is a malicious script that enables an attacker to execute arbitrary commands on a remote web server simply by sending HTTP requests to the right endpoint.
 
 
 
