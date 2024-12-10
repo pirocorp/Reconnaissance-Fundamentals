@@ -214,6 +214,32 @@ Content-Length: 118
 stockApi=http://localhost/admin
 ```
 
+The server fetches the contents of the `/admin` URL and returns it to the user.
+
+An attacker can visit the `/admin` URL, but the administrative functionality is usually only accessible to authenticated users. This means an attacker won't see anything of interest. However, the normal access controls are bypassed if the request to the `/admin` URL comes from the local machine. The application grants full access to the administrative functionality because the request appears to originate from a trusted location.
+
+Why do applications behave this way and implicitly trust requests from the local machine? This can arise for various reasons:
+
+- The access control check might be implemented in a different component before the application server. The check is bypassed when a connection is made back to the server.
+- For disaster recovery purposes, the application might allow administrative access, without logging in, to any user coming from the local machine. This allows an administrator to recover the system if they lose their credentials. This assumes that only a fully trusted user would come directly from the server.
+- The administrative interface might listen on a different port number from the main application and might not be reachable directly by users.
+
+These trust relationships, where requests originating from the local machine are handled differently than ordinary requests, often make SSRF a critical vulnerability.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
