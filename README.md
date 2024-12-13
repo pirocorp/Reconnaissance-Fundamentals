@@ -26,6 +26,7 @@
 - [Vulnerable Hub](https://www.vulnhub.com/)
 - [bWAPP: bee-box](https://www.vulnhub.com/entry/bwapp-bee-box-v16,53/)
 - [PortSwigger](https://portswigger.net/)
+- [Awesome Vulnerable Applications](https://github.com/vavkamil/awesome-vulnerable-apps)
 
 ## Information Gathering
 
