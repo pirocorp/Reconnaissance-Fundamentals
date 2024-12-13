@@ -50,5 +50,21 @@ nmap -sC -sV -p 80,135,139,445,2179,5040,5357,5938,7680,32400,49664,49665,49666,
 ![image](https://github.com/user-attachments/assets/0c09495d-d64b-428a-a22c-edc9184515eb)
 
 
+Outdated Software
+
+Apache 2.4.7
+
+![image](https://github.com/user-attachments/assets/79cf310f-e7a1-47e1-8445-80b2a6334ea4)
+
+Some examples of critical vulnerabilities with publicly available exploits: 
+
+- CVE-2014-0226 (mod_status vulnerability)
+- CVE-2014-0098 (mod_deflate vulnerability)
+- CVE-2017-15715 (path traversal issues)
+
+
+Clear text credentials 
+
+![image](https://github.com/user-attachments/assets/367eb8f6-413d-49f6-9418-74f5eb86c370)
 
 
