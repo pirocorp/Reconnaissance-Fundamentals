@@ -68,3 +68,11 @@ Clear text credentials
 ![image](https://github.com/user-attachments/assets/367eb8f6-413d-49f6-9418-74f5eb86c370)
 
 
+Found MySQL password in the bWAPp logs and was able to connect remotely
+
+```bash
+mysql -uadmin -p010lPVu26eg4 -h 192.168.0.204 --skip-ssl
+```
+
+![image](https://github.com/user-attachments/assets/7aa1909b-b9ae-4489-a2ad-046ef32ffc25)
+
