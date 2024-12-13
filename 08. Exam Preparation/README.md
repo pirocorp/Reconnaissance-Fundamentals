@@ -3,7 +3,8 @@
 ## OS INT - for the exam
 
 - Google
-- Bing / Duckduckgo
+- Bing
+- Duckduckgo
 - GitHub
 - Gitlab
 - Pastebin
