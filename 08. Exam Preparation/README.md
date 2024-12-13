@@ -47,7 +47,8 @@ nmap -sC -sV -p 80,135,139,445,2179,5040,5357,5938,7680,32400,49664,49665,49666,
 - `-sV`: Enables version detection, which attempts to determine the versions of the services running on the specified ports.
 - `-p`: Specifies the list of ports to scan. In this case, Nmap will focus only on these specific ports.
 
-![image](https://github.com/user-attachments/assets/20f0e55b-9811-44bd-83f4-f8bd80f64e27)
+![image](https://github.com/user-attachments/assets/0c09495d-d64b-428a-a22c-edc9184515eb)
+
 
 
 
