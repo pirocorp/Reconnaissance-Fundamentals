@@ -66,4 +66,4 @@ Do not look at finding vulnerabilities like a linear process. It is not going th
 
 Vulnerabilities are, at their core, poorly written code. The better you are with coding, the more you can understand everything. Vulnerabilities are a core concept in cyber security. On one hand, they must be mitigated/patched, and on the other, they must be exploited.
 
-
+## [Local System Scanning](05.%20System%20scanning)
