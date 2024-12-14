@@ -79,6 +79,49 @@ Once the handshake is complete successfully, HTTP communication continues, and i
 
 > **Note**: Depending on the circumstances, an attacker may be able to perform an HTTP downgrade attack, which downgrades HTTPS communication to HTTP, making the data transferred in clear text. This is done by setting up a Man-In-The-Middle (MITM) proxy to transfer all traffic through the attacker's host without the user's knowledge. However, most modern browsers, servers, and web applications protect against this attack.
 
+## HTTP Requests and Responses
+
+HTTP communications mainly consist of an HTTP request and an HTTP response. An HTTP request is made by the client (e.g., cURL/browser) and is processed by the server (e.g., web server). The requests contain all the details we require from the server, including the resource (e.g., URL, path, parameters), any request data, headers or options we specify, and many other options we will discuss throughout this module.
+
+Once the server receives the HTTP request, it processes it and sends the HTTP response containing the response code, as discussed in a later section. It may also include the resource data if the requester can access it.
+
+### HTTP Request
+
+Let's start by examining the following example HTTP request:
+
+![image](https://github.com/user-attachments/assets/88e2aaa0-affc-41ee-9044-f030295b6085)
+
+The image above shows an HTTP GET request to the URL:
+
+```URL
+http://inlanefreight.com/users/login.html
+```
+
+The first line of any HTTP request contains three main fields 'separated by spaces':
+
+| Field   | Example           | Description                                                                                                         |
+|---------|-------------------|---------------------------------------------------------------------------------------------------------------------|
+| Method  | GET               | The HTTP method or verb, which specifies the type of action to perform.                                             |
+| Path    | /users/login.html | The path to the resource being accessed. This field can also be suffixed with a query string (e.g. ?username=user). |
+| Version | HTTP/1.1          | The third and final field denotes the HTTP version.                                                                 |
+
+The next set of lines contains HTTP header value pairs, like `Host`, `User-Agent`, `Cookie`, and many other possible headers. These headers are used to specify various attributes of a request. The headers are terminated with a new line, which is necessary for the server to validate the request. Finally, a request may end with the request body and data.
+
+> **Note**: HTTP version 1.X sends requests as clear text and uses a new-line character to separate different fields and requests. On the other hand, HTTP version 2.X sends requests as binary data in a dictionary form.
+
+### HTTP Response
+
+Once the server processes our request, it sends its response. The following is an example HTTP response:
+
+![image](https://github.com/user-attachments/assets/ac08b2f9-8dd9-4ed9-8b37-e377fa713a74)
+
+The first line of an HTTP response contains two fields separated by spaces. The first is the HTTP version (e.g., HTTP/1.1), and the second denotes the HTTP response code (e.g., 200 OK).
+
+Response codes are used to determine the request's status, as will be discussed later. After the first line, the response lists its headers, similar to an HTTP request. Both request and response headers are discussed in the next section.
+
+Finally, the response may end with a response body, separated by a new line after the headers. The response body is usually defined as HTML code. However, it can also respond with other code types such as JSON, website resources such as images, style sheets, or scripts, or even a document such as a PDF document hosted on the webserver.
+
+
 
 ## cURL
 
@@ -88,7 +131,7 @@ Once the handshake is complete successfully, HTTP communication continues, and i
 
 Unlike a web browser, cURL does not render the HTML/JavaScript/CSS code but prints it in its raw format. However, as penetration testers, we are mainly interested in the request and response context, which usually becomes much faster and more convenient than a web browser.
 
-We may also use cURL to download a page or a file and output the content into a file using the -O flag. If we want to specify the output file name, we can use the -o flag. Otherwise, we can use `-O` and cURL will use the remote file name as follows:
+We may also use cURL to download a page or a file and output the content into a file using the -O flag. We want to specify the output file name, we can use the -o flag. Otherwise, we can use `-O` and cURL will use the remote file name as follows:
 
 ![image](https://github.com/user-attachments/assets/64eb1344-6740-4a72-9ba7-c136e1557fb0)
 
