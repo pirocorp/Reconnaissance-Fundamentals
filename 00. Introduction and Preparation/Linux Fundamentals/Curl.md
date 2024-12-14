@@ -10,7 +10,7 @@ Today, the majority of our applications, both web and mobile, constantly interac
 
 HTTP communication consists of a client and a server, where the client requests the server for a resource. The server processes the requests and returns the requested resource. The default port for HTTP communication is port 80, which can be changed to any other port, depending on the web server configuration. The exact requests are utilized when visiting different websites on the internet. To reach the desired website, we enter a Fully Qualified Domain Name (FQDN) as a Uniform Resource Locator (URL).
 
-### URL
+## URL
 
 Resources over HTTP are accessed via a URL, which offers many more specifications than simply specifying a website we want to visit. Let's look at the structure of a URL: 
 
@@ -30,7 +30,7 @@ Here is what each component stands for:
 
 Not all components are required to access a resource. The main mandatory fields are the scheme and the host, without which the request would have no resources to request.
 
-### HTTP Flow
+## HTTP Flow
 
 ![image](https://github.com/user-attachments/assets/dbfe3bf7-55f6-4c8d-aae5-e55efb02d3e5)
 
@@ -48,7 +48,7 @@ One significant drawback of HTTP is that all data is transferred in clear text. 
 
 The HTTPS (HTTP Secure) protocol was created to counter this issue. In this protocol, all communications are transferred in an encrypted format, so even if a third party intercepts the request, they cannot extract the data. For this reason, HTTPS has become the mainstream scheme for websites on the Internet. HTTP is being phased out, and most web browsers will soon not allow visiting HTTP websites.
 
-### HTTPS Overview
+## HTTPS Overview
 
 If we examine an HTTP request, we can see the effect of not enforcing secure communications between a web browser and a web application. For example, the following is the content of an HTTP login request:
 
@@ -121,6 +121,12 @@ Response codes are used to determine the request's status, as will be discussed 
 
 Finally, the response may end with a response body, separated by a new line after the headers. The response body is usually defined as HTML code. However, it can also respond with other code types such as JSON, website resources such as images, style sheets, or scripts, or even a document such as a PDF document hosted on the webserver.
 
+## HTTP Headers
+
+
+
+
+
 
 
 ## cURL
@@ -134,6 +140,17 @@ Unlike a web browser, cURL does not render the HTML/JavaScript/CSS code but prin
 We may also use cURL to download a page or a file and output the content into a file using the -O flag. We want to specify the output file name, we can use the -o flag. Otherwise, we can use `-O` and cURL will use the remote file name as follows:
 
 ![image](https://github.com/user-attachments/assets/64eb1344-6740-4a72-9ba7-c136e1557fb0)
+
+In our earlier examples with cURL, we only specified the URL and got the response body in return. However, cURL also allows us to preview the entire HTTP request and the complete HTTP response, which can become very handy when performing web penetration tests or writing exploits. To view the whole HTTP request and response, we can simply add the `-v` verbose flag to our earlier commands, and it should print both the request and response:
+
+```bash
+curl inlanefreight.com -v
+```
+
+![image](https://github.com/user-attachments/assets/725a3d56-9b01-4535-9d7b-2c774763809a)
+
+![image](https://github.com/user-attachments/assets/593c8967-c79d-40c2-9fe4-cd5ac8fb9b58)
+
 
 ### cURL for HTTPS
 
