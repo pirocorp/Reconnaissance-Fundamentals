@@ -26,6 +26,7 @@
 - [Vulnerable Hub](https://www.vulnhub.com/)
 - [bWAPP: bee-box](https://www.vulnhub.com/entry/bwapp-bee-box-v16,53/)
 - [PortSwigger](https://portswigger.net/)
+- [Awesome Vulnerable Applications](https://github.com/vavkamil/awesome-vulnerable-apps)
 
 ## Information Gathering
 
@@ -66,4 +67,7 @@ Do not look at finding vulnerabilities like a linear process. It is not going th
 
 Vulnerabilities are, at their core, poorly written code. The better you are with coding, the more you can understand everything. Vulnerabilities are a core concept in cyber security. On one hand, they must be mitigated/patched, and on the other, they must be exploited.
 
+## [Local System Scanning](05.%20System%20scanning)
+
+System scanning aims to get **Privilege Escalation (Privesc)**, which elevates our permissions. There are many privilege escalation vectors. To understand them, you must know how the corresponding operational system (OS) works.
 
