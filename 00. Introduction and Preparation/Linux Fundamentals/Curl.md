@@ -385,7 +385,30 @@ We see that the result is sent as a JSON string. To properly format it in JSON f
 
 ![image](https://github.com/user-attachments/assets/ab9972d0-45f1-41fc-a327-83d66a52d9d8)
   
-As we can see, we got the output nicely formatted. We can also provide a search term and get all matching results:
+As we can see, the output was nicely formatted. We can also provide a search term and get all matching results:
+
+![image](https://github.com/user-attachments/assets/b493caf7-aae4-4fad-b538-987241575c67)
+
+Finally, we can pass an empty string to retrieve all entries in the table:
+
+![image](https://github.com/user-attachments/assets/7a01c729-2c94-4fa9-bde7-8d06fb3864c9)
+
+
+##### Create
+
+We can use an HTTP `POST` request to add a new entry. We can POST our JSON data, which will be added to the table. As this API is using JSON data, we will also set the `Content-Type` header to JSON, as follows:
+
+![image](https://github.com/user-attachments/assets/4650eef7-e6f2-499d-80e9-94c59f9c6a62)
+
+
+##### Update
+
+`PUT` is used to update API entries and modify their details.
+
+> **Note**: The HTTP PATCH method may also update API entries instead of `PUT`. To be precise, `PATCH` partially updates an entry (only modify some of its data, "e.g., only city_name"), while `PUT` is used to update the entire entry. We may also use the HTTP `OPTIONS` method to see which of the two is accepted by the server and then use the appropriate method accordingly.
+
+![image](https://github.com/user-attachments/assets/f8e3fe0d-4a79-4b49-b770-a67d76061ea1)
+
 
 
 ### cURL for HTTPS
