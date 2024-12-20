@@ -180,6 +180,17 @@ A complete list of request headers and their usage can be found [here](https://t
 | WWW-Authenticate | WWW-Authenticate: BASIC realm="localhost" | Notifies the client about the authentication required to access the requested resource.                                                                                                   |
 
 
+### Security Headers
+
+Finally, we have [Security Headers](https://owasp.org/www-project-secure-headers/). With the increase in the variety of browsers and web-based attacks, it was necessary to define specific headers that enhanced security. HTTP Security headers are **a class of response headers used to specify particular rules and policies** the browser must follow while accessing the website.
+
+| Header                    | Example                                     | Description                                                                                                                                                                                                                                                                                                                           |
+|---------------------------|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Content-Security-Policy   | Content-Security-Policy: script-src 'self'  | Dictates the website's policy towards externally injected resources. This could be JavaScript code as well as script resources. This header instructs the browser to accept resources only from certain trusted domains, preventing attacks such as [Cross-site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting). |
+| Strict-Transport-Security | Strict-Transport-Security: max-age=31536000 | Prevents the browser from accessing the website over the plaintext HTTP protocol and forces all communication to be carried over the secure HTTPS protocol. This prevents attackers from sniffing web traffic and accessing protected information such as passwords or other sensitive data.                                          |
+| Referrer-Policy           | Referrer-Policy: origin                     | Dictates whether the browser should include the value specified via the `Referer` header. It can help avoid disclosing sensitive URLs and information while browsing the website.                                                                                                                                                     |
+
+
 
 ## cURL
 
