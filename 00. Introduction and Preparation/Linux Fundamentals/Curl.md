@@ -362,8 +362,30 @@ The POST data is in JSON format, so our request must specify the `Content-Type` 
 
 As we can see, we could interact with the search function directly without needing to log in or interact with the web application front-end. This can be an essential skill when performing web application assessments or bug bounty exercises, as it is much faster to test web applications this way.
 
-
 #### CRUD API
+
+As we can see, we can easily specify the table and the row we want to operate on through such APIs. Then, we may utilize different HTTP methods to perform different operations on that row. In general, APIs perform 4 main operations on the requested database entity:
+
+| Operation | HTTP Method | Description                                        |
+|-----------|-------------|----------------------------------------------------|
+| Create    | POST        | Adds the specified data to the database table      |
+| Read      | GET         | Reads the specified entity from the database table |
+| Update    | PUT         | Updates the data of the specified database table   |
+| Delete    | DELETE      | Removes the specified row from the database table  |
+
+These four operations are mainly linked to the commonly known CRUD APIs, but the same principle is also used in REST APIs and several other types of APIs. Of course, not all APIs work in the same way, and the user access control will limit what actions we can perform and what results we can see.
+
+##### Read
+
+The first thing we will do when interacting with an API is read data.
+
+![image](https://github.com/user-attachments/assets/4e5e5ce3-520c-4dd7-ba72-5f6c2020a94a)
+
+We see that the result is sent as a JSON string. To properly format it in JSON format, we can pipe the output to the `jq` utility, which will format it correctly. We will also silence any unneeded cURL output with `-s`, as follows:
+
+![image](https://github.com/user-attachments/assets/ab9972d0-45f1-41fc-a327-83d66a52d9d8)
+  
+As we can see, we got the output nicely formatted. We can also provide a search term and get all matching results:
 
 
 ### cURL for HTTPS
