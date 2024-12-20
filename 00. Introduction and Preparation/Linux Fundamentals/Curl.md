@@ -190,10 +190,28 @@ Finally, we have [Security Headers](https://owasp.org/www-project-secure-headers
 | Strict-Transport-Security | Strict-Transport-Security: max-age=31536000 | Prevents the browser from accessing the website over the plaintext HTTP protocol and forces all communication to be carried over the secure HTTPS protocol. This prevents attackers from sniffing web traffic and accessing protected information such as passwords or other sensitive data.                                          |
 | Referrer-Policy           | Referrer-Policy: origin                     | Dictates whether the browser should include the value specified via the `Referer` header. It can help avoid disclosing sensitive URLs and information while browsing the website.                                                                                                                                                     |
 
-
 > **Note**: This section only mentions a small subset of commonly seen HTTP headers. Many other contextual headers can be used in HTTP communications. It's also possible for applications to define custom headers based on their requirements. A complete list of standard HTTP headers can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers).
 
 
+## HTTP Methods and Codes
+
+HTTP supports multiple methods for accessing a resource. In the HTTP protocol, several request methods allow the browser to send information, forms, or files to the server. These methods are used, among other things, to tell the server how to process the request we send and how to reply.
+
+We saw different HTTP methods used in the HTTP requests we tested in the previous sections. With cURL, if we use `-v` to preview the entire request, the first line contains the HTTP method (e.g., `GET / HTTP/1.1`), while with browser dev tools, the HTTP method is shown in the `Method` column. Furthermore, the response headers also contain the HTTP response code, which states the status of processing our HTTP request.
+
+### Request Methods
+
+The following are some of the commonly used methods:
+
+| Method  | Description                                                                                                                                                                                                                                                                                                                               |   |
+|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
+| GET     | Requests a specific resource. Additional data can be passed to the server via query strings in the URL (e.g., `?param=value`).                                                                                                                                                                                                            |   |
+| POST    | Sends data to the server. It can handle multiple input types, such as text, PDFs, and other forms of binary data. This data is appended in the request body and is present after the headers. The POST method is commonly used when sending information (e.g., forms/logins) or uploading data to a website, such as images or documents. |   |
+| HEAD    | Requests the headers that would be returned if a GET request was made to the server. It doesn't return the request body and is usually made to check the response length before downloading resources.                                                                                                                                    |   |
+| PUT     | Creates new resources on the server. Allowing this method without proper controls can lead to uploading malicious resources.                                                                                                                                                                                                              |   |
+| DELETE  | Deletes an existing resource on the webserver. If not properly secured, deleting critical files on the web server can lead to Denial of Service (DoS).                                                                                                                                                                                    |   |
+| OPTIONS | Returns information about the server, such as the methods it accepts.                                                                                                                                                                                                                                                                     |   |
+| PATCH   | Applies partial modifications to the resource at the specified location.                                                                                                                                                                                                                                                                  |   |
 
 
 ## cURL
@@ -217,6 +235,21 @@ curl inlanefreight.com -v
 ![image](https://github.com/user-attachments/assets/725a3d56-9b01-4535-9d7b-2c774763809a)
 
 ![image](https://github.com/user-attachments/assets/593c8967-c79d-40c2-9fe4-cd5ac8fb9b58)
+
+In the previous section, we saw how using the `-v` flag with cURL shows us the full HTTP request and response details. If we were only interested in seeing the response headers, we could use the `-I` flag to send a **HEAD** request and only display the response headers. Furthermore, we can use the `-i` flag to display the headers and the response body (e.g., HTML code). The difference between the two is that `-I` sends a **HEAD** request (as seen in the next section), while `-i` sends any request we specify and prints the headers.
+
+The following command shows an example output of using the `-I` flag:
+
+![image](https://github.com/user-attachments/assets/2cdcdb81-6035-4724-b785-4ba17480dd42)
+
+
+In addition to viewing headers, cURL also allows us to set request headers with the `-H` flag, as we will see in a later section. Some headers, like the `User-Agent` or `Cookie` headers, have their own flags. For example, we can use the `-A` to set our `User-Agent`, as follows:
+
+![image](https://github.com/user-attachments/assets/0fd49798-712a-4c95-8a1b-b460cb8eafd5)
+
+![image](https://github.com/user-attachments/assets/4df61b27-298a-420f-a311-3f9bda9f7c1c)
+
+![image](https://github.com/user-attachments/assets/c3a4d1a9-2270-4025-a6a6-c8ea1b9fed0b)
 
 
 ### cURL for HTTPS
