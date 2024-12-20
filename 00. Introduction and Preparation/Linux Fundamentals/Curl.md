@@ -295,11 +295,11 @@ Let's try to access the page with cURL, and we'll add `-i` to view the response 
 
 ![image](https://github.com/user-attachments/assets/3583f413-7f03-4a71-a1b3-eb7d06126c80)
 
-As we can see, we get **Access denied** in the response body, and we also get `Basic realm="Access denied"` in the `WWW-Authenticate` header, which confirms that this page indeed uses `basic HTTP auth`. To provide the credentials through cURL, we can use the `-u` flag, as follows:
+As we can see, we get **Access denied** in the response body, and we also get `Basic realm="Access denied"` in the `WWW-Authenticate` header, confirming that this page uses `basic HTTP auth`. To provide the credentials through cURL, we can use the `-u` flag, as follows:
 
 ![image](https://github.com/user-attachments/assets/f3b4d193-148c-4d91-8862-2e95bf85aa07)
 
-This time, we do get the page in the response. We can use another method to provide the basic HTTP auth credentials directly through the URL (`username:password@URL`). If we try the same with cURL or our browser, we do get access to the page as well:
+This time, we do get the page in the response. We can use another method to directly provide the basic HTTP directly auth credentials through the URL (`username:password@URL`). If we try the same with cURL or our browser, we do get access to the page as well:
 
 ![image](https://github.com/user-attachments/assets/eae6aa08-7b80-4edf-9dd1-707a78c8d2ac)
 
@@ -307,7 +307,19 @@ This time, we do get the page in the response. We can use another method to prov
 
 ![image](https://github.com/user-attachments/assets/490eeddf-e733-45f3-ba68-bc8c175049b0)
 
-Using **basic HTTP auth**, we see that our HTTP request sets the `Authorization` header to `Basic YWRtaW46YWRtaW4=`, which is the **base64** encoded value of `admin:admin`. If we were using a modern method of authentication (e.g., JWT), the Authorization would be of type `Bearer` and contain a longer encrypted token.
+Using **basic HTTP auth**, our HTTP request sets the `Authorization` header to `Basic YWRtaW46YWRtaW4=`, the **base64** encoded value of `admin:admin`. If we were using a modern authentication method (e.g., **JWT**), the `Authorization` would be of type `Bearer` and contain a longer encrypted token.
+
+Let's try manually setting the `Authorization` without supplying the credentials to see if it allows us access to the page. We can set the header with the `-H` flag and will use the same value from the above HTTP request. We can add the `-H` flag multiple times to specify multiple headers:
+
+![image](https://github.com/user-attachments/assets/6b1988e5-b123-475b-a8c1-74dd384ca61e)
+
+As we see, this also gave us access to the page. These are a few methods we can use to authenticate to the page. Most modern web applications use login forms built with the back-end scripting language (e.g., PHP, C#, Java, JS, Python), which utilize HTTP POST requests to authenticate the users and then return a cookie to maintain their authentication.
+
+##### GET Parameters
+
+Once we are authenticated, we get access to a City Search function to enter a search term and get a list of matching cities. When we click on the request, it gets sent to `search.php` with the GET parameter `search=le` used in the URL. This helps us understand that the search function requests another page for the results. Now, we can send the same request directly to `search.php` to get the full search results, though it will probably return them in a specific format (e.g., JSON) without having the HTML layout. To send a `GET` request with cURL, we can use the URL `http://94.237.54.42:56801/search.php?search=le`.
+
+![image](https://github.com/user-attachments/assets/0c5563ca-7e14-4a9b-96cd-9bb5d3235150)
 
 
 ### cURL for HTTPS
