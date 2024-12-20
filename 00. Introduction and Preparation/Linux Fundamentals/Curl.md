@@ -145,8 +145,16 @@ HTTP headers pass information between the client and the server. Some headers ar
 
 Like general headers, Entity Headers can be standard to both the request and response. These headers **describe the content (entity) transferred by a message**. They are usually found in responses and POST or PUT requests.
 
-![image](https://github.com/user-attachments/assets/16c79650-830b-463a-8619-2a57274009b1)
-
+| Header           | Example                     | Description                                                                                                                                                                                                                            |
+|------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Content-Type     | Content-Type: text/html     | Used to describe the type of resource being transferred. The value is automatically added by the browsers on the client side and returned in the server response. The `charset` field denotes the encoding standard, such as [UTF-8](https://en.wikipedia.org/wiki/UTF-8).      |
+| Media-Type       | Media-Type: application/pdf | The `media-type` is similar to `Content-Type`, and describes the transferred data. This header can be crucial in making the server interpret our input. The `charset` field may also be used with this header.                                                                                         |
+| Boundary         | boundary="b4e4fbd93540"     | Acts as a marker to separate content when there is more than one in the same message. For example, within a form data, this boundary gets used as `--b4e4fbd93540` to separate different form parts.                                                         
+                                            |
+| Content-Length   | Content-Length: 385         | Holds the size of the entity being passed. This header is necessary as the server uses it to read data from the message body, and the browser and tools like cURL automatically generate it.                                                               
+                                            |
+| Content-Encoding | Content-Encoding: gzip      | Data can undergo multiple transformations before being passed. For example, large amounts of data can be compressed to reduce the message size. The type of encoding should be specified using the `Content-Encoding` header.                     
+                                            |
 
 ### Request Headers
 
