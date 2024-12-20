@@ -323,11 +323,47 @@ Let's try manually setting the `Authorization` without supplying the credentials
 
 As we see, this also gave us access to the page. These are a few methods we can use to authenticate to the page. Most modern web applications use login forms built with the back-end scripting language (e.g., PHP, C#, Java, JS, Python), which utilize HTTP POST requests to authenticate the users and then return a cookie to maintain their authentication.
 
-##### GET Parameters
+#### GET Parameters
 
-Once we are authenticated, we get access to a City Search function to enter a search term and get a list of matching cities. When we click on the request, it gets sent to `search.php` with the GET parameter `search=le` used in the URL. This helps us understand that the search function requests another page for the results. Now, we can send the same request directly to `search.php` to get the full search results, though it will probably return them in a specific format (e.g., JSON) without having the HTML layout. To send a `GET` request with cURL, we can use the URL `http://94.237.54.42:56801/search.php?search=le`.
+Once we are authenticated, we access a City Search function to enter a search term and get a list of matching cities. When we click on the request, it gets sent to `search.php` with the GET parameter `search=le` used in the URL. This helps us understand that the search function requests another page for the results. We can send the same request directly to `search.php` to get the full search results, though it will probably return them in a specific format (e.g., JSON) without having the HTML layout. To send a `GET` request with cURL, we can use the URL `http://94.237.54.42:56801/search.php?search=le`.
 
 ![image](https://github.com/user-attachments/assets/0c5563ca-7e14-4a9b-96cd-9bb5d3235150)
+
+
+#### Form Authentication
+
+We will use the `-X POST` flag to send a **POST** request. Then, to add our **POST** data, we can use the `-d` flag and add the credentials data after it, as follows:
+
+![image](https://github.com/user-attachments/assets/d5844097-a149-405e-932e-3c31d34192a3)
+
+> **Tip:** Many login forms redirect us to a different page once we authenticate (e.g., dashboard.php). We can use the `-L` flag to follow the redirection with cURL.
+
+#### Authenticated Cookies
+
+We can use the `-v` or `-i` flags to view the response, which should contain the Set-Cookie header with our authenticated cookie:
+
+![image](https://github.com/user-attachments/assets/24480032-381f-424a-b105-f19b174e4fcc)
+![image](https://github.com/user-attachments/assets/bbc271a0-7a3d-43f9-9de3-7918f85d2ac9)
+
+With our authenticated cookie, we should now be able to interact with the web application without needing to provide our credentials every time. To test this, we can set the above cookie with the `-b` flag in cURL as follows:
+
+![image](https://github.com/user-attachments/assets/78085fcf-25f4-4ccb-92d6-5869c2a0c939)
+
+As we can see, we were indeed authenticated and got to the search function. It is also possible to specify the cookie as a header, as follows:
+
+![image](https://github.com/user-attachments/assets/05eaae31-c0ae-4561-bcef-6b5d83aaa204)
+
+
+#### JSON Data
+
+The POST data is in JSON format, so our request must specify the `Content-Type` header as `application/json`.
+
+![image](https://github.com/user-attachments/assets/c64452be-5f1c-497f-9508-42452abcfc17)
+
+As we can see, we could interact with the search function directly without needing to log in or interact with the web application front-end. This can be an essential skill when performing web application assessments or bug bounty exercises, as it is much faster to test web applications this way.
+
+
+#### CRUD API
 
 
 ### cURL for HTTPS
