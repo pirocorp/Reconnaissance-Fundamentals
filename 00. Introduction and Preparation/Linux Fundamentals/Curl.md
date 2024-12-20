@@ -168,6 +168,19 @@ The client sends [Request Headers](https://tools.ietf.org/html/rfc2616) in an HT
 
 A complete list of request headers and their usage can be found [here](https://tools.ietf.org/html/rfc7231#section-5).
 
+
+### Response Headers
+
+[Response Headers](https://tools.ietf.org/html/rfc7231#section-7) can be **used in an HTTP response and do not relate to the content**. Specific response headers such as Age, Location, and Server provide more context about the reaction. The following headers are commonly seen in HTTP responses.
+
+| Header           | Example                                   | Description                                                                                                                                                                               |
+|------------------|-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Server           | Server: Apache/2.2.14 (Win32)             | Contains information about the HTTP server that processed the request. It can be used to gain information about the server, such as its version, and enumerate it further.                |
+| Set-Cookie       | Set-Cookie: PHPSESSID=b4e4fbd93540        | Contains the cookies needed for client identification. Browsers parse the cookies and store them for future requests. This header follows the same format as the `Cookie` request header. |
+| WWW-Authenticate | WWW-Authenticate: BASIC realm="localhost" | Notifies the client about the authentication required to access the requested resource.                                                                                                   |
+
+
+
 ## cURL
 
 [cURL](https://curl.haxx.se/) (client URL) is a command-line tool and library that primarily supports HTTP along with many other protocols. This makes it a good candidate for scripts and automation, making it essential for sending various types of web requests from the command line, which is necessary for many web penetration tests.
