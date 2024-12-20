@@ -291,8 +291,23 @@ Unlike the usual login forms, which utilize HTTP parameters to validate the user
 
 ![image](https://github.com/user-attachments/assets/236b31a3-8e56-4689-a087-582902652e58)
 
+Let's try to access the page with cURL, and we'll add `-i` to view the response headers:
+
+![image](https://github.com/user-attachments/assets/3583f413-7f03-4a71-a1b3-eb7d06126c80)
+
+As we can see, we get **Access denied** in the response body, and we also get `Basic realm="Access denied"` in the `WWW-Authenticate` header, which confirms that this page indeed uses `basic HTTP auth`. To provide the credentials through cURL, we can use the `-u` flag, as follows:
+
 ![image](https://github.com/user-attachments/assets/f3b4d193-148c-4d91-8862-2e95bf85aa07)
 
+This time, we do get the page in the response. We can use another method to provide the basic HTTP auth credentials directly through the URL (`username:password@URL`). If we try the same with cURL or our browser, we do get access to the page as well:
+
+![image](https://github.com/user-attachments/assets/eae6aa08-7b80-4edf-9dd1-707a78c8d2ac)
+
+##### HTTP Authorization Header
+
+![image](https://github.com/user-attachments/assets/490eeddf-e733-45f3-ba68-bc8c175049b0)
+
+Using **basic HTTP auth**, we see that our HTTP request sets the `Authorization` header to `Basic YWRtaW46YWRtaW4=`, which is the **base64** encoded value of `admin:admin`. If we were using a modern method of authentication (e.g., JWT), the Authorization would be of type `Bearer` and contain a longer encrypted token.
 
 
 ### cURL for HTTPS
