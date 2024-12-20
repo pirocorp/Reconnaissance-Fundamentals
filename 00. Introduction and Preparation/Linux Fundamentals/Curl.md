@@ -6,9 +6,9 @@ Curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form-ba
 
 ## HyperText Transfer Protocol (HTTP)
 
-Today, the majority of our applications, both web and mobile, constantly interact with the Internet. Most Internet communications are made with web requests through the HTTP protocol. HTTP is an application-level protocol used to access World Wide Web resources. The term hypertext stands for text containing links to other resources and text that readers can easily interpret.
+Today, the majority of our applications, both web and mobile, constantly interact with the Internet. Most Internet communications are made with web requests through the HTTP protocol. HTTP is an application-level protocol used to access World Wide Web resources. Hypertext means text containing links to other resources and text that readers can easily interpret.
 
-HTTP communication consists of a client and a server, where the client requests the server for a resource. The server processes the requests and returns the requested resource. The default port for HTTP communication is port 80, which can be changed to any other port, depending on the web server configuration. The exact requests are utilized when visiting different websites on the internet. To reach the desired website, we enter a Fully Qualified Domain Name (FQDN) as a Uniform Resource Locator (URL).
+HTTP communication consists of a client and a server, where the client requests the server for a resource. The server processes the requests and returns the requested resource. The default port for HTTP communication is port 80, which can be changed to any other port, depending on the web server configuration. The exact requests are utilized when visiting different websites on the internet. We enter a Fully Qualified Domain Name (FQDN) as a Uniform Resource Locator (URL) to reach the desired website.
 
 ## URL
 
@@ -123,10 +123,34 @@ Finally, the response may end with a response body, separated by a new line afte
 
 ## HTTP Headers
 
+HTTP headers pass information between the client and the server. Some headers are only used with either requests or responses, while some other general headers are standard to both. Headers can have one or multiple values, appended after the header name and separated by a colon. We can divide headers into the following categories:
+
+1. General Headers
+2. Entity Headers
+3. Request Headers
+4. Response Headers
+5. Security Headers
+
+### General Headers
+
+[General headers](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html) are used in HTTP requests and responses. They are contextual and **describe the message rather than its contents.**
+
+| Header     | Example                             | Description                                                                                                                                                                                                                                                                                                                                                                       |
+|------------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Date       | Date: Wed, 16 Feb 2022 10:38:44 GMT | Holds the date and time the message originated. It's preferred to convert the time to the standard UTC zone.                                                                                                                                                                                                                                                                      |
+| Connection | Connection: close                   | Dictates if the current network connection should stay alive after the request finishes. Two commonly used values for this header are close and keep-alive. The client or server's close value means they would like to terminate the connection, while the keep-alive header indicates that the connection should remain open to receive more data and input.                    |
 
 
+### Entity Headers
+
+Like general headers, Entity Headers can be standard to both the request and response. These headers **describe the content (entity) transferred by a message**. They are usually found in responses and POST or PUT requests.
+
+![image](https://github.com/user-attachments/assets/16c79650-830b-463a-8619-2a57274009b1)
 
 
+### Request Headers
+
+The client sends Request Headers in an HTTP transaction. These headers are used in an HTTP request and do not relate to the content of the message. The following headers are commonly seen in HTTP requests.
 
 
 ## cURL
