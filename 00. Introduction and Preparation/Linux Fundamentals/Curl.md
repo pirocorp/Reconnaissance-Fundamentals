@@ -191,6 +191,10 @@ Finally, we have [Security Headers](https://owasp.org/www-project-secure-headers
 | Referrer-Policy           | Referrer-Policy: origin                     | Dictates whether the browser should include the value specified via the `Referer` header. It can help avoid disclosing sensitive URLs and information while browsing the website.                                                                                                                                                     |
 
 
+> **Note**: This section only mentions a small subset of commonly seen HTTP headers. Many other contextual headers can be used in HTTP communications. It's also possible for applications to define custom headers based on their requirements. A complete list of standard HTTP headers can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers).
+
+
+
 
 ## cURL
 
