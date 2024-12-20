@@ -243,6 +243,10 @@ The following are some of the commonly seen examples from each of the above HTTP
 You can visit this [link](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) for a complete list of standard HTTP response codes. Besides the standard HTTP codes, servers and providers such as [Cloudflare](https://support.cloudflare.com/hc/en-us/articles/115003014432-HTTP-Status-Codes) or [AWS](https://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/APIError.html) implement custom codes.
 
 
+#### GET
+
+Whenever we visit any URL, our browsers default to a GET request to obtain the remote resources hosted at that URL. Once the browser receives the initial page, it is requesting, it may send other requests using various HTTP methods. This can be observed through the Network tab in the browser dev tools.
+
 ## cURL
 
 [cURL](https://curl.haxx.se/) (client URL) is a command-line tool and library that primarily supports HTTP along with many other protocols. This makes it a good candidate for scripts and automation, making it essential for sending various types of web requests from the command line, which is necessary for many web penetration tests.
@@ -279,6 +283,16 @@ In addition to viewing headers, cURL also allows us to set request headers with 
 ![image](https://github.com/user-attachments/assets/4df61b27-298a-420f-a311-3f9bda9f7c1c)
 
 ![image](https://github.com/user-attachments/assets/c3a4d1a9-2270-4025-a6a6-c8ea1b9fed0b)
+
+
+#### HTTP Basic Auth
+
+Unlike the usual login forms, which utilize HTTP parameters to validate the user credentials (e.g., POST request), this type of authentication uses a **basic HTTP authentication**, which is handled directly by the webserver to protect a specific page/directory, without directly interacting with the web application.
+
+![image](https://github.com/user-attachments/assets/236b31a3-8e56-4689-a087-582902652e58)
+
+![image](https://github.com/user-attachments/assets/f3b4d193-148c-4d91-8862-2e95bf85aa07)
+
 
 
 ### cURL for HTTPS
