@@ -242,10 +242,18 @@ The following are some of the commonly seen examples from each of the above HTTP
 
 You can visit this [link](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) for a complete list of standard HTTP response codes. Besides the standard HTTP codes, servers and providers such as [Cloudflare](https://support.cloudflare.com/hc/en-us/articles/115003014432-HTTP-Status-Codes) or [AWS](https://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/APIError.html) implement custom codes.
 
-
 #### GET
 
 Whenever we visit any URL, our browsers default to a GET request to obtain the remote resources hosted at that URL. Once the browser receives the initial page, it is requesting, it may send other requests using various HTTP methods. This can be observed through the Network tab in the browser dev tools.
+
+#### POST
+
+Unlike HTTP `GET`, which places user parameters within the URL, HTTP `POST` places user parameters within the HTTP Request body. This has three main benefits:
+
+- **Lack of Logging**: As POST requests may transfer large files (e.g., file upload), it would not be efficient for the server to log all uploaded files as part of the requested URL, as would be the case with a file uploaded through a GET request.
+- **Less Encoding Requirements**: URLs are designed to be shared, which means they need to conform to characters that can be converted to letters. The POST request places data in the body, which can accept binary data. The only characters that need encoded are those used to separate parameters.
+- **More data can be sent**: The maximum URL Length varies between browsers (Chrome/Firefox/IE), web servers (IIS, Apache, nginx), Content Delivery Networks (Fastly, CloudFront, Cloudflare), and even URL Shorteners (bit.ly, amzn.to). Generally speaking, a URL's length should be kept below 2,000 characters, so they cannot handle much data.
+
 
 ## cURL
 
