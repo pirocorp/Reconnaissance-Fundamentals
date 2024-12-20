@@ -407,7 +407,15 @@ We can use an HTTP `POST` request to add a new entry. We can POST our JSON data,
 
 > **Note**: The HTTP PATCH method may also update API entries instead of `PUT`. To be precise, `PATCH` partially updates an entry (only modify some of its data, "e.g., only city_name"), while `PUT` is used to update the entire entry. We may also use the HTTP `OPTIONS` method to see which of the two is accepted by the server and then use the appropriate method accordingly.
 
-![image](https://github.com/user-attachments/assets/f8e3fe0d-4a79-4b49-b770-a67d76061ea1)
+![image](https://github.com/user-attachments/assets/ed55246d-75b0-4200-9f74-ccca3a2c8b9e)
+
+> **Note**: The Update operation may also create new entries in some APIs. We would send our data, and if it does not exist, it would make it. For example, in the above example, even if an entry with a London city did not exist, it would create a new entry with the details we passed.
+
+##### DELETE
+
+We specify the city name for the API and use the HTTP DELETE method, and it deletes the entry as follows:
+
+![image](https://github.com/user-attachments/assets/682f9bb5-791a-4b29-9505-0f3a74319126)
 
 
 
