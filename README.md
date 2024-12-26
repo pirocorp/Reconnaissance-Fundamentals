@@ -71,12 +71,23 @@ Vulnerabilities are, at their core, poorly written code. The better you are with
 ## Vulnerability Checklist
 
 1. Outdated software
-  1. Scan all ports to enumerate all present services on the targeted machine. Services can be hosted on "unusual" for `Nmap` ports.
-  2. Manually search the enumerated software version for active publicly available vulnerabilities, either from [exploit-db](https://www.exploit-db.com/) or `searchsploit` (they use the same engine)
+    1. Scan all ports to enumerate all present services on the targeted machine. Services can be hosted on "unusual" for `Nmap` ports.
+    2. Manually search the enumerated software version for active publicly available vulnerabilities, either from [exploit-db](https://www.exploit-db.com/) or `searchsploit` (they use the same engine)
 2. Information disclosure
-
-
-
+    1. Organizations often leave artifacts (by mistake or not) on the World Wide Web. These include emails, usernames, passwords, SSH keys, open endpoints, and log files. Always scan code repositories, paste bins, and query search engines as much as possible.
+    2. Directory-listing is a nice way to enumerate the web application, often sysadmins are storing sensitive endpoints that are generally not queried from search engines, nor people. By using directory busters such as dirb / gobuster, you can find web endpoints that can lead to more information disclosure or other vulnerabilities.
+    3. Often, sysadmins disable "interesting" endpoints to be queried from search engines by adding them to /robots.
+3. SQL Injection — SQL injection is a vulnerability that allows the attacker to interfere with the connection between the web server and its database server. It is always a good idea to fuzz all the available inputs for SQL injection payloads (such as '). Depending on the output, you can enumerate whether the application is vulnerable.
+4. Insecure sudo permissions - Sometimes, sudo can be misconfigured to allow users to run commands, which can be abused for privilege escalation. Always check this with sudo `-l` and use [https://gtfobins.github.io/](https://gtfobins.github.io/) to perform the privilege escalation vector.
+5. Directory traversal—If the web application you are testing requires a "file" or "f" parameter in any of its requests, fuzzing it for a directory traversal vulnerability is a good practice. If such a vulnerability exists, the attacker can escape the web context and read local system files from any directory (if the permissions are present).
+6. Cross-site Scripting - Cross-site Scripting (XSS) is a vulnerability that allows the attacker to inject custom JavaScript code, mainly attacking other users. It is always a good practice to fuzz all potential parameters and fields with simple js payloads, such as `<script>alert(‘1’);</script>`. You can find more payloads at: [https://github.com/payloadbox/xss-payload-list](https://github.com/payloadbox/xss-payload-list)
+7. Arbitrary FTP file upload
+    1. Always test FTP servers if you can:
+        1. Login anonymously.
+        2. Upload files to the FTP server.
+    2. After successfully uploading, please check if you can access the files using other potentially chained applications (such as web applications).
+    3. Always make sure to test if you can also download files. Sometimes, sensitive data can be stored on FTP servers.
+    4. If you found credentials throughout the information-gathering process or later, always make sure to test them towards as many services as possible, including FTP servers.
 
 
 ## [Local System Scanning](05.%20System%20scanning)
