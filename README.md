@@ -60,12 +60,24 @@ target by utilizing aggressive tools like scanners, fuzzers, and more. **Passive
 
 To find a vulnerability, you must be aware of what vulnerability is and what types of vulnerabilities are there. It would help if you knew what you were trying to find. This means you must create and implement a methodology. Every pentester has his unique methods or way of doing things. Example methodology from hack tricks: [Pentesting Web Methodology](https://hacktricks.boitatech.com.br/pentesting/pentesting-web).
 
-Do not look at finding vulnerabilities like a linear process. It is not going through an extensive checklist. Instead, be as creative as you can and perform illogical and logical things. Force the application to behave unexpectedly, research, and find the bug.
+Do not look at finding vulnerabilities like a linear process. It is not going through an extensive checklist. Instead, be as creative as possible and perform illogical and logical things. Force the application to behave unexpectedly, research, and find the bug.
 
 
 ## [Analyzing Vulnerabilities](04.%20Analyzing%20Vulnerabilities)
 
 Vulnerabilities are, at their core, poorly written code. The better you are with coding, the more you can understand everything. Vulnerabilities are a core concept in cyber security. On one hand, they must be mitigated/patched, and on the other, they must be exploited.
+
+
+## Vulnerability Checklist
+
+1. Outdated software
+  1. Scan all ports to enumerate all present services on the targeted machine. Services can be hosted on "unusual" for `Nmap` ports.
+  2. Manually search the enumerated software version for active publicly available vulnerabilities, either from [exploit-db](https://www.exploit-db.com/) or `searchsploit` (they use the same engine)
+2. Information disclosure
+
+
+
+
 
 ## [Local System Scanning](05.%20System%20scanning)
 
