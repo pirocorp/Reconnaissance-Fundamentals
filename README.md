@@ -68,6 +68,11 @@ Do not look at finding vulnerabilities like a linear process. It is not going th
 Vulnerabilities are, at their core, poorly written code. The better you are with coding, the more you can understand everything. Vulnerabilities are a core concept in cyber security. On one hand, they must be mitigated/patched, and on the other, they must be exploited.
 
 
+## [Local System Scanning](05.%20System%20scanning)
+
+System scanning aims to get **Privilege Escalation (Privesc)**, which elevates our permissions. There are many privilege escalation vectors. To understand them, you must know how the corresponding operational system (OS) works.
+
+
 ## Vulnerability Checklist
 
 1. Outdated software
@@ -86,11 +91,17 @@ Vulnerabilities are, at their core, poorly written code. The better you are with
         1. Login anonymously.
         2. Upload files to the FTP server.
     2. After successfully uploading, please check if you can access the files using other potentially chained applications (such as web applications).
-    3. Always make sure to test if you can also download files. Sometimes, sensitive data can be stored on FTP servers.
-    4. If you found credentials throughout the information-gathering process or later, always make sure to test them towards as many services as possible, including FTP servers.
+    3. Please always test whether you can download files. Sensitive data can sometimes be stored on FTP servers.
+    4. If you find credentials during the information-gathering process or later, always test them against as many services as possible, including FTP servers.
+8. OS Command injection - Always properly analyze the application you are testing. If you can enumerate that some of its functionalities depend on OS native commands, always try OS Command injection vulnerability by injecting simple commands. You can see sample payloads at: [https://github.com/payloadbox/command-injection-payload-list](https://github.com/payloadbox/command-injection-payload-list).
+9. Access Control — Always test for access control vulnerabilities. If you find an endpoint that should require privileges, you can always try to navigate to it by analyzing the request and experimenting with its payloads.
+10. Arbitrary File Upload - Always test for arbitrary file upload whenever you find a file upload function. To test, you need to answer:
+    1. Where are the files being uploaded?
+    2. What programming language your target is using?
+    3. Can you upload files of that extension?
+    4. Can you access and execute that file?
 
 
-## [Local System Scanning](05.%20System%20scanning)
 
-System scanning aims to get **Privilege Escalation (Privesc)**, which elevates our permissions. There are many privilege escalation vectors. To understand them, you must know how the corresponding operational system (OS) works.
+
 
