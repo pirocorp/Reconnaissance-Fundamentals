@@ -74,6 +74,34 @@ These are the framework's base files. The Data and Lib are the functioning parts
 
 The Modules detailed above are split into separate categories in this folder. We will go into detail about these in the following sections. They are contained in the following folders:
 
+![image](https://github.com/user-attachments/assets/b7735cad-77ed-46d2-8b9b-f9fba8cdd38d)
+
+
+### Plugins
+
+Plugins offer the pentester more flexibility when using the msfconsole since they can easily be manually or automatically loaded to provide extra functionality and automation during our assessment.
+
+![image](https://github.com/user-attachments/assets/4561999a-8372-448d-922d-e14640fa4f7c)
+
+
+### Scripts
+
+Meterpreter functionality and other helpful scripts.
+
+![image](https://github.com/user-attachments/assets/e17cb7c1-13e7-48c0-a443-6fc7512dd7ed)
+
+
+### Tools
+
+Command-line utilities that can be called directly from the `msfconsole` menu.
+
+![image](https://github.com/user-attachments/assets/6d675e2a-0b96-440b-99ed-fa8c69942636)
+
+
+Now that we know all of these locations, it will be easy to reference them when we import new modules or create new ones from scratch.
+
+
+
 
 
 
