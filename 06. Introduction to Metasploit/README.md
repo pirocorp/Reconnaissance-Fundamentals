@@ -1,4 +1,6 @@
-# Introduction to Metasploit
+# Metasploit
+
+## Introduction to Metasploit
 
 The **Metasploit Project** is a Ruby-based, modular penetration testing platform that enables you to write, test, and execute the exploit code. This exploit code can be custom-made by the user or taken from a database containing the latest discovered and modularized exploits. The **Metasploit Framework** includes a suite of tools that you can use to test security vulnerabilities, enumerate networks, execute attacks, and evade detection. At its core, the **Metasploit Project** is a collection of commonly used tools that provide a complete environment for penetration testing and exploit development.
 
@@ -8,7 +10,7 @@ The **modules** mentioned are actual exploit proof-of-concepts that have already
 
 Its strength is that it provides a plethora of available targets and versions, all a few commands away from a successful foothold. These, combined with an exploit tailor-made for those vulnerable versions and a payload sent after the exploit, will give us actual access to the system and an easy, automated way to switch between target connections during our post-exploitation ventures.
 
-## Metasploit Pro
+### Metasploit Pro
 
 **Metasploit** as a product is split into two versions. The **Metasploit Pro** version is different from the **Metasploit Framework** one with some additional features:
 
@@ -42,7 +44,7 @@ To have a general idea of what Metasploit Pro's newest features can achieve, che
 | Persistent Sessions      |                          | Tagging Data              |
 
 
-## Metasploit Framework Console
+### Metasploit Framework Console
 
 The `msfconsole` is probably the most popular interface to the **Metasploit Framework (MSF)**. It provides an "all-in-one" centralized console and allows you efficient access to virtually all options available in the MSF. Msfconsole may seem intimidating at first, but once you learn the syntax of the commands, you will learn to appreciate the power of utilizing this interface.
 
@@ -58,40 +60,40 @@ Both products mentioned above come with an extensive database of available modul
 The key term here is usability—user experience. The ease of controlling the console can improve our learning experience. Therefore, let us delve into the specifics.
 
 
-## Understanding the Architecture
+### Understanding the Architecture
 
 To fully operate any tool, we must first examine its internals. This is good practice and can offer us better insight into what will happen during our security assessments when that tool is used. It is essential not to have [wildcards that might expose you or your client to data breaches](https://blog.cobaltstrike.com/2016/09/28/cobalt-strike-rce-active-exploitation-reported/).
 
 By default, all the base files related to the Metasploit Framework are under `/usr/share/metasploit-framework`.
 
 
-### Data, Documentation, Lib
+#### Data, Documentation, Lib
 
 These are the framework's base files. The Data and Lib are the functioning parts of the msfconsole interface, while the Documentation folder contains all the technical details about the project.
 
 
-### Modules
+#### Modules
 
 The Modules detailed above are split into separate categories in this folder. We will go into detail about these in the following sections. They are contained in the following folders:
 
 ![image](https://github.com/user-attachments/assets/b7735cad-77ed-46d2-8b9b-f9fba8cdd38d)
 
 
-### Plugins
+#### Plugins
 
 Plugins offer the pentester more flexibility when using the msfconsole since they can easily be manually or automatically loaded to provide extra functionality and automation during our assessment.
 
 ![image](https://github.com/user-attachments/assets/4561999a-8372-448d-922d-e14640fa4f7c)
 
 
-### Scripts
+#### Scripts
 
 Meterpreter functionality and other helpful scripts.
 
 ![image](https://github.com/user-attachments/assets/e17cb7c1-13e7-48c0-a443-6fc7512dd7ed)
 
 
-### Tools
+#### Tools
 
 Command-line utilities that can be called directly from the `msfconsole` menu.
 
@@ -99,6 +101,64 @@ Command-line utilities that can be called directly from the `msfconsole` menu.
 
 
 Now that we know all of these locations, it will be easy to reference them when we import new modules or create new ones from scratch.
+
+
+## Introduction to MSFconsole
+
+To start interacting with the Metasploit Framework, we need to type `msfconsole` in the terminal of our choice. Many security-oriented distributions, such as Parrot Security and Kali Linux, come with `msfconsole` preinstalled. We can launch the script using several other options, as with any other command-line tool. These range from graphical display switches/options to procedural ones.
+
+
+### Preparation
+
+Upon launching the `msfconsole`, we are met with their coined splash art and the command line prompt, and we are waiting for our first command.
+
+
+#### Launching MSFconsole
+
+![image](https://github.com/user-attachments/assets/5bec1388-0323-4dd6-92d5-a4cc1c13a3cf)
+
+Alternatively, we can use the `-q` option, which does not display the banner.
+
+![image](https://github.com/user-attachments/assets/16d5b7ab-0f55-47cc-9a8c-f80648df1c9d)
+
+To better look at all the available commands, we can type the `help` command. First things first, our tools need to be sharp. One of the first things we need to do is ensure the modules that compose the framework are up to date and that any new ones available to the public can be imported.
+
+The old way would have been to run `msfupdate` in our OS terminal (outside msfconsole). However, the `apt` package manager can currently handle the update of modules and features effortlessly.
+
+
+### Installing MSF
+
+```bash
+sudo apt update && sudo apt install metasploit-framework
+```
+
+![image](https://github.com/user-attachments/assets/31c99b7a-24b8-4936-bb64-982c5b8cda53)
+
+One of the first steps we will cover in this module is searching for a proper **exploit** for our **target**. Nevertheless, we need a detailed perspective on the target before using it. This involves the **Enumeration** process, which precedes any exploitation attempt.
+
+During **Enumeration**, we must examine our target and identify which public-facing services are running on it. For example, is it an HTTP server? Do you know if an FTP server? An SQL Database? These **target** typologies vary substantially in the real world. We must thoroughly **scan** the target's IP address to determine what service is running and what version is installed for each service.
+
+As we go along, we will notice that versions are the key components during the **Enumeration** process that allow us to determine whether the target is vulnerable. Unpatched versions of previously vulnerable services or outdated code in a publicly accessible platform will often be our entry point into the **target** system.
+
+
+### MSF Engagement Structure
+
+The MSF engagement structure can be divided into five main categories.
+
+- Enumeration
+- Preparation
+- Exploitation
+- Privilege Escalation
+- Post-Exploitation
+
+This division makes it easier for us to find and select the appropriate MSF features in a more structured way and to work with them accordingly. Each category has subcategories intended for specific purposes. These include, for example, Service Validation and Vulnerability Research.
+
+We must familiarize ourselves with this structure. Consequently, we will examine its components to understand their relationship better.
+
+![image](https://github.com/user-attachments/assets/570019ee-4621-42a9-995e-f8e3da54e86a)
+
+We will review each category during the module but recommend you look over the individual components and dig deeper. Experimenting with the different functions is integral to learning a new tool or skill. Therefore, we should try everything imaginable in the following labs and analyze the results independently.
+
 
 
 
