@@ -160,10 +160,16 @@ We must familiarize ourselves with this structure. Consequently, we will examine
 We will review each category during the module but recommend you look over the individual components and dig deeper. Experimenting with the different functions is integral to learning a new tool or skill. Therefore, we should try everything imaginable in the following labs and analyze the results independently.
 
 
+## Modules
 
+As mentioned, Metasploit **modules** are prepared scripts with specific purposes and corresponding functions already developed and tested in the wild. The **exploit** category consists of so-called proof-of-concept (**POCs**) that can exploit existing vulnerabilities largely automatedly. Many people often think that the exploit's failure disproves the existence of the suspected vulnerability. However, this is only proof that the Metasploit exploit does not work and that the vulnerability does not exist. This is because many exploits require customization according to the target hosts to make the exploit work. Therefore, automated tools such as the Metasploit framework should only be considered a support tool and not a substitute for our manual skills.
 
+Once in the `msfconsole`, we can select from an extensive list containing all the available Metasploit modules. Each of them is structured into folders, which will look like this:
 
+### Syntax
 
-
-
+```bash
+<No.> <type>/<os>/<service>/<name>
+794   exploit/windows/ftp/scriptftp_list
+```
 
