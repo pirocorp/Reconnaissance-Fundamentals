@@ -179,7 +179,7 @@ The `No.` tag will be displayed after our searches to select the exploit we want
 
 #### Type
 
-The `Type` tag is the first level of segregation between the Metasploit modules. Looking at this field, we can tell what the piece of code for this module will accomplish. For example, some of these types are not as directly usable as an exploit module. However, they are set to introduce the structure alongside the interactable ones for better modularization. To explain better, here are the possible types that could appear in this field:
+The `Type` tag is the first level of segregation between the Metasploit modules. Looking at this field, we can tell what the piece of code for this module will accomplish. For example, some types are less directly usable than an exploit module. However, they are set to introduce the structure alongside the interactable ones for better modularization. To explain better, here are the possible types that could appear in this field:
 
 | Type      | Description                                                                                     |
 |-----------|-------------------------------------------------------------------------------------------------|
@@ -190,6 +190,63 @@ The `Type` tag is the first level of segregation between the Metasploit modules.
 | Payloads  | Code runs remotely and calls the attacker's machine back to establish a connection (or shell).  |
 | Plugins   | Additional scripts can be integrated within an assessment with msfconsole and coexist.          |
 | Post      | Wide array of modules to gather information, pivot deeper, etc.                                 |
+
+Note that when selecting a module for payload delivery, the `use <no.>` command can only be used with the following modules that can be used as initiators (or interactable modules):
+
+| Type      | Description                                                                                    |
+|-----------|------------------------------------------------------------------------------------------------|
+| Auxiliary | Scanning, fuzzing, sniffing, and admin capabilities. Offer extra assistance and functionality. |
+| Exploits  | Defined as modules that exploit a vulnerability that will allow for the payload delivery.      |
+| Post      | Wide array of modules to gather information, pivot deeper, etc.                                |
+
+
+#### OS
+
+The `OS` tag specifies which operating system and architecture the module was created for. Different operating systems require different codes to be run for the desired results.
+
+#### Service
+
+The `Service` tag refers to the vulnerable service running on the target machine. For some modules, such as the **auxiliary** or **post** ones, this tag can refer to a more general activity, such as **gather**, referring to the gathering of credentials, for example.
+
+#### Name
+
+Finally, the `Name` tag explains the action that can be performed using this module, which was created for a specific purpose.
+
+
+### Searching for Modules
+
+Metasploit also offers a well-developed search function for the existing modules. This function allows us to quickly browse all the modules using specific **tags** to find a suitable one for our target.
+
+#### MSF - Search Function
+
+![image](https://github.com/user-attachments/assets/052fcf5a-edfc-4600-9173-27f3eff063ae)
+
+For example, we can try to find the `EternalRomance` exploit for older Windows operating systems. This could look something like this:
+
+![image](https://github.com/user-attachments/assets/e715eee6-b4b0-4910-9987-42f040827d76)
+
+##### MSF - Specific Search
+
+We can also make our search coarser and reduce it to one category of services. For example, for the CVE, we could specify the year (`cve:<year>`), the platform Windows (`platform:<os>`), the type of module we want to find (`type:<auxiliary/exploit/post>`), the reliability rank (`rank:<rank>`), and the search name (`<pattern>`). This would reduce our results to only those that match the above.
+
+![image](https://github.com/user-attachments/assets/804a0e42-7eca-49b0-8d49-654dd1703ce4)
+
+
+### Module Selection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
