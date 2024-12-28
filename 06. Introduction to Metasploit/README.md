@@ -280,10 +280,32 @@ set RHOSTS 10.129.238.98
 
 ![image](https://github.com/user-attachments/assets/8de1a670-76d0-4ff8-a794-38b62644005c)
 
-Once everything is set and ready to go, we can launch the attack. Just so you know, the payload was not included here, as the default one is sufficient for this demonstration.
+We can launch the attack once everything is set and ready to go. The payload was not included here. The default one is sufficient for this demonstration.
 
 
 #### MSF - Exploit Execution
+
+![image](https://github.com/user-attachments/assets/7c0e87cc-2d41-47de-adf4-0e25589b4881)
+
+
+#### MSF - Target Interaction
+
+We now have a shell on the target machine and can interact with it.
+
+![image](https://github.com/user-attachments/assets/ca863f7d-e0a7-40ba-aed3-4109b6dbe62d)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
