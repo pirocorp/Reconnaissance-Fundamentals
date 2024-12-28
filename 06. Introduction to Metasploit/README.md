@@ -236,13 +236,21 @@ We can also make our search coarser and reduce it to one category of services. F
 
 We first need to find a target to select our first module. Suppose a target runs an SMB version vulnerable to EternalRomance (MS17_010) exploits. Upon scanning the target, we discovered that SMB server port 445 was open.
 
+```bash
+nmap -sV 10.129.238.98
+```
+
 ![image](https://github.com/user-attachments/assets/b2f58450-9945-4216-a71e-f382e8b506e9)
 
 We would boot up msfconsole and search for this exact exploit name.
 
+```msfconsole
+search ms17_010
+```
+
 ![image](https://github.com/user-attachments/assets/4cc638c4-2e1e-4205-9a72-d06c87c9375b)
 
-Next, we would like to select the appropriate module for this scenario. From the Nmap scan, we have detected the SMB service running on version **Windows Server 2008 R2 - 2012**. With some additional OS scanning, we have determined that this is a Windows running a vulnerable instance of SMB. We then select the module with the index `no. 4` to test whether the target is vulnerable.
+Next, we would like to select the appropriate module for this scenario. The Nmap scan detected the SMB service running on version **Windows Server 2008 R2 - 2012**. After some additional OS scanning, we determined that this is a Windows running a vulnerable instance of SMB. We then select the module with the index `no. 4` to test whether the target is vulnerable.
 
 ### Using Modules
 
@@ -253,7 +261,11 @@ Within the interactive modules, there are several options that we can specify. T
 
 #### MSF - Module Information
 
-Here, we see how helpful the `No.` tags can be. Now, we do not have to type the whole path. In our search, we only have the number assigned to the Metasploit module. If we want to know more about the module, we can use the command `info` after selecting it. This will give us a series of important information.
+Here, we see how helpful the `No.` tags can be. Now, we do not have to type the whole path. In our search, we only have the number assigned to the Metasploit module. After selecting the module, we can use the command `info` to learn more. This will give us a series of important information.
+
+```msfconsole
+use 4
+```
 
 ![image](https://github.com/user-attachments/assets/6c420d1d-4eec-4e31-9f62-9bdcfe8c4926)
 
@@ -262,13 +274,13 @@ Here, we see how helpful the `No.` tags can be. Now, we do not have to type the 
 
 After we are satisfied that the selected module is the right one for our purpose, we need to set some specifications to customize it to use it successfully against our target host, such as setting the target (**RHOST** or **RHOSTS**).
 
-```bash
+```msfconsole
 set RHOSTS 10.129.238.98
 ```
 
 ![image](https://github.com/user-attachments/assets/8de1a670-76d0-4ff8-a794-38b62644005c)
 
-We can launch the attack once everything is set and ready to go. Note that the payload was not included here, as the default one is sufficient for this demonstration.
+Once everything is set and ready to go, we can launch the attack. Just so you know, the payload was not included here, as the default one is sufficient for this demonstration.
 
 
 #### MSF - Exploit Execution
