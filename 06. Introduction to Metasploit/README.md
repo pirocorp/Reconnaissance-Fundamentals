@@ -162,7 +162,7 @@ We will review each category during the module but recommend you look over the i
 
 ## Modules
 
-As mentioned, Metasploit **modules** are prepared scripts with specific purposes and corresponding functions already developed and tested in the wild. The **exploit** category consists of so-called proof-of-concept (**POCs**) that can exploit existing vulnerabilities largely automatedly. Many people often think that the exploit's failure disproves the existence of the suspected vulnerability. However, this is only proof that the Metasploit exploit does not work and that the vulnerability does not exist. This is because many exploits require customization according to the target hosts to make the exploit work. Therefore, automated tools such as the Metasploit framework should only be considered a support tool and not a substitute for our manual skills.
+As mentioned, Metasploit **modules** are prepared scripts with specific purposes and corresponding functions already developed and tested in the wild. The **exploit** category consists of so-called proof-of-concept (**POCs**) that can exploit existing vulnerabilities largely automatedly. Many people often think that the exploit's failure disproves the existence of the suspected vulnerability. However, this is only proof that the Metasploit exploit does not work and that the vulnerability does not exist. This is because many exploits require customization according to the target hosts to make the exploit work. Therefore, automated tools such as the Metasploit framework should only be considered a support tool, not a substitute for our manual skills.
 
 Once in the `msfconsole`, we can select from an extensive list containing all the available Metasploit modules. Each of them is structured into folders, which will look like this:
 
@@ -172,4 +172,25 @@ Once in the `msfconsole`, we can select from an extensive list containing all th
 <No.> <type>/<os>/<service>/<name>
 794   exploit/windows/ftp/scriptftp_list
 ```
+
+#### Index No.
+
+The `No.` tag will be displayed after our searches to select the exploit we want. Later, we will see how helpful it can be in selecting specific Metasploit modules.
+
+#### Type
+
+The `Type` tag is the first level of segregation between the Metasploit modules. Looking at this field, we can tell what the piece of code for this module will accomplish. For example, some of these types are not as directly usable as an exploit module. However, they are set to introduce the structure alongside the interactable ones for better modularization. To explain better, here are the possible types that could appear in this field:
+
+| Type      | Description                                                                                     |
+|-----------|-------------------------------------------------------------------------------------------------|
+| Auxiliary | Scanning, fuzzing, sniffing, and admin capabilities. Offer extra assistance and functionality.  |
+| Encoders  | Ensure that payloads are intact to their destination.                                           |
+| Exploits  | Defined as modules that exploit a vulnerability that will allow for the payload delivery.       |
+| NOPs      | (No Operation code) Keep the payload sizes consistent across exploit attempts.                  |
+| Payloads  | Code runs remotely and calls the attacker's machine back to establish a connection (or shell).  |
+| Plugins   | Additional scripts can be integrated within an assessment with msfconsole and coexist.          |
+| Post      | Wide array of modules to gather information, pivot deeper, etc.                                 |
+
+
+
 
